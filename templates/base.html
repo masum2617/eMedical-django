@@ -20,6 +20,19 @@
 		<link rel="stylesheet" href="{% static 'plugins/fontawesome/css/fontawesome.min.css'%}">
 		<link rel="stylesheet" href="{% static 'plugins/fontawesome/css/all.min.css' %}">
 		
+		
+		<!-- Select2 CSS -->
+		<link rel="stylesheet" href="{% static 'plugins/select2/css/select2.min.css' %}">
+		
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="{% static 'plugins/bootstrap-tagsinput/css/bootstrap-tagsinput.css' %}">
+		
+		<link rel="stylesheet" href="{% static 'plugins/dropzone/dropzone.min.css' %}">
+		<link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet"/>
+
+		<!-- Chosen library CSS -->
+		<link rel="stylesheet" href="{% static 'css/styleChosen.css' %}">
+		
 		<!-- Main CSS -->
 		<link rel="stylesheet" href="{% static 'css/style.css' %}">
 		
@@ -28,6 +41,8 @@
 			<script src="assets/js/html5shiv.min.js"></script>
 			<script src="assets/js/respond.min.js"></script>
 		<![endif]-->
+
+
 	
 </head>
 <body>
@@ -46,6 +61,8 @@
 
 		<!-- jQuery -->
 		<script src="{% static 'js/jquery.min.js' %}"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
 		
 		<!-- Bootstrap Core JS -->
 		<script src="{% static 'js/popper.min.js' %}"></script>
@@ -54,8 +71,31 @@
 		<!-- Slick JS -->
 		<script src="{% static 'js/slick.js' %}"></script>
 		
+		<!-- Sticky Sidebar JS -->
+		<script src="{% static 'plugins/theia-sticky-sidebar/ResizeSensor.js' %}"></script>
+		<script src="{% static 'plugins/theia-sticky-sidebar/theia-sticky-sidebar.js' %}"></script>
+		
+		<!-- Select2 JS -->
+		<script src="{% static 'plugins/select2/js/select2.min.js' %}"></script>
+		
+		<!-- Dropzone JS -->
+		<script src="{% static 'plugins/dropzone/dropzone.min.js' %}"></script>
+		
+		<!-- Bootstrap Tagsinput JS -->
+		<script src="{% static 'plugins/bootstrap-tagsinput/js/bootstrap-tagsinput.js' %}"></script>
+		
+		<!-- Profile Settings JS -->
+		<script src="{% static 'js/profile-settings.js' %}"></script>
+
+		<!-- Chosen JS -->
+
+		<script src="{% static 'js/init.js' %}" type="text/javascript" charset="utf-8"></script>
+
 		<!-- Custom JS -->
 		<script src="{% static 'js/script.js' %}"></script>
+
+
+
 
 </body>
 </html>

@@ -358,3 +358,9 @@ Version      : 1.0
 	$(window).scroll(animateElements);
 	
 })(jQuery);
+
+// dropdown
+
+$(".chosen-select").chosen({
+	no_results_text: "Oops, nothing found!"
+  })

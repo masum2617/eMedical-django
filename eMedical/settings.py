@@ -38,11 +38,13 @@ INSTALLED_APPS = [
     'doctors.apps.DoctorsConfig',
     'patients.apps.PatientsConfig',
     'users.apps.UsersConfig',
+    'hospital.apps.HospitalConfig',
     'documents.apps.DocumentsConfig',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'multiselectfield',
 ]
 
 MIDDLEWARE = [

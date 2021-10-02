@@ -1,0 +1,13 @@
+.select,
+.chosen-select,
+.chosen-select-no-single,
+.chosen-select-no-results,
+.chosen-select-deselect,
+.chosen-select-rtl,
+.chosen-select-width {
+  width: 450px;
+}
+
+select {
+  height: 500px;
+}

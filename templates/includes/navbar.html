@@ -86,20 +86,32 @@
                     <a href="{% url 'login' %}">Login / Signup</a>
                 </li>
             </ul>		 
-        </div>		 
+        </div>		
+          
         <ul class="nav header-navbar-rht">
             <li class="nav-item contact-item">
                 <div class="header-contact-img">
                     <i class="far fa-hospital"></i>							
                 </div>
                 <div class="header-contact-detail">
-                    <p class="contact-header">Contact</p>
-                    <p class="contact-info-header"> +1 315 369 5943</p>
+                    {% if user.is_authenticated %}
+                        <p class="contact-header">Welcome</p>
+                        <p class="contact-info-header">{{ user.first_name }}</p>
+                    {% else %}
+                        <p class="contact-header">Contact</p>
+                        <p class="contact-info-header"> +1 315 369 5943</p>
+                    {% endif %}
                 </div>
             </li>
+            {% if user.is_authenticated %}
             <li class="nav-item">
-                <a class="nav-link header-login" href="{% url 'login' %}">login / Signup </a>
+                <a class="nav-link header-login" href="{% url 'logout' %}">Logout</a>
             </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link header-login" href="{% url 'login' %}">login / Signup </a>
+                </li>
+            {% endif %}
         </ul>
     </nav>
 </header>

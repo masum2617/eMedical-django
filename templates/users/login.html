@@ -20,13 +20,14 @@
                             <h3>Login <span>Doccure</span></h3>
                 
                         </div>
-                        <form action="https://dreamguys.co.in/demo/doccure/index.html">
+                        <form action="{% url 'login' %}" method="POST">
+                            {% csrf_token %}
                             <div class="form-group form-focus">
-                                <input type="email" class="form-control floating">
+                                <input type="email" class="form-control floating" name="email">
                                 <label class="focus-label">Email</label>
                             </div>
                             <div class="form-group form-focus">
-                                <input type="password" class="form-control floating">
+                                <input type="password" class="form-control floating" name="password">
                                 <label class="focus-label">Password</label>
                             </div>
                             <div class="text-right">
