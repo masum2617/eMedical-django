@@ -39,7 +39,7 @@ def login(request):
         user = auth.authenticate(email=email, password = password)
         if user is not None:
             auth.login(request, user)
-            if user.user_type == 'd':
+            if user.user_type == 'doctor':
                 return redirect('doctor_dashboard')
             else:
                 return redirect('patient_dashboard')

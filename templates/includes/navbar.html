@@ -12,7 +12,7 @@
                 </span>
             </a>
             <a href="{% url 'home' %}" class="navbar-brand logo">
-                <img src="assets/img/logo.png" class="img-fluid" alt="Logo">
+                <img src="{% static 'img/care and cure logo.png' %}" class="img-fluid" alt="Logo">
             </a>
         </div>
         <div class="main-menu-wrapper">
@@ -29,8 +29,8 @@
                     <a href="{% url 'home' %}">Home</a>
                 </li>
                 <li class="has-submenu">
-                    <a href="#">Doctors <i class="fas fa-chevron-down"></i></a>
-                    <ul class="submenu">
+                    <a href="{% url 'doctors' %}">Doctors</i></a>
+                    <!-- <ul class="submenu">
                         <li><a href="doctor-dashboard.html">Doctor Dashboard</a></li>
                         <li><a href="appointments.html">Appointments</a></li>
                         <li><a href="schedule-timings.html">Schedule Timing</a></li>
@@ -41,11 +41,11 @@
                         <li><a href="doctor-profile-settings.html">Profile Settings</a></li>
                         <li><a href="reviews.html">Reviews</a></li>
                         <li><a href="doctor-register.html">Doctor Register</a></li>
-                    </ul>
+                    </ul> -->
                 </li>	
                 <li class="has-submenu">
-                    <a href="#">Patients <i class="fas fa-chevron-down"></i></a>
-                    <ul class="submenu">
+                    <a href="#">Patients</a>
+                    <!-- <ul class="submenu">
                         <li><a href="search.html">Search Doctor</a></li>
                         <li><a href="doctor-profile.html">Doctor Profile</a></li>
                         <li><a href="booking.html">Booking</a></li>
@@ -56,11 +56,11 @@
                         <li><a href="chat.html">Chat</a></li>
                         <li><a href="profile-settings.html">Profile Settings</a></li>
                         <li><a href="change-password.html">Change Password</a></li>
-                    </ul>
+                    </ul> -->
                 </li>	
                 <li class="has-submenu">
-                    <a href="#">Pages <i class="fas fa-chevron-down"></i></a>
-                    <ul class="submenu">
+                    <a href="#">Services </a>
+                    <!-- <ul class="submenu">
                         <li><a href="voice-call.html">Voice Call</a></li>
                         <li><a href="video-call.html">Video Call</a></li>
                         <li><a href="search.html">Search Doctors</a></li>
@@ -77,29 +77,33 @@
                         <li><a href="{% url 'login' %}">Login</a></li>
                         <li><a href="{% url 'register' %}">Register</a></li>
                         <li><a href="forgot-password.html">Forgot Password</a></li>
-                    </ul>
+                    </ul> -->
                 </li>
-                <li>
+                <li class="has-submenu">
+                    <a href="#">About Us </a>
+                </li>
+                <li class="has-submenu">
+                    <a href="#">Contact</a>
+                </li>
+                <!-- <li>
                     <a href="admin/index.html" target="_blank">Admin</a>
-                </li>
-                <li class="login-link">
-                    <a href="{% url 'login' %}">Login / Signup</a>
-                </li>
+                </li> -->
+
             </ul>		 
         </div>		
           
         <ul class="nav header-navbar-rht">
             <li class="nav-item contact-item">
                 <div class="header-contact-img">
-                    <i class="far fa-hospital"></i>							
+                    <i class="far fa-hospital"></i>
+                    <!-- <p class="contact-info-header"><a href="">Register</a></p> -->
                 </div>
                 <div class="header-contact-detail">
                     {% if user.is_authenticated %}
-                        <p class="contact-header">Welcome</p>
-                        <p class="contact-info-header">{{ user.first_name }}</p>
-                    {% else %}
-                        <p class="contact-header">Contact</p>
-                        <p class="contact-info-header"> +1 315 369 5943</p>
+                        <p class="contact-header">Welcome | {{ user.first_name }}</p>
+                        <p class="contact-info-header"><a href="">Dashboard</a></p>
+                    {% else  %}
+
                     {% endif %}
                 </div>
             </li>
@@ -108,8 +112,11 @@
                 <a class="nav-link header-login" href="{% url 'logout' %}">Logout</a>
             </li>
             {% else %}
+            <li class="nav-item">
+                <a class="nav-link header-login" href="{% url 'login' %}">Login</a>
+            </li>
                 <li class="nav-item">
-                    <a class="nav-link header-login" href="{% url 'login' %}">login / Signup </a>
+                    <a class="nav-link header-login" href="{% url 'register' %}">Register </a>
                 </li>
             {% endif %}
         </ul>

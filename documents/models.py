@@ -20,6 +20,9 @@ class MedicalRecords(models.Model):
     
     patient = models.ForeignKey(Patient, on_delete=models.DO_NOTHING, null=True)
 
+    class Meta:
+        verbose_name_plural = "MedicalRecords"
+
     def __str__(self):
         return self.patient.user.first_name
 
@@ -37,6 +40,9 @@ class MedicalHistory(models.Model):
     other_information = models.TextField(blank=True)
 
     patient = models.ForeignKey(Patient, on_delete=models.DO_NOTHING, null=True)
+
+    class Meta:
+        verbose_name_plural = "MedicalHistories"
 
     def __str__(self):
         return self.patient.user.first_name

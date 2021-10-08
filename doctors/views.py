@@ -1,5 +1,5 @@
 from django.shortcuts import redirect, render
-from .models import DoctorSpecialization
+from .models import Doctor, DoctorSpecialization
 from .choices import category
 # Create your views here.
 def doctor_profile(request):
@@ -21,6 +21,16 @@ def doctor_specialization(request):
             specialized_category = DoctorSpecialization(specialized_category=category[i])
             specialized_category.save()
         return redirect('doctor_profile')
+
+def doctors(request):
+    doctors = Doctor.objects.all()
+
+    context = {
+        'doctors':doctors,
+    }
+    return render(request, 'doctors/doctors.html', context)
+
+
 
 
  
