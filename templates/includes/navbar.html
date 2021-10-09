@@ -101,7 +101,12 @@
                 <div class="header-contact-detail">
                     {% if user.is_authenticated %}
                         <p class="contact-header">Welcome | {{ user.first_name }}</p>
-                        <p class="contact-info-header"><a href="">Dashboard</a></p>
+                        {% if user.user_type == 'doctor' %}
+                            <p class="contact-info-header"><a href="{% url 'doctor_dashboard' %}">Dashboard</a></p>
+                        {% else %}
+                        <p class="contact-info-header"><a href="{% url 'patient_dashboard' %}">Dashboard</a></p>
+                        {% endif %}
+                        
                     {% else  %}
 
                     {% endif %}

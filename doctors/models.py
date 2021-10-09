@@ -7,7 +7,7 @@ from multiselectfield import MultiSelectField
 # Create your models here.
 class Doctor(models.Model):
     city  = models.CharField(max_length=50)
-    profile_image = models.ImageField(upload_to='photos/doctors', blank=True)
+    profile_image = models.ImageField(upload_to='doctors/%Y/%m/%d/', blank=True)
     gender = models.CharField(max_length=10, blank=True)
     description = models.TextField(blank=True)
     date_joined = models.DateTimeField(default=datetime.now, blank=True)
@@ -22,6 +22,7 @@ class Doctor(models.Model):
 class DoctorSpecialization(models.Model):
     doctor = models.ForeignKey(Doctor, on_delete=models.DO_NOTHING, null=True)
     specialized_category  = models.CharField(max_length=50, null=True)
+    services = models.TextField(max_length=200, null=True)
     
     def __str__(self):
         return self.specialized_category
@@ -35,5 +36,15 @@ class Qualification(models.Model):
 
     def __str__(self):
         return self.institution_name
+
+class Experience(models.Model):
+    hospital_name = models.CharField(max_length=50, null=True)
+    worked_from = models.DateField(null=True)
+    worked_to = models.DateField(null=True)
+    designation = models.CharField(max_length=50, null=True)
+    user = models.ForeignKey(Doctor, on_delete=models.DO_NOTHING)
+
+    def __str__(self):
+        return self.hospital_name
 
 

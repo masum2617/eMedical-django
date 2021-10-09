@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render
 from .forms import RegistrationForm
 from .models import Account
+from doctors.models import Doctor
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 # Create your views here.
@@ -48,6 +49,8 @@ def login(request):
         else:
             messages.success(request, 'Invalid Credentials')
             return redirect('login')
+
+    
     return render(request, 'users/login.html')
 
 @login_required(login_url='login')
@@ -58,7 +61,15 @@ def logout(request):
 
 
 def doctor_dashboard(request):
-    return render(request,'users/doctor_dashboard.html')
+    current_user = request.user
+
+    current_doctor = Doctor.objects.get(user=current_user)
+
+    context = {
+        'doctor': current_doctor,
+    }
+
+    return render(request,'users/doctor_dashboard.html',context)
 
 def patient_dashboard(request):
     return render(request,'users/patient_dashboard.html')

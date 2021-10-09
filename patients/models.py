@@ -4,7 +4,7 @@ from datetime import datetime
 
 # Create your models here.
 class Patient(models.Model):
-    profile_image = models.ImageField(upload_to='photos/patients', blank=True)
+    profile_image = models.ImageField(upload_to='patients/%Y/%m/%d/', blank=True)
     city  = models.CharField(max_length=100, null=True)
     gender  = models.CharField(max_length=50, null=True)
     blood_group  = models.CharField(max_length=50, null=True)
