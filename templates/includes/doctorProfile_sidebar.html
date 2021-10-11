@@ -3,14 +3,25 @@
     <div class="widget-profile pro-widget-content">
         <div class="profile-info-widget">
             <a href="#" class="booking-doc-img">
-                <img src="{{ doctor.profile_image.url }}" alt="User Image">
+                {% if doctor.profile_image %}
+                    <img src="{{ doctor.profile_image.url }}" alt="User Image">
+                {% else %}
+                    <img src="#" alt="User Image">
+                {% endif %}
             </a>
             <div class="profile-det-info">
                 <h3>Dr. {{doctor.user.first_name}} {{ doctor.user.last_name }}</h3>
-                
+                {% if specialization %}
+                    {% for i in specialization %}
+                    <div class="patient-details">
+                        <small class="mb-0" style="display: inline;">{{ i.specialized_category }}</small>
+                    </div>
+                    {% endfor %}
+                {% else %}
                 <div class="patient-details">
-                    <h5 class="mb-0"></h5>
+                    <h5 class="mb-0">empty</h5>
                 </div>
+                {% endif %}
             </div>
         </div>
     </div>

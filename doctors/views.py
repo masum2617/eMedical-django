@@ -6,10 +6,11 @@ from .forms import DoctorForm
 # Create your views here.
 def doctor_profile(request):
     current_user = request.user
-    specialization = DoctorSpecialization.objects.all()
+    # specialization = DoctorSpecialization.objects.filter(doctor=)
 
     current_doctor = get_object_or_404(Doctor, user=current_user)
     # print(specialization)
+    specialization = DoctorSpecialization.objects.filter(doctor=current_doctor)
 
     if request.method == 'POST' and current_user.is_authenticated:
         form = DoctorForm(request.POST, request.FILES)
@@ -62,18 +63,20 @@ def doctors(request):
 
 def qualification(request):
     current_user = request.user
-    try:
-        current_doctor = Doctor.objects.get(doctor=current_user)
-    except Doctor.DoesNotExist:
-        pass
-    if request.method == 'POST':
-        degree = request.POST['degree']
-        institute_name = request.POST['institute']
-        years = request.POST['years']
 
-        education = Qualification(institution_name=institute_name, qualification_degree=degree, years_of_completion=years, doctor=current_doctor)
+    current_doctor = Doctor.objects.get(user=current_user)
+    doctor_exists = Qualification.objects.filter(doctor=current_doctor).exists()
+    if doctor_exists == True or doctor_exists == False:
+        doctor = Qualification.objects.filter(doctor=current_doctor)
 
-        education.save()
+        if request.method == 'POST':
+            doctor.qualification_degree = request.POST['degree']
+            doctor.institute_name = request.POST['institute']
+            doctor.years_of_completion = request.POST['years']
+
+            doctor_qualification = Qualification(institution_name=doctor.institute_name, qualification_degree=doctor.qualification_degree, years_of_completion=doctor.years_of_completion, doctor=current_doctor)
+
+            doctor_qualification.save()
 
         return redirect('doctor_profile')
     

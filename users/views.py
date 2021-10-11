@@ -1,7 +1,8 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from .forms import RegistrationForm
 from .models import Account
-from doctors.models import Doctor
+from doctors.models import Doctor,DoctorSpecialization
+from patients.models import Patient
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 # Create your views here.
@@ -24,6 +25,7 @@ def register(request):
 
             messages.success(request, 'You are now registered and can log in')
             return redirect('login')
+                    
     else:
         form = RegistrationForm(request.POST)
     context = {
@@ -38,12 +40,31 @@ def login(request):
         password = request.POST['password']
 
         user = auth.authenticate(email=email, password = password)
+        
         if user is not None:
             auth.login(request, user)
-            if user.user_type == 'doctor':
-                return redirect('doctor_dashboard')
+            current_user = Account.objects.get(id=request.user.id)
+            
+
+            if user.user_type == 'doctor': 
+                # print("current user: ", current_user)
+                doctor_exists = Doctor.objects.filter(user=current_user)
+                if doctor_exists:
+                    return redirect('doctor_dashboard')
+                else:
+                    doctor = Doctor(user=current_user)
+                    doctor.save()
+                    return redirect('doctor_dashboard')   
+
             else:
-                return redirect('patient_dashboard')
+                patient_exists = Patient.objects.filter(user=current_user)
+                if patient_exists:
+                    return redirect('patient_dashboard')
+                else:
+                    patient = Patient(user=current_user)
+                    patient.save()
+                    return redirect('patient_dashboard')
+                
             # messages.success(request, 'You are now logged in.')
             #return redirect('home')
         else:
@@ -62,14 +83,29 @@ def logout(request):
 
 def doctor_dashboard(request):
     current_user = request.user
-
-    current_doctor = Doctor.objects.get(user=current_user)
-
+    current_doctor = get_object_or_404(Doctor, user=current_user)
+    # print(specialization)
+    specialization = DoctorSpecialization.objects.filter(doctor=current_doctor)
+    
+    # try:
+    #     current_doctor = Doctor.objects.get(user=current_user)
+    # except Doctor.DoesNotExist:
+    #     current_doctor = Doctor(user=current_user)
+    #     current_doctor.save()
+    # try:
+    #     current_doctor = Doctor.objects.get(user=current_user)
+    #     specialization = get_object_or_404(DoctorSpecialization, doctor=current_doctor)
+    # except:
+    #     specialized_doctor = DoctorSpecialization(doctor=current_doctor,specialized_category="Update Profile")
+    #     specialized_doctor.save()
+    #     specialization = get_object_or_404(DoctorSpecialization, doctor=current_doctor)
+            
     context = {
         'doctor': current_doctor,
+        'specialization':specialization,
     }
 
-    return render(request,'users/doctor_dashboard.html',context)
+    return render(request,'users/doctor_dashboard.html', context)
 
 def patient_dashboard(request):
     return render(request,'users/patient_dashboard.html')
