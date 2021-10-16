@@ -1,4 +1,6 @@
 from django.shortcuts import get_object_or_404, redirect, render
+
+from documents.models import Appointment,MedicalHistory
 from .forms import RegistrationForm
 from .models import Account
 from doctors.models import Doctor,DoctorSpecialization
@@ -86,6 +88,11 @@ def doctor_dashboard(request):
     current_doctor = get_object_or_404(Doctor, user=current_user)
     # print(specialization)
     specialization = DoctorSpecialization.objects.filter(doctor=current_doctor)
+
+    appointment = Appointment.objects.filter(appointment__doctor=current_doctor)
+    print("Appoi: ",appointment)
+
+    patient_appointment = MedicalHistory.objects.filter(doctor=current_doctor)
     
     # try:
     #     current_doctor = Doctor.objects.get(user=current_user)
@@ -103,9 +110,25 @@ def doctor_dashboard(request):
     context = {
         'doctor': current_doctor,
         'specialization':specialization,
+        'appointment': appointment,
+        'patient_appointment':patient_appointment,
     }
 
     return render(request,'users/doctor_dashboard.html', context)
 
 def patient_dashboard(request):
-    return render(request,'users/patient_dashboard.html')
+    current_user = request.user
+    current_patient = get_object_or_404(Patient, user=current_user)
+
+    current_appointment = MedicalHistory.objects.filter(patient=current_patient) 
+
+    # for medical records check if submitted
+  
+
+
+    context = {
+        'patient': current_patient,
+        'current_appointment':current_appointment,
+
+    }
+    return render(request,'users/patient_dashboard.html', context)

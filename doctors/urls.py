@@ -7,4 +7,8 @@ urlpatterns = [
     path('doctors/',views.doctors, name='doctors'),
     path('qualification/', views.qualification, name='qualification'),
     path('experience/', views.experience, name='experience'),
+    path('booking/<int:doctor_id>/', views.booking, name='booking'),
+    # path('history/<int:patient_id>/', views.booking, name='booking'),
+    path('medical_history/', views.medical_history, name='medical_history'),
+    
 ]

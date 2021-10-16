@@ -12,6 +12,9 @@ illness = {
     'Heart Attack': 'Heart Attack',
     'High Blood Pressure': 'High Blood Pressure',
 
+}
 
-    
+ever_had = {
+    'diabetes': 'diabetes',
+    'cancer': 'cancer',
 }

@@ -13,14 +13,20 @@
 <div class="profile-sidebar">
 <div class="widget-profile pro-widget-content">
     <div class="profile-info-widget">
+        {% if patient.profile_image %}
+            <a href="#" class="booking-doc-img">
+                <img src="{{ patient.profile_image.url }}" alt="User Image">
+            </a>
+        {% else %}
         <a href="#" class="booking-doc-img">
-        <img src="assets/img/patients/patient.jpg" alt="User Image">
-    </a>
+            <img src="#" alt="User Image">
+        </a>
+        {% endif %}
     <div class="profile-det-info">
-        <h3>Richard Wilson</h3>
+        <h3>{{ patient.user.first_name }} {{patient.user.last_name}}</h3>
         <div class="patient-details">
-            <h5><i class="fas fa-birthday-cake"></i> 24 Jul 1983, 38 years</h5>
-            <h5 class="mb-0"><i class="fas fa-map-marker-alt"></i> Newyork, USA</h5>
+            <h5> </h5>
+            <h5 class="mb-0"></h5>
         </div>
     </div>
 </div>
@@ -44,7 +50,7 @@
             <a href="chat.html">
                 <i class="fas fa-comments"></i>
                 <span>Message</span>
-                <small class="unread-msg">23</small>
+                <small class="unread-msg"></small>
             </a>
         </li>
         <li>
@@ -60,7 +66,7 @@
             </a>
         </li>
         <li>
-            <a href="index-2.html">
+            <a href="{% url 'logout' %}">
                 <i class="fas fa-sign-out-alt"></i>
                 <span>Logout</span>
             </a>
@@ -108,30 +114,32 @@
                 <thead>
                     <tr>
                     <th>Doctor</th>
-                    <th>Appt Date</th>
+                    <!-- <th>Appt Date</th> -->
                     <th>Booking Date</th>
-                    <th>Amount</th>
+                    <!-- <th>Amount</th> -->
                     <th>Follow Up</th>
                     <th>Status</th>
-                    <th></th>
+                    <!-- <th></th> -->
                 </tr>
             </thead>
             <tbody>
                 <tr>
+                    {% for appointment in current_appointment %}
+                      
                     <td>
                         <h2 class="table-avatar">
-                            <a href="doctor-profile.html" class="avatar avatar-sm mr-2">
-                                <img class="avatar-img rounded-circle" src="assets/img/doctors/doctor-thumb-01.jpg" alt="User Image">
+                            <a href="#" class="avatar avatar-sm mr-2">
+                                <img class="avatar-img rounded-circle" src="{{ appointment.doctor.profile_image.url }}" alt="User Image">
                             </a>
-                            <a href="doctor-profile.html">Dr. Ruby Perrin <span>Dental</span></a>
+                            <a href="doctor-profile.html">Dr. {{ appointment.doctor.user.first_name }} {{ appointment.doctor.user.last_name}}<span></span></a>
                         </h2>
                     </td>
-                    <td>14 Nov 2019 <span class="d-block text-info">10.00 AM</span></td>
-                    <td>12 Nov 2019</td>
-                    <td>$160</td>
-                    <td>16 Nov 2019</td>
+                    <td><span class="d-block text-info"></span>{{appointment.date_created}}</td>
+                    <td></td>
+                    <!-- <td>$160</td> -->
+                    <!-- <td>16 Nov 2019</td> -->
                     <td><span class="badge badge-pill bg-success-light">Confirm</span></td>
-                    <td class="text-right">
+                    <!-- <td class="text-right">
                         <div class="table-action">
                             <a href="javascript:void(0);" class="btn btn-sm bg-primary-light">
                                 <i class="fas fa-print"></i> Print
@@ -140,9 +148,10 @@
                                 <i class="far fa-eye"></i> View
                             </a>
                         </div>
-                    </td>
+                    </td> -->
                 </tr>
-                <tr>
+                {% endfor %}
+                <!-- <tr>
                     <td>
                         <h2 class="table-avatar">
                             <a href="doctor-profile.html" class="avatar avatar-sm mr-2">
@@ -366,7 +375,7 @@
                             </a>
                         </div>
                     </td>
-                </tr>
+                </tr> -->
             </tbody>
         </table>
     </div>
@@ -391,14 +400,14 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>14 Nov 2019</td>
-                    <td>Prescription 1</td>
+                    <td></td>
+                    <td></td>
                     <td>
                         <h2 class="table-avatar">
                             <a href="doctor-profile.html" class="avatar avatar-sm mr-2">
-                                <img class="avatar-img rounded-circle" src="assets/img/doctors/doctor-thumb-01.jpg" alt="User Image">
+                                <!-- <img class="avatar-img rounded-circle" src="assets/img/doctors/doctor-thumb-01.jpg" alt="User Image"> -->
                             </a>
-                            <a href="doctor-profile.html">Dr. Ruby Perrin <span>Dental</span></a>
+                            <a href="doctor-profile.html"> <span></span></a>
                         </h2>
                     </td>
                     <td class="text-right">
@@ -412,7 +421,7 @@
                         </div>
                     </td>
                 </tr>
-                <tr>
+                <!-- <tr>
                     <td>13 Nov 2019</td>
                     <td>Prescription 2</td>
                     <td>
@@ -609,7 +618,7 @@
                             </a>
                         </div>
                     </td>
-                </tr>
+                </tr> -->
             </tbody>	
         </table>
     </div>
@@ -626,29 +635,36 @@
         <table class="table table-hover table-center mb-0">
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <!-- <th>ID</th> -->
                     <th>Date </th>
                     <th>Description</th>
-                    <th>Attachment</th>
-                    <th>Created</th>
-                    <th></th>
+                    <th>Submitted To</th>
+                    <th>Necessary Files</th>
                 </tr>     
             </thead>
             <tbody>
+                {% for current_appointment in current_appointment %}
+                  
+                
                 <tr>
-                    <td><a href="javascript:void(0);">#MR-0010</a></td>
-                    <td>14 Nov 2019</td>
-                    <td>Dental Filling</td>
-                    <td><a href="#">dental-test.pdf</a></td>
+                    <!-- <td><a href="javascript:void(0);"></a></td> -->
+                    <td>{{current_appointment.date_created}}</td>
+                    <td>{{current_appointment.reason}}</td>
+                    <!-- <td><a href="#">dental-test.pdf</a></td> -->
                     <td>
                         <h2 class="table-avatar">
                             <a href="doctor-profile.html" class="avatar avatar-sm mr-2">
-                                <img class="avatar-img rounded-circle" src="assets/img/doctors/doctor-thumb-01.jpg" alt="User Image">
+                                <img class="avatar-img rounded-circle" src="{{current_appointment.doctor.profile_image.url}}" alt="User Image">
                             </a>
-                            <a href="doctor-profile.html">Dr. Ruby Perrin <span>Dental</span></a>
+                            <a href="doctor-profile.html"> <span>Dr. {{current_appointment.doctor.user.first_name}} {{current_appointment.doctor.user.last_name}}</span></a>
                         </h2>
                     </td>
-                    <td class="text-right">
+                    {% if current_appointment.is_processing %}
+                    <td><span class="badge badge-pill bg-success-light">Submitted</span></td>
+                    {% else %}
+                    <td><span class="badge badge-pill bg-danger-light">Not Sumitted</span></td>
+                    {% endif %}
+                    <!-- <td class="text-right">
                         <div class="table-action">
                             <a href="javascript:void(0);" class="btn btn-sm bg-info-light">
                                 <i class="far fa-eye"></i> View
@@ -657,9 +673,10 @@
                                 <i class="fas fa-print"></i> Print
                             </a>
                         </div>
-                    </td>
+                    </td> -->
                 </tr>
-                <tr>
+                {% endfor %}
+                <!-- <tr>
                     <td><a href="javascript:void(0);">#MR-0009</a></td>
                     <td>13 Nov 2019</td>
                     <td>Teeth Cleaning</td>
@@ -874,7 +891,7 @@
                             </a>
                         </div>
                     </td>
-                </tr>
+                </tr> -->
             </tbody>  	
         </table>
     </div>
@@ -901,18 +918,18 @@
             <tbody>
                 <tr>
                     <td>
-                        <a href="invoice-view.html">#INV-0010</a>
+                        <a href="invoice-view.html"></a>
                     </td>
                     <td>
                         <h2 class="table-avatar">
                             <a href="doctor-profile.html" class="avatar avatar-sm mr-2">
-                                <img class="avatar-img rounded-circle" src="assets/img/doctors/doctor-thumb-01.jpg" alt="User Image">
+                                <!-- <img class="avatar-img rounded-circle" src="assets/img/doctors/doctor-thumb-01.jpg" alt="User Image"> -->
                             </a>
-                            <a href="doctor-profile.html">Ruby Perrin <span>Dental</span></a>
+                            <a href="doctor-profile.html"> <span></span></a>
                         </h2>
                     </td>
-                    <td>$450</td>
-                    <td>14 Nov 2019</td>
+                    <td></td>
+                    <td></td>
                     <td class="text-right">
                         <div class="table-action">
                             <a href="invoice-view.html" class="btn btn-sm bg-info-light">
@@ -924,7 +941,7 @@
                         </div>
                     </td>
                 </tr>
-                <tr>
+                <!-- <tr>
                     <td>
                         <a href="invoice-view.html">#INV-0009</a>
                     </td>
@@ -1148,7 +1165,7 @@
                             </a>
                         </div>
                     </td>
-                </tr>
+                </tr> -->
             </tbody>
         </table>
     </div>

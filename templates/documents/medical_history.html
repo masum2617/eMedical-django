@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="content">
+	<div class="container-fluid">
+
+		<div class="row">
+
+			<div class="col-md-7 col-lg-8 col-xl-9">
+			
+				<!-- Basic Information -->
+				<div class="card">
+					<div class="card-body">
+						<h4 class="card-title">Medical History</h4>
+
+						<div class="row form-row">
+                            
+							<div class="col-md-12">
+								<form action="{% url 'history' %}" method="POST">
+									{% csrf_token %}
+								<div class="form-group">
+									<label>Reason For Appointment <span class="text-danger">*</span></label>
+
+                                    {{form.reason}}
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Weight</label>
+                                    {{form.weight}}
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Age<span class="text-danger">*</span></label>
+									{{form.age}}
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Blood Group</label>
+									{{form.blood_group}}
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="form-group">
+									<label>Previous Operation <small>(If Any)</small></label>
+									{{form.previous_operation}}
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="form-group">
+									<label>Current Medication <small>(If Any)</small></label>
+									{{form.current_medication}}
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="form-group mb-0">
+									<label>Other Illness <small>(If Any)</small></label>
+									{{form.other_illness}}
+								</div>
+							</div>
+
+                            <div class="col-md-12">
+								<div class="form-group mb-0">
+									<label>Other Information <small>(If Any)</small></label>
+									{{form.other_information}}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /Basic Information -->
+				
+                <button type="submit" class="btn btn-primary submit-btn">Save Changes</button>
+				<!-- <div class="submit-section submit-btn-bottom">
+					<button type="submit" class="btn btn-primary submit-btn">Save Changes</button>
+				</div> -->
+            </form>
+			</div>
+		</div>
+
+	</div>
+
+</div>		
+<!-- /Page Content -->
+
+{% endblock content %}

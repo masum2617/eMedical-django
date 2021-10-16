@@ -28,21 +28,42 @@ class MedicalRecords(models.Model):
 
 
 class MedicalHistory(models.Model):
-    reason =  models.TextField(blank=True)
-    ever_had = models.TextField(blank=True)
+    first_name = models.CharField(max_length=20, null=True)
+    last_name = models.CharField(max_length=20, null=True)
+    reason =  models.CharField(max_length=200, blank=True)
+    ever_had = models.CharField(max_length=200,blank=True)
     height = models.CharField(max_length=20, null=True)
     weight = models.CharField(max_length=20, null=True)
     age = models.CharField(max_length=10, null=True)
     gender = models.CharField(max_length=20, null=True)
-    previous_operation = models.TextField(blank=True)
-    current_medication = models.TextField(blank=True)
-    other_illness = models.TextField(blank=True)
-    other_information = models.TextField(blank=True)
+    blood_group  = models.CharField(max_length=50, null=True)
+    previous_operation = models.CharField(max_length=200,blank=True)
+    current_medication = models.CharField(max_length=200,blank=True)
+    other_illness = models.CharField(max_length=200,blank=True)
+    other_information = models.CharField(max_length=200,blank=True)
+    is_processing = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=False)
+    date_created = models.DateTimeField(default=datetime.now, blank=True)
 
     patient = models.ForeignKey(Patient, on_delete=models.DO_NOTHING, null=True)
-
+    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, null=True)
     class Meta:
         verbose_name_plural = "MedicalHistories"
 
-    def __str__(self):
-        return self.patient.user.first_name
+    # def __str__(self):
+    #     if self.doctor:
+    #         return f"For Dr. {self.doctor}"
+    #     else:
+    #         return f"History from {self.patient.user.first_name}"
+
+
+class Appointment(models.Model):
+    appointment = models.ForeignKey(MedicalHistory, on_delete=models.CASCADE, null=True)
+    # doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, null=True)
+    # patient = models.ForeignKey(Patient, on_delete=models.CASCADE, null=True)
+    appointment_time = models.CharField(max_length=30, null=True)
+    appointment_date = models.CharField(max_length=30, null=True)
+    appointment_status = models.BooleanField(default=False)
+
+    def unicode(self):
+        return self.id
