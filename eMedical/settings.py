@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-(+@ey%h-6(-n43xy*!76!s@t&ug!#yx0681#&*-_$uqd1^jbig
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['telemedicine-django.herokuapp.com', '*']
 
 
 # Application definition
