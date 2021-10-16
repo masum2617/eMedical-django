@@ -4,8 +4,7 @@
     "pk": 16,
     "fields": {
         "doctor": 17,
-        "specialized_category": "Cardiologists",
-        "services": null
+        "specialized_category": "Cardiologists"
     }
 },
 {
@@ -13,8 +12,7 @@
     "pk": 27,
     "fields": {
         "doctor": 24,
-        "specialized_category": "Cardiologists",
-        "services": null
+        "specialized_category": "Cardiologists"
     }
 },
 {
