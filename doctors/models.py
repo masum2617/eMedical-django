@@ -26,7 +26,7 @@ class Doctor(models.Model):
 class DoctorSpecialization(models.Model):
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, null=True)
     specialized_category  = models.CharField(max_length=50, null=True)
-    services = models.TextField(max_length=200, null=True)
+    
     
     def __str__(self):
         return self.specialized_category
