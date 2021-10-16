@@ -1,42 +1,5 @@
 [
 {
-    "model": "doctors.doctorspecialization",
-    "pk": 16,
-    "fields": {
-        "doctor": 17,
-        "specialized_category": "Cardiologists"
-    }
-},
-{
-    "model": "doctors.doctorspecialization",
-    "pk": 27,
-    "fields": {
-        "doctor": 24,
-        "specialized_category": "Cardiologists"
-    }
-},
-{
-    "model": "doctors.qualification",
-    "pk": 3,
-    "fields": {
-        "institution_name": "dhaka dental college",
-        "qualification_degree": "dhaka dental college",
-        "years_of_completion": "2021-09-29",
-        "doctor": 24
-    }
-},
-{
-    "model": "doctors.experience",
-    "pk": 1,
-    "fields": {
-        "hospital_name": "Dhaka Medical College",
-        "worked_from": "2020-05-11",
-        "worked_to": "2021-09-20",
-        "designation": "Professor",
-        "user": 17
-    }
-},
-{
     "model": "users.account",
     "fields": {
         "password": "pbkdf2_sha256$260000$RkqG3UzBcrVBWMh1JLuPhc$ea1RLwQvtowg3M64eaiAlMXWcFKoPyAFvQr5jQ85vEI=",
@@ -83,7 +46,7 @@
         "phone_number": "45632147898",
         "user_type": "patient",
         "date_joined": "2021-10-08T10:13:46.277Z",
-        "last_login": "2021-10-16T11:56:07.476Z",
+        "last_login": "2021-10-16T16:42:47.476Z",
         "is_admin": false,
         "is_staff": false,
         "is_active": true,
@@ -128,57 +91,33 @@
 },
 {
     "model": "documents.medicalhistory",
-    "pk": 31,
+    "pk": 33,
     "fields": {
         "first_name": null,
         "last_name": null,
-        "reason": "ab",
+        "reason": "Chest Pain",
         "ever_had": "",
         "height": null,
-        "weight": "43",
-        "age": "22",
+        "weight": "60",
+        "age": "35",
         "gender": null,
         "blood_group": null,
-        "previous_operation": "gghhdsf",
-        "current_medication": "erer",
-        "other_illness": "yuik",
-        "other_information": "tteeeeee",
+        "previous_operation": "Eye Surgery",
+        "current_medication": "None",
+        "other_illness": "",
+        "other_information": "",
         "is_processing": true,
         "is_active": false,
-        "date_created": "2021-10-16T17:14:29.002Z",
+        "date_created": "2021-10-16T22:44:28.808Z",
         "patient": 1,
-        "doctor": 24
-    }
-},
-{
-    "model": "documents.medicalhistory",
-    "pk": 32,
-    "fields": {
-        "first_name": "Robin",
-        "last_name": "Hasan",
-        "reason": "",
-        "ever_had": "",
-        "height": "23",
-        "weight": "33",
-        "age": "22",
-        "gender": "male",
-        "blood_group": "O+",
-        "previous_operation": "dfgfe",
-        "current_medication": "",
-        "other_illness": "dfgdf",
-        "other_information": "ert",
-        "is_processing": true,
-        "is_active": false,
-        "date_created": "2021-10-16T17:14:29Z",
-        "patient": 1,
-        "doctor": 24
+        "doctor": 25
     }
 },
 {
     "model": "documents.appointment",
-    "pk": 3,
+    "pk": 4,
     "fields": {
-        "appointment": 31,
+        "appointment": 33,
         "appointment_time": null,
         "appointment_date": null,
         "appointment_status": false
@@ -206,6 +145,14 @@
     "fields": {
         "session_data": "e30:1mVpcn:PYyWRGfxraFj0r7-xQRla--Xp9oUTnZr4H5QbnelTLk",
         "expire_date": "2021-10-14T06:32:57.531Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "86o4zl3o416y7m9vlwnfljnr1t6891s3",
+    "fields": {
+        "session_data": ".eJxVjMsOwiAURP-FtSHUFgSX7vsN5D64UjWQlHZl_HfbpAtNZjXnzLxVhHXJcW1pjhOrq3Lq9Nsh0DOVHfADyr1qqmWZJ9S7og_a9Fg5vW6H-3eQoeVtbdhZCF4E0ZtEl4QBhIPpZHCdMx773lISdmj82Q3iwRJt6TEQBCvq8wULYjkE:1mbmlj:bFKjCBqqpI1YLhx6VRWPc0oKxBC4iDjzZndcuclbPEM",
+        "expire_date": "2021-10-30T16:42:47.507Z"
     }
 },
 {
@@ -246,14 +193,6 @@
     "fields": {
         "session_data": "e30:1mVpbi:nE1hzmjsJQ4_TxMVeVK6mEMplocqy6g4vZRls6uTZiA",
         "expire_date": "2021-10-14T06:31:50.511Z"
-    }
-},
-{
-    "model": "sessions.session",
-    "pk": "dl7b8han4phntye9kwbtasspj77hvtu2",
-    "fields": {
-        "session_data": ".eJxVjMsOwiAQRf-FtSE8Biwu3fcbyAyMUjU0Ke3K-O_SpAvdnnPufYuI21ri1niJUxYXoUGcfiFhenLdTX5gvc8yzXVdJpJ7Ig_b5Dhnfl2P9u-gYCt97YC18hBMMMQDJefAsCfr6JZttjh0xjopxF4msudAygBZAmO8Ri8-XwbeOBs:1mbkSr:Ei7lwEPsxeI50G8J7us843NyOkicAoXefrXXDIRq5VY",
-        "expire_date": "2021-10-30T14:15:09.983Z"
     }
 },
 {
@@ -356,29 +295,29 @@
 },
 {
     "model": "doctors.doctor",
-    "pk": 17,
+    "pk": 25,
     "fields": {
-        "city": "Sylhet",
-        "profile_image": "doctors/2021/10/09/head-659652_1280.png",
+        "city": "Dhaka",
+        "profile_image": "doctors/2021/10/16/default.png",
         "gender": "male",
-        "description": "sdf sdf sd fsd fasd f",
-        "date_joined": "2021-10-09T01:39:04.380Z",
+        "description": "I am a Professional Doctor",
+        "date_joined": "2021-10-16T22:37:21Z",
         "user": [
-            "r@gmail.com"
+            "s@gmail.com"
         ]
     }
 },
 {
     "model": "doctors.doctor",
-    "pk": 24,
+    "pk": 26,
     "fields": {
-        "city": "dhaka",
-        "profile_image": "doctors/2021/10/11/BadAss_Bhai.jpg",
+        "city": "New York",
+        "profile_image": "doctors/2021/10/16/default_jJBpiCl.png",
         "gender": "male",
-        "description": "great doctor",
-        "date_joined": "2021-10-11T00:50:27Z",
+        "description": "I am a Professional Doctor",
+        "date_joined": "2021-10-16T22:37:56Z",
         "user": [
-            "s@gmail.com"
+            "j@gmail.com"
         ]
     }
 },
@@ -2450,6 +2389,186 @@
         "object_repr": "Hasan",
         "action_flag": 2,
         "change_message": "[{\"changed\": {\"fields\": [\"Profile image\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 116,
+    "fields": {
+        "action_time": "2021-10-16T16:33:13.164Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "doctorspecialization"
+        ],
+        "object_id": "27",
+        "object_repr": "Cardiologists",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 117,
+    "fields": {
+        "action_time": "2021-10-16T16:33:13.425Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "doctorspecialization"
+        ],
+        "object_id": "16",
+        "object_repr": "Cardiologists",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 118,
+    "fields": {
+        "action_time": "2021-10-16T16:37:10.565Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "doctor"
+        ],
+        "object_id": "24",
+        "object_repr": "Sadman",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 119,
+    "fields": {
+        "action_time": "2021-10-16T16:37:10.584Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "doctor"
+        ],
+        "object_id": "17",
+        "object_repr": "Robin",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 120,
+    "fields": {
+        "action_time": "2021-10-16T16:37:53.887Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "doctor"
+        ],
+        "object_id": "25",
+        "object_repr": "Sadman",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 121,
+    "fields": {
+        "action_time": "2021-10-16T16:38:29.051Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "doctor"
+        ],
+        "object_id": "26",
+        "object_repr": "Mahbub",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 122,
+    "fields": {
+        "action_time": "2021-10-16T16:45:59.191Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "doctorspecialization"
+        ],
+        "object_id": "28",
+        "object_repr": "Cardiologist",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 123,
+    "fields": {
+        "action_time": "2021-10-16T16:46:22.418Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "doctorspecialization"
+        ],
+        "object_id": "29",
+        "object_repr": "Dentist",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 124,
+    "fields": {
+        "action_time": "2021-10-16T16:47:34.961Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "doctorspecialization"
+        ],
+        "object_id": "29",
+        "object_repr": "Dentist",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 125,
+    "fields": {
+        "action_time": "2021-10-16T16:47:34.970Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "doctorspecialization"
+        ],
+        "object_id": "28",
+        "object_repr": "Cardiologist",
+        "action_flag": 3,
+        "change_message": ""
     }
 }
 ]
