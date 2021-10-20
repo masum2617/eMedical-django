@@ -28,13 +28,13 @@ def doctor_profile(request):
         form = DoctorForm(request.POST, request.FILES)
         if form.is_valid():
 
-            profile_pic = form.cleaned_data['profile_image']
-            gender = form.cleaned_data['gender']
-            description = form.cleaned_data['description']
-            city = form.cleaned_data['city']
+            current_doctor.profile_image = form.cleaned_data['profile_image']
+            current_doctor.gender = form.cleaned_data['gender']
+            current_doctor.description = form.cleaned_data['description']
+            current_doctor.city = form.cleaned_data['city']
 
-            doctor = Doctor(city=city, profile_image=profile_pic, gender=gender, description=description, user=current_user)
-            doctor.save()
+            # doctor = Doctor(city=city, profile_image=profile_pic, gender=gender, description=description, user=current_user)
+            current_doctor.save()
         # messages.success(request, 'Profile Successfully Updated')
             return redirect('doctor_profile')
     else:
@@ -172,16 +172,21 @@ def medical_history(request):
     lines = []
 
     for hist in history:
-        lines.append(hist.reason)
-        lines.append(hist.weight)
-        lines.append(hist.age)
-        lines.append(hist.gender)
-        lines.append(hist.blood_group)
-        lines.append(hist.previous_operation)
-        lines.append(hist.current_medication)
-        lines.append(hist.other_illness)
-        lines.append(hist.other_information)
+        lines.append("********* MediHelp *************")
         lines.append(" ")
+        lines.append("========== Patient Medical History ===============")
+        lines.append("First Name: "+hist.first_name)
+        lines.append("Last Name: "+hist.last_name)
+        lines.append("Reason For Visit: "+hist.reason)
+        lines.append("Height: "+hist.weight)
+        lines.append("Age: "+hist.age)
+        lines.append("Gender: "+str(hist.gender))
+        lines.append("Blood Group: "+hist.blood_group)
+        lines.append("Previous Operation: "+hist.previous_operation)
+        lines.append("Current Medicaion: "+hist.current_medication)
+        lines.append("Other Illness: "+hist.other_illness)
+        lines.append("Other Information: "+hist.other_information)
+        lines.append("==========================================")
         
 
     for line in lines:
@@ -193,3 +198,17 @@ def medical_history(request):
     buf.seek(0)
 
     return FileResponse(buf, as_attachment=True, filename='medical_history.pdf')
+
+
+def profile(request, doctor_id):
+    current_user = request.user
+    # current_patient = get_object_or_404(Patient, user=current_user)
+    
+    doctor = Doctor.objects.get(id=doctor_id)
+    specialization = DoctorSpecialization.objects.get(doctor=doctor)
+
+    context = {
+        'doc_profile':doctor,
+        'specialization':specialization,
+    }
+    return render(request, 'doctors/profile.html', context)

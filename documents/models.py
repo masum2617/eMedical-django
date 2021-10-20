@@ -32,7 +32,7 @@ class MedicalHistory(models.Model):
     last_name = models.CharField(max_length=20, null=True)
     reason =  models.CharField(max_length=200, blank=True)
     ever_had = models.CharField(max_length=200,blank=True)
-    height = models.CharField(max_length=20, null=True)
+    
     weight = models.CharField(max_length=20, null=True)
     age = models.CharField(max_length=10, null=True)
     gender = models.CharField(max_length=20, null=True)
@@ -49,6 +49,9 @@ class MedicalHistory(models.Model):
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, null=True)
     class Meta:
         verbose_name_plural = "MedicalHistories"
+
+    def __str__(self):
+        return self.id
 
     # def __str__(self):
     #     if self.doctor:

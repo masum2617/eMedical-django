@@ -12,6 +12,10 @@ def history(request):
     current_user = request.user
     current_patient = get_object_or_404(Patient, user=current_user)
     patient = MedicalHistory.objects.filter(patient=current_patient)
+
+    first_name = current_patient.user.first_name
+    last_name = current_patient.user.last_name
+    gender = current_patient.gender
     #doctor = Doctor.objects.get(id=doctor_id)
     # medical_historyForm = MedicalHistory.objects.all()
 
@@ -23,11 +27,13 @@ def history(request):
         
         form = MedicalHistoryForm(request.POST)
         if form.is_valid():
-            # first_name = current_patient.user.first_name
-            # last_name = current_patient.user.last_name
-            
+
+            medical_history.first_name = first_name
+            medical_history.last_name = last_name
+            medical_history.gender = gender
             medical_history.reason = form.cleaned_data['reason']
             # height = form.cleaned_data['height']
+            medical_history.blood_group = request.POST['blood_group']
             medical_history.weight = form.cleaned_data['weight']
             medical_history.age = form.cleaned_data['age']
             medical_history.previous_operation = form.cleaned_data['previous_operation']

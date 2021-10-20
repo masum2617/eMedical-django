@@ -93,12 +93,12 @@
 							
 							<div class="doc-info-left">
 								<div class="doctor-img">
-									<a href="doctor-profile.html">
+									<a href="{% url 'profile' doctor.id %}">
 										<img src="{{ doctor.profile_image.url }}" class="img-fluid" alt="User Image">
 									</a>
 								</div>
 								<div class="doc-info-cont">
-									<h4 class="doc-name"><a href="doctor-profile.html">Dr. {{doctor.user.first_name}} {{doctor.user.last_name}}</a></h4>
+									<h4 class="doc-name"><a href="{% url 'profile' doctor.id %}">Dr. {{doctor.user.first_name}} {{doctor.user.last_name}}</a></h4>
 									<p class="doc-speciality"></p>
 									<h5 class="doc-department"></h5>
 									<div class="rating">

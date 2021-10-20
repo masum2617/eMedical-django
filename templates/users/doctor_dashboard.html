@@ -220,6 +220,7 @@
                                             <!-- <th>Appt Date</th> -->
                                             <th>Type</th>
                                             <th>Medical History</th>
+                                            <!-- <th>Appointment Time</th> -->
                                             <th>Confirmation</th>
                                             <!-- <th>Type</th> -->
                                             <!-- <th class="text-center">Paid Amount</th> -->
@@ -240,24 +241,41 @@
                                             <!-- <td>General</td> -->
                                             <td>New Patient</td>
                                             <td><a href="{% url 'medical_history' %}" class="btn btn-sm bg-info-light"><i class="far fa-eye"></i> View</a></td>
+                                            <!-- <td class="text-center">{{patient_appointment.date_created|time}}</td> -->
                                             <!-- <td class="text-center">$150</td> -->
                                             <td class="text-left">
-                                                <div class="table-action">
-                                                    <!-- <a href="javascript:void(0);" class="btn btn-sm bg-info-light">
-                                                        <i class="far fa-eye"></i> View
-                                                    </a> -->
-                                                    
-                                                    
-                                                    <a href="javascript:void(0);" class="btn btn-sm bg-success-light">
-                                                        <i class="fas fa-check"></i> Accept
-                                                    </a>
-                                                    <a href="javascript:void(0);" class="btn btn-sm bg-danger-light">
-                                                        <i class="fas fa-times"></i> Cancel
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        {% endfor %}
+                                                
+                                <div class="table-action">
+                                    <!-- <a href="javascript:void(0);" class="btn btn-sm bg-info-light">
+                                        <i class="far fa-eye"></i> View
+                                    </a> -->
+                                    <form action="{% url 'doctor_dashboard' %}" method="post">
+                                        {% csrf_token %}
+                                    {% if patient_appointment.is_active %}
+                                        <a href="#" >
+                                            <input type="hidden" name="status" value="{{patient_appointment.id}}">
+                                            <button type="submit" class="btn btn-sm bg-success-light"><i class="fas fa-check"></i> Accepted
+                                            </button>
+                                        </a>
+                                    {% else %}
+                                    <a href="#" >
+                                        <input type="hidden" name="status" value="{{patient_appointment.id}}">
+                                        <button type="submit" class="btn btn-sm bg-primary-light"><i class="fas fa-check"></i> Accept
+                                        </button>
+                                    </a>
+
+                                    <a href="#" >
+                                        <input type="hidden" name="cancel" value="False">
+                                        <button type="submit" class="btn btn-sm bg-danger-light"><i class="fas fa-times"></i> Cancel
+                                        </button>
+                                    </a>
+                                    {% endif %}
+                                </form>
+                                </div>
+                                
+                            </td>
+                        </tr>
+                        {% endfor %}
                                         <!-- <tr>
                                             <td>
                                                 <h2 class="table-avatar">

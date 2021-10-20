@@ -90,10 +90,18 @@ def doctor_dashboard(request):
     specialization = DoctorSpecialization.objects.filter(doctor=current_doctor)
 
     appointment = Appointment.objects.filter(appointment__doctor=current_doctor)
-    print("Appoi: ",appointment)
+    # print("Appoi: ",appointment)
 
     patient_appointment = MedicalHistory.objects.filter(doctor=current_doctor)
-    
+
+    if request.method == 'POST':
+        patient_id = request.POST['status']
+        accepted_patient = MedicalHistory.objects.get(id=patient_id)
+        accepted_patient.is_active = True
+        accepted_patient.save()
+        return redirect('doctor_dashboard')
+        # print("VALUE: ", value)
+
     # try:
     #     current_doctor = Doctor.objects.get(user=current_user)
     # except Doctor.DoesNotExist:
@@ -132,3 +140,17 @@ def patient_dashboard(request):
 
     }
     return render(request,'users/patient_dashboard.html', context)
+
+
+def status(request, patient_id):
+    
+    # current_patient = get_object_or_404(Patient, user=current_user)
+    current_user = request.user
+    current_doctor = get_object_or_404(Doctor,user=current_user)
+    patient = Patient.objects.get(id=patient_id, doctor=current_doctor)
+
+
+    patientMedicalHistory = MedicalHistory.objects.get(patient=patient)
+    patientMedicalHistory.is_active = True
+    patientMedicalHistory.save()
+    return redirect('doctor_dashboard')

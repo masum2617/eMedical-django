@@ -135,10 +135,17 @@
                         </h2>
                     </td>
                     <td><span class="d-block text-info"></span>{{appointment.date_created}}</td>
-                    <td></td>
+                    <td>TBD</td>
                     <!-- <td>$160</td> -->
                     <!-- <td>16 Nov 2019</td> -->
-                    <td><span class="badge badge-pill bg-success-light">Confirm</span></td>
+                    <td>
+                        {% if appointment.is_active %}
+                        <span class="badge badge-pill bg-success-light">Active</span>
+                            
+                        {% else %}
+                        <span class="badge badge-pill bg-warning-light">Pending</span>
+                        {% endif %}
+                    </td>
                     <!-- <td class="text-right">
                         <div class="table-action">
                             <a href="javascript:void(0);" class="btn btn-sm bg-primary-light">

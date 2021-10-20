@@ -118,6 +118,7 @@
                 
                 <div class="doctor-slider slider">
                     {% for doctor in doctor %}
+                        
                     <!-- Doctor Widget -->
                     <div class="profile-widget">
                         <div class="doc-img">
@@ -130,10 +131,10 @@
                         </div>
                         <div class="pro-content">
                             <h3 class="title">
-                                <a href="doctor-profile.html">Dr. {{doctor.user.first_name}} {{doctor.user.last_name}}</a> 
+                                <a href="{% url 'profile' doctor.id %}">Dr. {{doctor.user.first_name}} {{doctor.user.last_name}}</a> 
                                 <i class="fas fa-check-circle verified"></i>
                             </h3>
-                            <p class="speciality">Cardiologist</p>
+                            <p class="speciality">{{specialization.specialized_category}}</p>
                             <div class="rating">
                                 <i class="fas fa-star filled"></i>
                                 <i class="fas fa-star filled"></i>
@@ -147,7 +148,7 @@
                                     <i class="fas fa-map-marker-alt"></i> {{doctor.city}}
                                 </li>
                                 <li>
-                                    <i class="far fa-clock"></i> Joined on {{doctor.date_joined}}
+                                    <i class="far fa-clock"></i> Joined on {{doctor.date_joined|date:"F d, Y"}}
                                 </li>
                                 <!-- <li>
                                     <i class="far fa-money-bill-alt"></i> $300 - $1000 

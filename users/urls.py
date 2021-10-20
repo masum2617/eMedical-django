@@ -7,4 +7,5 @@ urlpatterns = [
     path('logout/',views.logout, name='logout'),
     path('doctor_dashboard/',views.doctor_dashboard, name='doctor_dashboard'),
     path('patient_dashboard/',views.patient_dashboard, name='patient_dashboard'),
+    path('status/<int:patient_id>',views.status, name='status'),
 ]
