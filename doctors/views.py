@@ -212,3 +212,20 @@ def profile(request, doctor_id):
         'specialization':specialization,
     }
     return render(request, 'doctors/profile.html', context)
+
+
+def doctor_search(request):
+    doctors = Doctor.objects.order_by('-date_joined') #A hyphen "-" in front of "check_in" indicates descending order. Ascending order is implied
+
+    if 'gender_type' in request.GET:
+        gender_type = request.GET['gender_type']
+        if gender_type:
+            doctors = doctors.filter(gender__iexact=gender_type)
+            # print("filtered: ",doctors)
+
+    context = {
+        'doctors':doctors,
+    }
+    return render(request, 'doctors/doctor_search.html', context)
+
+

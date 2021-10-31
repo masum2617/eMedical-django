@@ -50,8 +50,8 @@ class MedicalHistory(models.Model):
     class Meta:
         verbose_name_plural = "MedicalHistories"
 
-    def __str__(self):
-        return self.id
+    # def __str__(self):
+    #     return self.id
 
     # def __str__(self):
     #     if self.doctor:

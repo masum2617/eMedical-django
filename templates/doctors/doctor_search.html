@@ -20,7 +20,7 @@
 							<input type="text" class="form-control datetimepicker" placeholder="Select Date">
 						</div>			
 					</div> -->
-				<form action="{% url 'doctor_search' %}" method="GET">
+                <form action="{% url 'doctor_search' %}" method="GET">
 					<div class="filter-widget">
 						<h4>Gender</h4>
 						<div>
@@ -70,20 +70,20 @@
 						</div>
 						<div>
 							<label class="custom_check">
-								<input type="checkbox" name="select_specialist" value="Cardiologist">
+								<input type="checkbox" name="select_specialist">
 								<span class="checkmark"></span> Cardiologist
 							</label>
 						</div>
 					</div>
 						<div class="btn-search">
 							<button type="submit" class="btn btn-block">Search</button>
-						</div>
-				</form>	
+						</div>	
+                 </form>
 					</div>
-				
+                
 				</div>
 				<!-- /Search Filter -->
-				
+           
 			</div>
 			
 			<div class="col-md-12 col-lg-8 col-xl-9">
@@ -104,7 +104,6 @@
 									<h4 class="doc-name"><a href="{% url 'profile' doctor.id %}">Dr. {{doctor.user.first_name}} {{doctor.user.last_name}}</a></h4>
 									<p class="doc-speciality"></p>
 									<h5 class="doc-department"></h5>
-									
 									<div class="rating">
 										<i class="fas fa-star filled"></i>
 										<i class="fas fa-star filled"></i>
@@ -148,7 +147,6 @@
 							<div class="doc-info-right">
 								<div class="clini-infos">
 									<ul>
-										<li><i class="far fa fa-user-md"></i> {{doctor.gender}}</li>
 										<li><i class="far fa-thumbs-up"></i> 98%</li>
 										<li><i class="far fa-comment"></i> 17 Feedback</li>
 										<!-- <li><i class="fas fa-map-marker-alt"></i> Florida, USA</li> -->
@@ -236,9 +234,6 @@
 						</div>
 					</div>
 				</div>
-				
-
-			
 
 				<div class="load-more text-center">
 					<a class="btn btn-primary btn-sm" href="javascript:void(0);">Load More</a>	

@@ -233,8 +233,8 @@
                                         <tr>
                                             <td>
                                                 <h2 class="table-avatar">
-                                                    <a href="patient-profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{patient_appointment.patient.profile_image.url}}" alt="User Image"></a>
-                                                    <a href="patient-profile.html">{{ patient_appointment.patient.user.first_name }}<span>#PT{{patient_appointment.id}}</span></a>
+                                                    <a href="{% url 'current_patient' patient_appointment.patient.id %}" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{patient_appointment.patient.profile_image.url}}" alt="User Image"></a>
+                                                    <a href="{% url 'current_patient' patient_appointment.patient.id %}">{{ patient_appointment.patient.user.first_name }}<span>#PT{{patient_appointment.patient.id}}</span></a>
                                                 </h2>
                                             </td>
                                             <!-- <td>{{patient_appointment.date_created}} <span class="d-block text-info"></span></td> -->

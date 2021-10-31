@@ -70,3 +70,18 @@ def history(request):
         'form':form,
     }
     return render(request, 'documents/medical_history.html', context)
+
+def add_prescription(request, patient_id):
+    current_user = request.user
+    current_doctor = get_object_or_404(Doctor,user=current_user)
+    patient = Patient.objects.get(id=patient_id)
+    # print("IDDDDD: ",patient)
+    doctor_for_patient = MedicalHistory.objects.get(patient=patient,doctor=current_doctor)
+    print(doctor_for_patient)
+    context = {
+        'current_patient':patient,
+        'doctor_for_patient': doctor_for_patient,
+        # 'form':form,
+    }
+
+    return render(request, 'documents/add_prescription.html', context)

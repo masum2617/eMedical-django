@@ -32,3 +32,15 @@ def patients_profile(request):
         'form':form,
     }
     return render(request, 'patients/patients-profile.html', context)
+
+# def profile_patient(request, patient_id):
+#     current_user = request.user
+#     # current_patient = get_object_or_404(Patient, user=current_user)
+    
+#     patient = Patient.objects.get(id=patient_id)
+#     # specialization = DoctorSpecialization.objects.get(doctor=doctor)
+
+#     context = {
+#         'patient': patient,
+#     }
+#     return render(request, 'patients/profile_patient.html', context)

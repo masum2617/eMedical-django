@@ -154,3 +154,18 @@ def status(request, patient_id):
     patientMedicalHistory.is_active = True
     patientMedicalHistory.save()
     return redirect('doctor_dashboard')
+
+def current_patient(request, patient_id):
+    current_user = request.user
+    current_doctor = get_object_or_404(Doctor,user=current_user)
+    patient = Patient.objects.get(id=patient_id)
+    # print("IDDDDD: ",patient)
+    doctor_for_patient = MedicalHistory.objects.get(patient=patient,doctor=current_doctor)
+    print(doctor_for_patient)
+    context = {
+        'current_patient':patient,
+        'doctor_for_patient': doctor_for_patient,
+        # 'form':form,
+    }
+
+    return render(request, 'users/current-patient.html', context)
