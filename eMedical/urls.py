@@ -10,6 +10,7 @@ urlpatterns = [
     path('doctors/', include('doctors.urls')),
     path('patients/', include('patients.urls')),
     path('documents/', include('documents.urls')),
+    path('pharmacy/', include('pharmacy.urls')),
 ]
 # + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 if settings.DEBUG:

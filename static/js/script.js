@@ -364,3 +364,7 @@ Version      : 1.0
 $(".chosen-select").chosen({
 	no_results_text: "Oops, nothing found!"
   })
+
+  $('#myModal').on('shown.bs.modal', function () {
+	$('#myInput').trigger('focus')
+  })

@@ -42,20 +42,21 @@
         <div class="col-md-7 col-lg-8 col-xl-9">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title mb-0">Add Prescription</h4>
+                    <h4 class="card-title mb-0" style="display: inline-block;"> Add Prescription</h4>
                 </div>
+                
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="biller-info">
-                                <h4 class="d-block">Dr. Darren Elder</h4>
-                                <span class="d-block text-sm text-muted">Dentist</span>
-                                <span class="d-block text-sm text-muted">Newyork, United States</span>
+                                <h4 class="d-block">Dr. {{current_doctor.user.first_name}} {{current_doctor.user.last_name}}</h4>
+                                <span class="d-block text-sm text-muted">{{speciality.specialized_category}}</span>
+                                <span class="d-block text-sm text-muted">{{current_doctor.city}}</span>
                             </div>
                         </div>
                         <div class="col-sm-6 text-sm-right">
                             <div class="billing-info">
-                                <h4 class="d-block">1 November 2019</h4>
+                                <h4 class="d-block">{% now "jS F Y" %}</h4>
                                 <span class="d-block text-muted">#INV0001</span>
                             </div>
                         </div>
@@ -133,7 +134,7 @@
                                     Click here to sign
                                 </div>
                                 <div class="sign-name">
-                                    <p class="mb-0">( Dr. Darren Elder )</p>
+                                    <p class="mb-0">( Dr. {{current_doctor.user.first_name}} {{current_doctor.user.last_name}} )</p>
                                     <span class="text-muted">Signature</span>
                                 </div>
                             </div>

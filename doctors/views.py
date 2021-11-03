@@ -215,7 +215,7 @@ def profile(request, doctor_id):
 
 
 def doctor_search(request):
-    doctors = Doctor.objects.order_by('-date_joined') #A hyphen "-" in front of "check_in" indicates descending order. Ascending order is implied
+    doctors = Doctor.objects.order_by('-date_joined') #A hyphen "-" in front of "check_in" indicates descending order. 
 
     if 'gender_type' in request.GET:
         gender_type = request.GET['gender_type']

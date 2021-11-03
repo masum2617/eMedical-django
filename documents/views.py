@@ -1,9 +1,10 @@
 from django.shortcuts import get_object_or_404, redirect, render
 
+
 from .forms import MedicalHistoryForm
 from .models import Appointment, MedicalHistory
 from patients.models import Patient
-from doctors.models import Doctor
+from doctors.models import Doctor,DoctorSpecialization
 
 # Create your views here.
 def history(request):
@@ -78,9 +79,14 @@ def add_prescription(request, patient_id):
     # print("IDDDDD: ",patient)
     doctor_for_patient = MedicalHistory.objects.get(patient=patient,doctor=current_doctor)
     print(doctor_for_patient)
+
+    speciality = DoctorSpecialization.objects.get(doctor=current_doctor)
+
     context = {
         'current_patient':patient,
         'doctor_for_patient': doctor_for_patient,
+        'current_doctor' : current_doctor,
+        'speciality':speciality,
         # 'form':form,
     }
 
