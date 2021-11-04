@@ -1,7 +1,6 @@
 from django.contrib import admin
-from .models import Gastrointestinal, Cardiovascular, Respiratory
+from .models import Category, Drug
 # Register your models here.
 
-admin.site.register(Gastrointestinal)
-admin.site.register(Cardiovascular)
-admin.site.register(Respiratory)
+admin.site.register(Category)
+admin.site.register(Drug)

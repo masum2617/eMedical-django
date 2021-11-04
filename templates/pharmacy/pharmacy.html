@@ -87,26 +87,29 @@
                 <label class="sr-only">Patient Condition</label>
                 <select name="condition" class="form-control">
                   <option selected="true" disabled="disabled">Patient Condition</option>
-                  <option>1</option>
-                  <option>3</option>
+                  {% for cardio_condition in cardio_condition %}
+                    <option>{{cardio_condition}}</option>
+                  {% endfor %}
+                  <!-- <option>3</option>
                   <option>4</option>
                   <option>5</option>
                   <option>6</option>
                   <option>7</option>
                   <option>8</option>
                   <option>9</option>
-                  <option>10</option>
+                  <option>10</option> -->
                 </select>
               </div>
            
               <div class="col-md-6 mb-3">
                 <select name="drugCategory" class="form-control">
                   <option selected="true" disabled="disabled">Drug Category</option>
-                  <optgroup label="Cardiovascular Drugs">
-                    
-                    <option value="Cardiovascular">Cardiovascular Drugs</option>
-                   
-                  </optgroup>
+                  {% for key, value in category.items %}
+                    <option value="{{key}}">{{value}}</option>
+                  
+                    <!-- <option value="Cardiovascular">Cardiovascular Drugs</option> -->
+
+                  {% endfor %}
                   <!-- <option value="100000">100000</option>
                   <option value="200000">$200,000</option>
                   <option value="300000">$300,000</option>
@@ -135,7 +138,7 @@
 
     <!-- Doctor Widget -->
  
-    {% for cardiovascular in cardiovascular %}
+    {% for drug in drugs %}
       
    
     <div class="card">
@@ -145,12 +148,12 @@
                 <div class="doc-info-left">
                     <div class="doctor-img">
                         <a href="#">
-                            <img src="{{cardiovascular.drug_image.url}}" class="img-fluid" alt="User Image">
+                            <img src="{{drug.drug_image.url}}" class="img-fluid" alt="User Image">
                         </a>
                     </div>
                     <div class="doc-info-cont">
-                        <h4 class="doc-name"><a href="#">{{cardiovascular.drug_name}} </a></h4>
-                        <p class="doc-speciality">{{cardiovascular.drug_category}}</p>
+                        <h4 class="doc-name"><a href="#">{{drug.drug_name}} </a></h4>
+                        <p class="doc-speciality">{{drug.category}}</p>
                         <h5 class="doc-department"></h5>
                         
                         <div class="rating">
