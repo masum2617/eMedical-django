@@ -14,9 +14,18 @@
             <div class="form-row">
               <div class="col-md-12 mb-3">
                 <label class="sr-only">Drug Name</label>
-                <input type="text" name="keywords" class="form-control" placeholder="Drug name">
+                <input type="text" name="keywords" id="tags" class="form-control" placeholder="Drug name">
               </div>
-
+              <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+              <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+              <script>
+                $( function() {
+                  
+                  $( "#tags" ).autocomplete({
+                    source: "{% url 'autocomplete' %}",
+                  });
+                } );
+                </script>
               <!-- <div class="col-md-4 mb-3">
                 <label class="sr-only">City</label>
                 <input type="text" name="city" class="form-control" placeholder="City">
@@ -185,6 +194,7 @@
     </div>
    {% endfor %}
     <!-- /Doctor Widget -->
+
 </div>
 
 

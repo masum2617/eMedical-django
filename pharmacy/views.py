@@ -1,3 +1,4 @@
+from django.http.response import JsonResponse
 from django.shortcuts import render
 from .models import Category, Drug
 from .choices import category
@@ -42,6 +43,15 @@ def pharmacy(request):
         condition = request.GET['condition']
         if condition:
             drugs = drugs.filter(condition__iexact=condition)
+    
+    # if 'term' in request.GET:
+    #     print(request.GET)
+    #     qs = Drug.objects.filter(drug_name__icontains=request.GET.get('term'))
+    #     drugsList = list()
+    #     for drug in qs:
+    #         drugsList.append(drug.drug_name)
+    #     print(drugsList)
+    #     return JsonResponse(drugsList, safe=False)
 
     context = {
         'drugs': drugs,
@@ -49,3 +59,13 @@ def pharmacy(request):
         'cardio_condition':cardio_condition,
     }    
     return render(request, 'pharmacy/pharmacy.html', context)
+
+def autocomplete(request):
+    if 'term' in request.GET:
+        qs = Drug.objects.filter(drug_name__icontains=request.GET['term'])
+        drugsList = list()
+        for drug in qs:
+            drugsList.append(drug.drug_name)
+            # print(drugsList)
+        return JsonResponse(drugsList, safe=False)
+    return render(request, 'pharmacy/pharmacy.html')
