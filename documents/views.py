@@ -2,7 +2,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 
 
 from .forms import MedicalHistoryForm
-from .models import Appointment, MedicalHistory
+from .models import Appointment, MedicalHistory,Prescription
 from patients.models import Patient
 from doctors.models import Doctor,DoctorSpecialization
 
@@ -78,15 +78,63 @@ def add_prescription(request, patient_id):
     patient = Patient.objects.get(id=patient_id)
     # print("IDDDDD: ",patient)
     doctor_for_patient = MedicalHistory.objects.get(patient=patient,doctor=current_doctor)
-    print(doctor_for_patient)
+    print("Patient ID: ", patient.id)
 
     speciality = DoctorSpecialization.objects.get(doctor=current_doctor)
 
+        # prescription = Prescription.objects.create(doctor=current_doctor, patient=patient)
+        # prescription.save()
+
+    if request.method == 'POST':
+
+        drugName = request.POST['drugName']
+        quantity = request.POST['quantity']
+        days = request.POST['days']
+
+        if request.POST['morning']:
+            morning = request.POST['morning']
+        else:
+            morning="None"
+        
+        if request.POST['afternoon']:
+            afternoon = request.POST['afternoon']
+        else:
+            afternoon="None"
+
+        pres = Prescription(name=drugName, quantity=quantity, days=days,morning=morning,afternoon=afternoon, doctor=current_doctor,patient=patient )
+        pres.save()
+
+
+
+        # except:
+        #     prescription.morning = "None"
+
+        # try:
+        #     prescription.afternoon = request.POST['afternoon']
+        # except:
+        #     prescription.afternoon = "None"
+
+        # try:
+        #     prescription.evening = request.POST['evening']
+        # except:
+        #     prescription.evening = "None"
+        
+        # try:
+        #     prescription.night = request.POST['night']
+        # except:
+        #     prescription.night = "None"
+
+        # prescription.save()
+        
+        return redirect(request.path_info)
+    
+    prescription = Prescription.objects.filter(doctor=current_doctor, patient=patient)
     context = {
         'current_patient':patient,
         'doctor_for_patient': doctor_for_patient,
         'current_doctor' : current_doctor,
         'speciality':speciality,
+        'prescribe_med':prescription,
         # 'form':form,
     }
 

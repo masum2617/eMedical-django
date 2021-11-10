@@ -83,41 +83,65 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        {% for prescribe_med in prescribe_med %}
+        
                                         <tr>
+                                            <td>{{prescribe_med.name}}</td>
+                                            <td>{{prescribe_med.quantity}}mg</td>
+                                            <td>{{prescribe_med.days}}</td>
                                             <td>
-                                                <input class="form-control" type="text">
+                                                {{prescribe_med.morning}}+
+                                                {{prescribe_med.afternoon}}+
+                                                {{prescribe_med.evening}}+
+                                                {{prescribe_med.night}} 
+                                            </td>
+                                            <td><a href="#" class="btn bg-danger-light trash"><i class="far fa-trash-alt"></i></a></td> 
+                                        </tr>
+                                        {% endfor %}
+                                        
+
+                                        <tr>
+                                        <form action="{% url 'add_prescription' current_patient.id %}" method="POST">
+                                                {% csrf_token %}
+                                            <td>
+                                                <input class="form-control" type="text" name="drugName">
                                             </td>
                                             <td>
-                                                <input class="form-control" type="text">
+                                                <input class="form-control" type="text" name="quantity">
                                             </td>
                                             <td>
-                                                <input class="form-control" type="text">
+                                                <input class="form-control" type="text" name="days">
                                             </td>
                                             <td>
                                                 <div class="form-check form-check-inline">
                                                     <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox"> Morning
+                                                        <input class="form-check-input" type="checkbox" name="morning" value="morning"> Morning
                                                     </label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
                                                     <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox"> Afternoon
+                                                        <input class="form-check-input" type="checkbox" name="afternoon" value="afternoon"> Afternoon
                                                     </label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
                                                     <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox"> Evening
+                                                        <input class="form-check-input" type="checkbox" name="evening" value="evening"> Evening
                                                     </label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
                                                     <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox"> Night
+                                                        <input class="form-check-input" type="checkbox" name="night" value="night"> Night
                                                     </label>
                                                 </div>
                                             </td>
                                             <td>
-                                                <a href="#" class="btn bg-danger-light trash"><i class="far fa-trash-alt"></i></a>
+                                                <!-- <a href="#" class="btn bg-danger-light trash"><i class="far fa-trash-alt"></i></a> -->
+                                                <div class="add-more-item">
+                                                    <button type="submit" class="btn"><i class="fas fa-plus-circle"></i>Add Item</a>
+                                                    </button>
+                                                </div>
                                             </td>
+                                        </form>
                                         </tr>
                                     </tbody>
                                 </table>

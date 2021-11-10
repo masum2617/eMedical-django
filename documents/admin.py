@@ -13,3 +13,4 @@ admin.site.register(MedicalHistory,MedicalHistoryAdmin)
 admin.site.register(MedicalRecords)
 admin.site.register(Prescription)
 admin.site.register(Appointment)
+

@@ -18,3 +18,11 @@ ever_had = {
     'diabetes': 'diabetes',
     'cancer': 'cancer',
 }
+
+time = {
+    'morning': 'morning',
+    'afternoon' : 'afternoon',
+    'evening': 'evening',
+    'night' : 'night',
+
+}

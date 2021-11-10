@@ -3,8 +3,8 @@ from django.shortcuts import get_object_or_404, redirect, render
 
 from documents.models import MedicalHistory
 from patients.models import Patient
-from .models import Doctor, DoctorSpecialization, Experience, Qualification
-from .choices import category
+from .models import Doctor, DoctorSpecialization, Experience, Qualification,AppointmentTime
+from .choices import category, fromTimeChoice,toTimeChoice
 from .forms import DoctorForm
 from documents.forms import MedicalHistoryForm
 
@@ -228,4 +228,29 @@ def doctor_search(request):
     }
     return render(request, 'doctors/doctor_search.html', context)
 
+def schedule_timing(request, doctor_id):
+    current_user = request.user
+    doctor = Doctor.objects.get(id=doctor_id)
 
+    # try:
+    #     appoint_time = AppointmentTime.objects.get(doctor=doctor)
+    # except AppointmentTime.DoesNotExist:
+    #     appoint_time = AppointmentTime.objects.create(doctor=doctor)
+    #     appoint_time.save()
+        # appoint_time = AppointmentTime(doctor=doctor)
+    if request.method == "POST":
+        # appoint_time = AppointmentTime.objects.get(doctor=doctor)
+        day = request.POST['day']
+        time_from = request.POST['time_from']
+        time_to = request.POST['time_to']
+        appoint_time = AppointmentTime.objects.create(day=day, time_from=time_from, time_to=time_to ,doctor=doctor)
+        appoint_time.save()
+        return redirect(request.path_info)
+
+    context = {
+        'doctor':doctor,
+        'fromTimeChoice': fromTimeChoice,
+        'toTimeChoice' : toTimeChoice,
+    }
+
+    return render(request, 'doctors/schedule-timing.html',context)

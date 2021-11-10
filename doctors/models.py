@@ -62,3 +62,11 @@ class Experience(models.Model):
 #         return self.id
 
 
+class AppointmentTime(models.Model):
+    day = models.CharField(max_length=50, null=True)
+    time_from = models.CharField(max_length=50, null=True)
+    time_to = models.CharField(max_length=50, null=True)
+    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, null=True)
+
+    def __str__(self):
+        return self.day

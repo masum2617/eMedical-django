@@ -78,17 +78,17 @@
                     </a>
                 </li>
                 <li>
-                    <a href="schedule-timings.html">
+                    <a href="{% url 'schedule_timing' doctor.id %}">
                         <i class="fas fa-hourglass-start"></i>
                         <span>Schedule Timings</span>
                     </a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="invoices.html">
                         <i class="fas fa-file-invoice"></i>
                         <span>Invoices</span>
                     </a>
-                </li>
+                </li> -->
                 <li>
                     <a href="reviews.html">
                         <i class="fas fa-star"></i>
@@ -380,12 +380,7 @@
                                     {% for key,value in category.items %}
                                         <option value="{{ key }}">{{ value }}</option>
                                     {% endfor %}
-                                    <!-- <option value="United Kingdom">United Kingdom</option>
-                                    <option value="Afghanistan">Afghanistan</option>
-                                    <option value="Aland Islands">Aland Islands</option>
-                                    <option value="Albania">Albania</option>
-                                    <option value="Algeria">Algeria</option>
-                                    <option value="American Samoa">American Samoa</option> -->
+                                  
                                 </select>
 <!-- 								
 								<div class="submit-section submit-btn-bottom">

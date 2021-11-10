@@ -11,3 +11,7 @@
 select {
   height: 500px;
 }
+
+.time-select {
+  width: 250px;
+}

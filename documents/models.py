@@ -3,16 +3,6 @@ from django.db import models
 from doctors.models import Doctor
 from patients.models import Patient
 # Create your models here.
-class Prescription(models.Model):
-    prescription_file = models.FileField(upload_to='prescription/%Y/% m/% d/')
-    
-    doctor = models.ForeignKey(Doctor, on_delete=models.DO_NOTHING, null=True)
-    patient = models.ForeignKey(Patient, on_delete=models.DO_NOTHING, null=True)
-    uploaded_date = models.DateTimeField(default=datetime.now, blank=True)
-
-
-    def __str__(self):
-        return self.patient.user.first_name
 
 class MedicalRecords(models.Model):
     medical_insurance =  models.FileField(upload_to='insurance/%Y/% m/% d/')
@@ -70,3 +60,18 @@ class Appointment(models.Model):
 
     def unicode(self):
         return self.id
+
+class Prescription(models.Model):
+    name =  models.CharField(max_length=50, null=True)
+    quantity  = models.CharField(max_length=50, null=True)
+    days = models.CharField(max_length=50, null=True)
+    morning = models.CharField(max_length=10, null=True)
+    afternoon = models.CharField(max_length=10, null=True)
+    evening = models.CharField(max_length=10, null=True)
+    night = models.CharField(max_length=10, null=True)
+    doctor = models.ForeignKey(Doctor, on_delete=models.DO_NOTHING, null=True)
+    patient = models.ForeignKey(Patient, on_delete=models.DO_NOTHING, null=True)
+    uploaded_date = models.DateTimeField(default=datetime.now, blank=True)
+
+    # def __str__(self):
+    #     return self.name
