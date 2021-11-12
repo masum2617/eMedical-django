@@ -45,22 +45,25 @@
 								<!-- Day Slot -->
 								<div class="day-slot">
 									<ul>
-										<li class="left-arrow">
+										<!-- <li class="left-arrow">
 											<a href="#">
 												<i class="fa fa-chevron-left"></i>
 											</a>
-										</li>
-										<li>
-											<span>Mon</span>
-											<span class="slot-date">11 Nov <small class="slot-year">2021</small></span>
-										</li>
-										<li>
+										</li> -->
+										{% for appoint_day in appoint_day %}
+
+											<li style="margin-right: 40px;">
+												<span class="slot-date">{{appoint_day}}</span>
+												<!-- <span class="slot-date">11 Nov <small class="slot-year">2021</small></span> -->
+											</li>
+										{% endfor %}
+										<!-- <li>
 											<span>Tue</span>
-											<span class="slot-date">12 Oct <small class="slot-year">2021</small></span>
+											<span class="slot-date">12 Nov <small class="slot-year">2021</small></span>
 										</li>
 										<li>
 											<span>Wed</span>
-											<span class="slot-date">13 Oct <small class="slot-year">2021</small></span>
+											<span class="slot-date">13 Nov <small class="slot-year">2021</small></span>
 										</li>
 										<li>
 											<span>Thu</span>
@@ -68,21 +71,21 @@
 										</li>
 										<li>
 											<span>Fri</span>
-											<span class="slot-date">15 Oct <small class="slot-year">2021</small></span>
+											<span class="slot-date">15 Nov <small class="slot-year">2021</small></span>
 										</li>
 										<li>
 											<span>Sat</span>
-											<span class="slot-date">16 Oct <small class="slot-year">2021</small></span>
+											<span class="slot-date">16 Nov <small class="slot-year">2021</small></span>
 										</li>
 										<li>
 											<span>Sun</span>
-											<span class="slot-date">17 Oct <small class="slot-year">2021</small></span>
-										</li>
-										<li class="right-arrow">
+											<span class="slot-date">17 Nov <small class="slot-year">2021</small></span>
+										</li> -->
+										<!-- <li class="right-arrow">
 											<a href="#">
 												<i class="fa fa-chevron-right"></i>
 											</a>
-										</li>
+										</li> -->
 									</ul>
 								</div>
 								<!-- /Day Slot -->
@@ -98,85 +101,62 @@
 							<div class="col-md-12">
 							
 								<!-- Time Slot -->
-								<div class="time-slot">
-									<ul class="clearfix">
-										<li>
-											<a class="timing" href="#">
-												<span>9:00</span> <span>AM</span>
-											</a>
-											<a class="timing" href="#">
-												<span>10:00</span> <span>AM</span>
-											</a>
-											<a class="timing" href="#">
-												<span>11:00</span> <span>AM</span>
-											</a>
+								<div class="time-slot ">
+									<ul class="clearfix ">
+
+											<!-- <li>
+												
+												{% for appoint_time in appoint_time_doctor %}
+										  
+												{% if appoint_time.day == 'monday' %}
+												<a class="timing" href="#">
+													<span>{{appoint_time.time_from}}-{{appoint_time.time_to}}</span>
+													
+												</a>
+												{% endif %}
+												{% endfor %}
+											</li> -->
+										
+											<!-- <li>
+												<a class="timing" href="#">
+													<span>
+														
+												
+													</span> 
+												</a>
+												
+											</li> -->
+
+										{% for appoint_day in appoint_day %}
+												
+												  
+										<form action="{% url 'patient_appointment' doctor.id %}" method="POST">
+												{% csrf_token %}
+										<li style="margin-right: 50px;">
+											
+											
+												<span >
+													<input type="hidden" name="hidden_day" value="{{appoint_day}}">
+													<select name="from_to" id="" style="width: 180px; height:30px;">
+														<option value="" selected disabled>Time</option>
+														
+														{% for appoint_time_doctor in appoint_time_doctor %}
+															{% if appoint_time_doctor.day == appoint_day %}
+																
+																<option value="{{appoint_time_doctor.from_to}},{{appoint_day}}">{{appoint_time_doctor.from_to}}</option>
+															{% endif %}
+														{% endfor %}
+														<!-- <option value="">4.00pm-6.00pm</option> -->
+														<!-- <option value="">2</option>
+														<option value="">3</option> -->
+													</select>
+											
+												</span> 
+											
+											
 										</li>
-										<li>
-											<a class="timing" href="#">
-												<span>9:00</span> <span>AM</span>
-											</a>
-											<a class="timing" href="#">
-												<span>10:00</span> <span>AM</span>
-											</a>
-											<a class="timing" href="#">
-												<span>11:00</span> <span>AM</span>
-											</a>
-										</li>
-										<li>
-											<a class="timing" href="#">
-												<span>9:00</span> <span>AM</span>
-											</a>
-											<a class="timing" href="#">
-												<span>10:00</span> <span>AM</span>
-											</a>
-											<a class="timing" href="#">
-												<span>11:00</span> <span>AM</span>
-											</a>
-										</li>
-										<li>
-											<a class="timing" href="#">
-												<span>9:00</span> <span>AM</span>
-											</a>
-											<a class="timing" href="#">
-												<span>10:00</span> <span>AM</span>
-											</a>
-											<a class="timing" href="#">
-												<span>11:00</span> <span>AM</span>
-											</a>
-										</li>
-										<li>
-											<a class="timing" href="#">
-												<span>9:00</span> <span>AM</span>
-											</a>
-											<a class="timing" href="#">
-												<span>10:00</span> <span>AM</span>
-											</a>
-											<a class="timing" href="#">
-												<span>11:00</span> <span>AM</span>
-											</a>
-										</li>
-										<li>
-											<a class="timing" href="#">
-												<span>9:00</span> <span>AM</span>
-											</a>
-											<a class="timing" href="#">
-												<span>10:00</span> <span>AM</span>
-											</a>
-											<a class="timing" href="#">
-												<span>11:00</span> <span>AM</span>
-											</a>
-										</li>
-										<li>
-											<a class="timing" href="#">
-												<span>9:00</span> <span>AM</span>
-											</a>
-											<a class="timing" href="#">
-												<span>10:00</span> <span>AM</span>
-											</a>
-											<a class="timing" href="#">
-												<span>11:00</span> <span>AM</span>
-											</a>
-										</li>
+										{% endfor %}
+									
 									</ul>
 								</div>
 								<!-- /Time Slot -->
@@ -190,11 +170,12 @@
 				<!-- /Schedule Widget -->
 				
 				<!-- Submit Section -->
-				<div class="submit-section proceed-btn text-right">
-					
-					<a href="{% url 'history'  %}" class="btn btn-primary submit-btn">Proceed</a>
-					
-				</div>
+			<div class="submit-section proceed-btn text-right">
+				
+				<button type="submit" class="btn btn-primary submit-btn">Proceed</button>
+				
+			</div>
+			</form>
 				<!-- /Submit Section -->
 				
 			</div>

@@ -50,17 +50,6 @@ class MedicalHistory(models.Model):
     #         return f"History from {self.patient.user.first_name}"
 
 
-class Appointment(models.Model):
-    appointment = models.ForeignKey(MedicalHistory, on_delete=models.CASCADE, null=True)
-    # doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, null=True)
-    # patient = models.ForeignKey(Patient, on_delete=models.CASCADE, null=True)
-    appointment_time = models.CharField(max_length=30, null=True)
-    appointment_date = models.CharField(max_length=30, null=True)
-    appointment_status = models.BooleanField(default=False)
-
-    def unicode(self):
-        return self.id
-
 class Prescription(models.Model):
     name =  models.CharField(max_length=50, null=True)
     quantity  = models.CharField(max_length=50, null=True)

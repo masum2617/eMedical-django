@@ -1,7 +1,7 @@
 from django.db import models
 from datetime import datetime
 from django.db.models.deletion import CASCADE
-
+from patients.models import Patient
 from django.db.models.enums import Choices
 from django.shortcuts import redirect
 
@@ -52,20 +52,33 @@ class Experience(models.Model):
         return self.hospital_name
 
 # class Appointment(models.Model):
-#     appointment = models.ForeignKey(MedicalHistory, on_delete=models.CASCADE, null=True)
-#     # doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, null=True)
-#     # patient = models.ForeignKey(Patient, on_delete=models.CASCADE, null=True)
-#     appointment_time = models.CharField(max_length=30, null=True)
-#     appointment_date = models.CharField(max_length=30, null=True)
+    
+#     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, null=True)
+#     patient = models.ForeignKey(Patient, on_delete=models.CASCADE, null=True)
+#     appointment_time = models.CharField(max_length=50, null=True)
+#     appointment_date = models.CharField(max_length=50, null=True)
 
-#     def __str__(self):
+#     def __unicode__(self):
 #         return self.id
 
+# for when patient select appoint time from patient dashboard
+class PatientAppointment(models.Model):
+    appoint_date = models.CharField(max_length=50, null=True)
+    appoint_time = models.CharField(max_length=50, null=True)
+    appoint_day = models.CharField(max_length=50, null=True)
+    doctor = models.ForeignKey(Doctor, on_delete=models.DO_NOTHING, null=True)
+    patient = models.ForeignKey(Patient, on_delete=models.DO_NOTHING, null=True)
 
+
+# for doctor only. Doc will select time slot for his/her appointment
 class AppointmentTime(models.Model):
     day = models.CharField(max_length=50, null=True)
     time_from = models.CharField(max_length=50, null=True)
     time_to = models.CharField(max_length=50, null=True)
+    from_to = models.CharField(max_length=50, null=True)
+    appointment_date = models.DateField(null=True)
+    # month = models.CharField(max_length=50, null=True)
+    # date = models.CharField(max_length=50, null=True)
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, null=True)
 
     def __str__(self):

@@ -1,8 +1,6 @@
 from django.shortcuts import get_object_or_404, redirect, render
-
-
 from .forms import MedicalHistoryForm
-from .models import Appointment, MedicalHistory,Prescription
+from .models import MedicalHistory,Prescription
 from patients.models import Patient
 from doctors.models import Doctor,DoctorSpecialization
 
@@ -139,3 +137,5 @@ def add_prescription(request, patient_id):
     }
 
     return render(request, 'documents/add_prescription.html', context)
+
+

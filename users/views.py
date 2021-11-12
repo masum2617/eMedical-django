@@ -1,9 +1,9 @@
 from django.shortcuts import get_object_or_404, redirect, render
 
-from documents.models import Appointment,MedicalHistory
+from documents.models import MedicalHistory
 from .forms import RegistrationForm
 from .models import Account
-from doctors.models import Doctor,DoctorSpecialization
+from doctors.models import Doctor,DoctorSpecialization,AppointmentTime
 from patients.models import Patient
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
@@ -89,7 +89,7 @@ def doctor_dashboard(request):
     # print(specialization)
     specialization = DoctorSpecialization.objects.filter(doctor=current_doctor)
 
-    appointment = Appointment.objects.filter(appointment__doctor=current_doctor)
+    # appointment = Appointment.objects.filter(appointment__doctor=current_doctor)
     # print("Appoi: ",appointment)
 
     patient_appointment = MedicalHistory.objects.filter(doctor=current_doctor)
@@ -118,7 +118,7 @@ def doctor_dashboard(request):
     context = {
         'doctor': current_doctor,
         'specialization':specialization,
-        'appointment': appointment,
+        # 'appointment': appointment,
         'patient_appointment':patient_appointment,
     }
 
@@ -130,8 +130,12 @@ def patient_dashboard(request):
 
     current_appointment = MedicalHistory.objects.filter(patient=current_patient) 
 
+    # current_doctor = get_object_or_404(Doctor, doctor=current_appointment.doctor)
     # for medical records check if submitted
   
+    # appointment_date = AppointmentTime.objects.filter(doctor=current_doctor)
+    # print(appointment_date)
+    
 
 
     context = {

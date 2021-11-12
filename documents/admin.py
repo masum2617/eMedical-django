@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import MedicalHistory, MedicalRecords, Prescription, Appointment
+from .models import MedicalHistory, MedicalRecords, Prescription
 # Register your models here.
 
 class MedicalHistoryAdmin(admin.ModelAdmin):
@@ -12,5 +12,6 @@ class MedicalHistoryAdmin(admin.ModelAdmin):
 admin.site.register(MedicalHistory,MedicalHistoryAdmin)
 admin.site.register(MedicalRecords)
 admin.site.register(Prescription)
-admin.site.register(Appointment)
+# admin.site.register(PatientAppointment)
+
 

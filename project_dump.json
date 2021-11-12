@@ -1,5 +1,184 @@
 [
 {
+    "model": "doctors.doctorspecialization",
+    "pk": 30,
+    "fields": {
+        "doctor": 26,
+        "specialized_category": "Cardiologist"
+    }
+},
+{
+    "model": "doctors.doctorspecialization",
+    "pk": 31,
+    "fields": {
+        "doctor": 25,
+        "specialized_category": "Medicine"
+    }
+},
+{
+    "model": "doctors.doctorspecialization",
+    "pk": 32,
+    "fields": {
+        "doctor": 27,
+        "specialized_category": "Neurologists"
+    }
+},
+{
+    "model": "doctors.qualification",
+    "pk": 4,
+    "fields": {
+        "institution_name": "Dhaka medical college",
+        "qualification_degree": "mbbs",
+        "years_of_completion": "2014-02-12",
+        "doctor": 25
+    }
+},
+{
+    "model": "doctors.qualification",
+    "pk": 5,
+    "fields": {
+        "institution_name": "United Medical",
+        "qualification_degree": "Mbbs",
+        "years_of_completion": "2021-05-12",
+        "doctor": 25
+    }
+},
+{
+    "model": "doctors.experience",
+    "pk": 2,
+    "fields": {
+        "hospital_name": "Canada Medical College",
+        "worked_from": "2019-12-02",
+        "worked_to": "2020-07-31",
+        "designation": "Medical Officer",
+        "user": 25
+    }
+},
+{
+    "model": "doctors.experience",
+    "pk": 3,
+    "fields": {
+        "hospital_name": "Dhaka Medical",
+        "worked_from": "2016-11-01",
+        "worked_to": "2019-10-28",
+        "designation": "Senior Surgeon",
+        "user": 27
+    }
+},
+{
+    "model": "doctors.experience",
+    "pk": 4,
+    "fields": {
+        "hospital_name": "United Medical College",
+        "worked_from": "2020-01-01",
+        "worked_to": "2021-10-30",
+        "designation": "Professor",
+        "user": 25
+    }
+},
+{
+    "model": "doctors.patientappointment",
+    "pk": 1,
+    "fields": {
+        "appoint_date": null,
+        "appoint_time": "8.00 am-9.00 am",
+        "appoint_day": "sunday",
+        "doctor": 25,
+        "patient": 1
+    }
+},
+{
+    "model": "doctors.patientappointment",
+    "pk": 3,
+    "fields": {
+        "appoint_date": "",
+        "appoint_time": "10.00 am-12.00 pm",
+        "appoint_day": "Tuesday",
+        "doctor": 25,
+        "patient": 1
+    }
+},
+{
+    "model": "doctors.patientappointment",
+    "pk": 4,
+    "fields": {
+        "appoint_date": "<QuerySet [datetime.date(2021",
+        "appoint_time": "10.00 am-12.00 pm",
+        "appoint_day": "Tuesday",
+        "doctor": 25,
+        "patient": 1
+    }
+},
+{
+    "model": "doctors.patientappointment",
+    "pk": 5,
+    "fields": {
+        "appoint_date": "<QuerySet [datetime.date(2021",
+        "appoint_time": "10.00 am-12.00 pm",
+        "appoint_day": "Tuesday",
+        "doctor": 25,
+        "patient": 1
+    }
+},
+{
+    "model": "doctors.patientappointment",
+    "pk": 6,
+    "fields": {
+        "appoint_date": "",
+        "appoint_time": "02.00 pm-06.00 pm",
+        "appoint_day": "Saturday",
+        "doctor": 25,
+        "patient": 1
+    }
+},
+{
+    "model": "doctors.patientappointment",
+    "pk": 7,
+    "fields": {
+        "appoint_date": null,
+        "appoint_time": "10.00 am-12.00 pm",
+        "appoint_day": "Tuesday",
+        "doctor": 25,
+        "patient": 1
+    }
+},
+{
+    "model": "doctors.appointmenttime",
+    "pk": 11,
+    "fields": {
+        "day": "Tuesday",
+        "time_from": "10.00 am",
+        "time_to": "12.00 pm",
+        "from_to": "10.00 am-12.00 pm",
+        "appointment_date": "2021-11-16",
+        "doctor": 25
+    }
+},
+{
+    "model": "doctors.appointmenttime",
+    "pk": 12,
+    "fields": {
+        "day": "Saturday",
+        "time_from": "02.00 pm",
+        "time_to": "06.00 pm",
+        "from_to": "02.00 pm-06.00 pm",
+        "appointment_date": "2021-11-13",
+        "doctor": 25
+    }
+},
+{
+    "model": "doctors.appointmenttime",
+    "pk": 13,
+    "fields": {
+        "day": "Sunday",
+        "time_from": "10.00 am",
+        "time_to": "02.00 pm",
+        "from_to": "10.00 am-02.00 pm",
+        "appointment_date": "2021-11-14",
+        "doctor": 25
+    }
+},
+{
     "model": "users.account",
     "fields": {
         "password": "pbkdf2_sha256$260000$RkqG3UzBcrVBWMh1JLuPhc$ea1RLwQvtowg3M64eaiAlMXWcFKoPyAFvQr5jQ85vEI=",
@@ -10,7 +189,7 @@
         "phone_number": "1236987444",
         "user_type": "admin",
         "date_joined": "2021-09-29T07:25:05.878Z",
-        "last_login": "2021-10-16T04:31:40.071Z",
+        "last_login": "2021-11-12T05:14:25.995Z",
         "is_admin": true,
         "is_staff": true,
         "is_active": true,
@@ -28,7 +207,7 @@
         "phone_number": "123456789654",
         "user_type": "doctor",
         "date_joined": "2021-10-08T10:12:28.488Z",
-        "last_login": "2021-10-10T17:54:06.626Z",
+        "last_login": "2021-10-17T16:12:53.451Z",
         "is_admin": false,
         "is_staff": false,
         "is_active": true,
@@ -46,7 +225,7 @@
         "phone_number": "45632147898",
         "user_type": "patient",
         "date_joined": "2021-10-08T10:13:46.277Z",
-        "last_login": "2021-10-16T16:42:47.476Z",
+        "last_login": "2021-11-12T16:04:43.336Z",
         "is_admin": false,
         "is_staff": false,
         "is_active": true,
@@ -64,7 +243,7 @@
         "phone_number": "12365654789",
         "user_type": "patient",
         "date_joined": "2021-10-08T11:01:59.889Z",
-        "last_login": "2021-10-10T17:55:05.041Z",
+        "last_login": "2021-10-17T16:12:22.447Z",
         "is_admin": false,
         "is_staff": false,
         "is_active": true,
@@ -82,7 +261,7 @@
         "phone_number": "84524522455245",
         "user_type": "doctor",
         "date_joined": "2021-10-10T18:50:06.346Z",
-        "last_login": "2021-10-16T14:15:09.967Z",
+        "last_login": "2021-11-12T15:59:23.015Z",
         "is_admin": false,
         "is_staff": false,
         "is_active": true,
@@ -90,37 +269,206 @@
     }
 },
 {
-    "model": "documents.medicalhistory",
-    "pk": 33,
+    "model": "users.account",
     "fields": {
-        "first_name": null,
-        "last_name": null,
-        "reason": "Chest Pain",
+        "password": "pbkdf2_sha256$260000$xRt6c3uQilMuUG7NdjHP69$6zvAFPB+dYlSPS29WsFTlGCSjrxR9ol/QhRE5EVgVVU=",
+        "first_name": "John",
+        "last_name": "Denver",
+        "username": "john",
+        "email": "john@gmail.com",
+        "phone_number": "646546465454",
+        "user_type": "patient",
+        "date_joined": "2021-10-20T10:18:57.642Z",
+        "last_login": "2021-10-20T14:18:28.284Z",
+        "is_admin": false,
+        "is_staff": false,
+        "is_active": true,
+        "is_superadmin": false
+    }
+},
+{
+    "model": "pharmacy.category",
+    "pk": 1,
+    "fields": {
+        "drug_category": "Cardiovascular Drugs"
+    }
+},
+{
+    "model": "pharmacy.category",
+    "pk": 2,
+    "fields": {
+        "drug_category": "Cardiovascular Drugs"
+    }
+},
+{
+    "model": "pharmacy.category",
+    "pk": 3,
+    "fields": {
+        "drug_category": "Cardiovascular Drugs"
+    }
+},
+{
+    "model": "pharmacy.category",
+    "pk": 4,
+    "fields": {
+        "drug_category": "Respiratory Drugs"
+    }
+},
+{
+    "model": "pharmacy.drug",
+    "pk": 1,
+    "fields": {
+        "drug_name": "Lisinopril (Prinivil, Zestril)",
+        "drug_image": "drugs/2021/11/04/drug_default_hMiqoxn.jpg",
+        "category": 1,
+        "condition": "Renin–Angiotensin–Aldosterone System (RAAS)"
+    }
+},
+{
+    "model": "pharmacy.drug",
+    "pk": 3,
+    "fields": {
+        "drug_name": "Enalapril (Vasotec)",
+        "drug_image": "drugs/2021/11/04/drug_default_24tV6zD.jpg",
+        "category": 1,
+        "condition": "Renin–Angiotensin–Aldosterone System (RAAS)"
+    }
+},
+{
+    "model": "pharmacy.drug",
+    "pk": 4,
+    "fields": {
+        "drug_name": "Atenolol (Tenormin)",
+        "drug_image": "drugs/2021/11/04/drug_default_kQsSZtg.jpg",
+        "category": 1,
+        "condition": "Beta Blockers"
+    }
+},
+{
+    "model": "pharmacy.drug",
+    "pk": 5,
+    "fields": {
+        "drug_name": "Fluticasone (Flovent)",
+        "drug_image": "drugs/2021/11/04/drug_default_tETaZ3T.jpg",
+        "category": 4,
+        "condition": "Inhaled Corticosteroids and Long-Acting Beta"
+    }
+},
+{
+    "model": "documents.medicalhistory",
+    "pk": 35,
+    "fields": {
+        "first_name": "Hasan",
+        "last_name": "masum",
+        "reason": "ab",
         "ever_had": "",
-        "height": null,
-        "weight": "60",
-        "age": "35",
+        "weight": "43",
+        "age": "22",
         "gender": null,
-        "blood_group": null,
-        "previous_operation": "Eye Surgery",
-        "current_medication": "None",
-        "other_illness": "",
-        "other_information": "",
+        "blood_group": "B+",
+        "previous_operation": "gghhdsf",
+        "current_medication": "sdfv",
+        "other_illness": "yuik",
+        "other_information": "tteeeeee",
         "is_processing": true,
-        "is_active": false,
-        "date_created": "2021-10-16T22:44:28.808Z",
+        "is_active": true,
+        "date_created": "2021-10-17T22:28:29.080Z",
         "patient": 1,
         "doctor": 25
     }
 },
 {
-    "model": "documents.appointment",
+    "model": "documents.medicalhistory",
+    "pk": 36,
+    "fields": {
+        "first_name": "John",
+        "last_name": "Denver",
+        "reason": "ab",
+        "ever_had": "",
+        "weight": "43",
+        "age": "22",
+        "gender": "male",
+        "blood_group": "B-",
+        "previous_operation": "gghhdsf",
+        "current_medication": "erer",
+        "other_illness": "xcvxc",
+        "other_information": "None",
+        "is_processing": true,
+        "is_active": true,
+        "date_created": "2021-10-20T16:24:40Z",
+        "patient": 3,
+        "doctor": 25
+    }
+},
+{
+    "model": "documents.medicalhistory",
+    "pk": 39,
+    "fields": {
+        "first_name": null,
+        "last_name": null,
+        "reason": "",
+        "ever_had": "",
+        "weight": null,
+        "age": null,
+        "gender": null,
+        "blood_group": null,
+        "previous_operation": "",
+        "current_medication": "",
+        "other_illness": "",
+        "other_information": "",
+        "is_processing": false,
+        "is_active": false,
+        "date_created": "2021-11-11T21:10:15.661Z",
+        "patient": 1,
+        "doctor": 26
+    }
+},
+{
+    "model": "documents.prescription",
+    "pk": 3,
+    "fields": {
+        "name": "yu",
+        "quantity": "56",
+        "days": "4",
+        "morning": "morning",
+        "afternoon": "None",
+        "evening": "None",
+        "night": "night",
+        "doctor": 25,
+        "patient": 1,
+        "uploaded_date": "2021-11-08T22:24:03.255Z"
+    }
+},
+{
+    "model": "documents.prescription",
     "pk": 4,
     "fields": {
-        "appointment": 33,
-        "appointment_time": null,
-        "appointment_date": null,
-        "appointment_status": false
+        "name": "tret",
+        "quantity": "200",
+        "days": "8",
+        "morning": "morning",
+        "afternoon": "afternoon",
+        "evening": null,
+        "night": null,
+        "doctor": 25,
+        "patient": 1,
+        "uploaded_date": "2021-11-09T01:24:38.632Z"
+    }
+},
+{
+    "model": "documents.prescription",
+    "pk": 5,
+    "fields": {
+        "name": "uy",
+        "quantity": "56",
+        "days": "6",
+        "morning": "morning",
+        "afternoon": "afternoon",
+        "evening": null,
+        "night": null,
+        "doctor": 25,
+        "patient": 1,
+        "uploaded_date": "2021-11-09T01:25:37.614Z"
     }
 },
 {
@@ -129,6 +477,30 @@
     "fields": {
         "session_data": ".eJxVjDsOwjAQBe_iGllr_Isp6XMGa71e4wBypDipEHeHSCmgfTPzXiLitta4dV7ilMVFKHH63RLSg9sO8h3bbZY0t3WZktwVedAuxznz83q4fwcVe_3WzkCwpQB4TIkGCGwdgLZ4dgm0GZRVxmtFGLQnjQqyw4CsiBm4FBbvD79WN7Y:1mVpH1:HP3rsxUBeXBUAE5a0ER8dH2N4hmYDw5kRdIUHaSN3yA",
         "expire_date": "2021-10-14T06:10:27.927Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "2yxh4q34kzk7f0n5vhw1uksa96nojyic",
+    "fields": {
+        "session_data": ".eJxVjDsOwjAQBe_iGllr_Isp6XMGa71e4wBypDipEHeHSCmgfTPzXiLitta4dV7ilMVFKHH63RLSg9sO8h3bbZY0t3WZktwVedAuxznz83q4fwcVe_3WzkCwpQB4TIkGCGwdgLZ4dgm0GZRVxmtFGLQnjQqyw4CsiBm4FBbvD79WN7Y:1mhXak:csqRhFFiOHeDSNS7LdmFkD3la9fBJOkxqkxgeTwk2Rg",
+        "expire_date": "2021-11-15T13:43:14.011Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "3ej3bliuhp50mvyi60jevk7tx8vbii5o",
+    "fields": {
+        "session_data": ".eJxVjDsOwjAQBe_iGllr_Isp6XMGa71e4wBypDipEHeHSCmgfTPzXiLitta4dV7ilMVFKHH63RLSg9sO8h3bbZY0t3WZktwVedAuxznz83q4fwcVe_3WzkCwpQB4TIkGCGwdgLZ4dgm0GZRVxmtFGLQnjQqyw4CsiBm4FBbvD79WN7Y:1mlOtO:EF9_jHA4MO4E6FXKBTYDHo-EgRprwgkdxGRwdeAZySE",
+        "expire_date": "2021-11-26T05:14:26.333Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "4s25ai39qoacgkqjlez8oa5u0av82tdj",
+    "fields": {
+        "session_data": ".eJxVjDsOwjAQBe_iGllr_Isp6XMGa71e4wBypDipEHeHSCmgfTPzXiLitta4dV7ilMVFKHH63RLSg9sO8h3bbZY0t3WZktwVedAuxznz83q4fwcVe_3WzkCwpQB4TIkGCGwdgLZ4dgm0GZRVxmtFGLQnjQqyw4CsiBm4FBbvD79WN7Y:1mc8d7:VkB24sEu_9NsGYHV-qWVxjNjURrLMWEcPWVGag8eZnw",
+        "expire_date": "2021-10-31T16:03:21.977Z"
     }
 },
 {
@@ -157,10 +529,34 @@
 },
 {
     "model": "sessions.session",
+    "pk": "8rhs9ui38ybbums5d1xsqui7ds92l3co",
+    "fields": {
+        "session_data": ".eJxVjDsOwjAQBe_iGllr_Isp6XMGa71e4wBypDipEHeHSCmgfTPzXiLitta4dV7ilMVFKHH63RLSg9sO8h3bbZY0t3WZktwVedAuxznz83q4fwcVe_3WzkCwpQB4TIkGCGwdgLZ4dgm0GZRVxmtFGLQnjQqyw4CsiBm4FBbvD79WN7Y:1mjz1B:DEyAzBQlKAmSz80xlxhPSY5MMx6DT_YJaPR8N5FF9r4",
+        "expire_date": "2021-11-22T07:24:37.914Z"
+    }
+},
+{
+    "model": "sessions.session",
     "pk": "9h0ubx08jrrmo1jsgwwabx57anz997v2",
     "fields": {
         "session_data": ".eJxVjDsOwjAQBe_iGllr_Isp6XMGa71e4wBypDipEHeHSCmgfTPzXiLitta4dV7ilMVFKHH63RLSg9sO8h3bbZY0t3WZktwVedAuxznz83q4fwcVe_3WzkCwpQB4TIkGCGwdgLZ4dgm0GZRVxmtFGLQnjQqyw4CsiBm4FBbvD79WN7Y:1mbGF4:wQqk06o14OQAE3_r0UJXdIkbeC0kQbJ8sHowMGqTsMo",
         "expire_date": "2021-10-29T05:58:54.751Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "a4hb82bklgizxlpvkiswz328ni11ifgr",
+    "fields": {
+        "session_data": ".eJxVjDsOwjAQBe_iGllr_Isp6XMGa71e4wBypDipEHeHSCmgfTPzXiLitta4dV7ilMVFKHH63RLSg9sO8h3bbZY0t3WZktwVedAuxznz83q4fwcVe_3WzkCwpQB4TIkGCGwdgLZ4dgm0GZRVxmtFGLQnjQqyw4CsiBm4FBbvD79WN7Y:1miYYU:xU4r5xwG1wEq4UAK3SmdKOFjyMbNE_PGNJmzi2nPltk",
+        "expire_date": "2021-11-18T08:57:06.217Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "aqukhd0cc1uvi2ttoqkz6d1vx3gkjgmb",
+    "fields": {
+        "session_data": ".eJxVjDsOwjAQBe_iGllr_Isp6XMGa71e4wBypDipEHeHSCmgfTPzXiLitta4dV7ilMVFKHH63RLSg9sO8h3bbZY0t3WZktwVedAuxznz83q4fwcVe_3WzkCwpQB4TIkGCGwdgLZ4dgm0GZRVxmtFGLQnjQqyw4CsiBm4FBbvD79WN7Y:1mkrkt:on3SjKApwTaWtI1MD_PLyplvxsc58LBoDYSQaNpIedY",
+        "expire_date": "2021-11-24T17:51:27.874Z"
     }
 },
 {
@@ -197,6 +593,14 @@
 },
 {
     "model": "sessions.session",
+    "pk": "g1wzjzvf5qaksx0j2s18a3m2qxxzxuc8",
+    "fields": {
+        "session_data": ".eJxVjDsOwjAQBe_iGllr_Isp6XMGa71e4wBypDipEHeHSCmgfTPzXiLitta4dV7ilMVFKHH63RLSg9sO8h3bbZY0t3WZktwVedAuxznz83q4fwcVe_3WzkCwpQB4TIkGCGwdgLZ4dgm0GZRVxmtFGLQnjQqyw4CsiBm4FBbvD79WN7Y:1mlBWb:rGM8LIIShePHlViULNbQid1xeetKOwmvEqeknOVqcZE",
+        "expire_date": "2021-11-25T14:58:01.951Z"
+    }
+},
+{
+    "model": "sessions.session",
     "pk": "h6ypxq1l59ymbgix4ansc0yxnflfyhw3",
     "fields": {
         "session_data": "e30:1mVpZr:-vOQcRCOSUsB2x_Fd2iPc9xs6AN2EDAKkDue025gtwg",
@@ -205,10 +609,50 @@
 },
 {
     "model": "sessions.session",
+    "pk": "hofruz9wwzjhi2u940d0zkrsgfzggbam",
+    "fields": {
+        "session_data": ".eJxVjDsOwjAQBe_iGllr_Isp6XMGa71e4wBypDipEHeHSCmgfTPzXiLitta4dV7ilMVFKHH63RLSg9sO8h3bbZY0t3WZktwVedAuxznz83q4fwcVe_3WzkCwpQB4TIkGCGwdgLZ4dgm0GZRVxmtFGLQnjQqyw4CsiBm4FBbvD79WN7Y:1mcuNu:4tg0h_HOlEqNoE1AEbiqS5K-hkWRgPcXkltQWinZ1dI",
+        "expire_date": "2021-11-02T19:02:50.244Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "lw88bedwos9po535r1fxjx171oqpyfk9",
+    "fields": {
+        "session_data": ".eJxVjDsOwjAQBe_iGllr_Isp6XMGa71e4wBypDipEHeHSCmgfTPzXiLitta4dV7ilMVFKHH63RLSg9sO8h3bbZY0t3WZktwVedAuxznz83q4fwcVe_3WzkCwpQB4TIkGCGwdgLZ4dgm0GZRVxmtFGLQnjQqyw4CsiBm4FBbvD79WN7Y:1miFN5:w_Sd7yiBLGhiKQwnC_DHZOAQ86SK0DO3wFSrI3Wb5iI",
+        "expire_date": "2021-11-17T12:28:03.543Z"
+    }
+},
+{
+    "model": "sessions.session",
     "pk": "lz5oggzqexw0j2wrgen4iou49b5wprmu",
     "fields": {
         "session_data": ".eJxVjDsOwjAQBe_iGllr_Isp6XMGa71e4wBypDipEHeHSCmgfTPzXiLitta4dV7ilMVFKHH63RLSg9sO8h3bbZY0t3WZktwVedAuxznz83q4fwcVe_3WzkCwpQB4TIkGCGwdgLZ4dgm0GZRVxmtFGLQnjQqyw4CsiBm4FBbvD79WN7Y:1mZvBN:j501S6s3HF_UXP45ALPzu6EMzVo9w6dzYc3tlLBopFA",
         "expire_date": "2021-10-25T13:17:33.026Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "mh9gjxtt4180glax7fu9iq92iw4pjpbq",
+    "fields": {
+        "session_data": ".eJxVjMsOwiAURP-FtSHUFgSX7vsN5D64UjWQlHZl_HfbpAtNZjXnzLxVhHXJcW1pjhOrq3Lq9Nsh0DOVHfADyr1qqmWZJ9S7og_a9Fg5vW6H-3eQoeVtbdhZCF4E0ZtEl4QBhIPpZHCdMx773lISdmj82Q3iwRJt6TEQBCvq8wULYjkE:1mlZ2h:ItQ1CW9znhjQydkHusBSXnABCpDby6Kh5bZtIw4XO60",
+        "expire_date": "2021-11-26T16:04:43.344Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "mplchfduup0kq7dv65d9fdkgwmaw29po",
+    "fields": {
+        "session_data": ".eJxVjDsOwjAQBe_iGllr_Isp6XMGa71e4wBypDipEHeHSCmgfTPzXiLitta4dV7ilMVFKHH63RLSg9sO8h3bbZY0t3WZktwVedAuxznz83q4fwcVe_3WzkCwpQB4TIkGCGwdgLZ4dgm0GZRVxmtFGLQnjQqyw4CsiBm4FBbvD79WN7Y:1mgqXO:BPmKbjyjo-e5aI0RMkNP69FJH3E-amVilmu9tp5XTb8",
+        "expire_date": "2021-11-13T15:44:54.033Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "nty0gxx7baz8xf2fvpr73nx7u8pwhwp7",
+    "fields": {
+        "session_data": ".eJxVjMsOwiAQRf-FtSE8Biwu3fcbyAyMUjU0Ke3K-O_SpAvdnnPufYuI21ri1niJUxYXoUGcfiFhenLdTX5gvc8yzXVdJpJ7Ig_b5Dhnfl2P9u-gYCt97YC18hBMMMQDJefAsCfr6JZttjh0xjopxF4msudAygBZAmO8Ri8-XwbeOBs:1mjz28:XZ_B3-052SmukIOS79xwQ_l_XZv6RePXigSPw_x57yY",
+        "expire_date": "2021-11-22T07:25:36.068Z"
     }
 },
 {
@@ -225,6 +669,14 @@
     "fields": {
         "session_data": "e30:1mVpb8:sycJQUe1LHHOl1HQftfC44De6Rhak8ClIhmFhCmS8eM",
         "expire_date": "2021-10-14T06:31:14.263Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "pbxgvli6rmed5e71eo41km3f08c8mc8f",
+    "fields": {
+        "session_data": ".eJxVjDsOwjAQBe_iGllr_Isp6XMGa71e4wBypDipEHeHSCmgfTPzXiLitta4dV7ilMVFKHH63RLSg9sO8h3bbZY0t3WZktwVedAuxznz83q4fwcVe_3WzkCwpQB4TIkGCGwdgLZ4dgm0GZRVxmtFGLQnjQqyw4CsiBm4FBbvD79WN7Y:1mh39r:k5XQtQTbkomHlkKedmfGGexF0XqLAd9hDyaPwxYZBcs",
+        "expire_date": "2021-11-14T05:13:27.881Z"
     }
 },
 {
@@ -249,6 +701,14 @@
     "fields": {
         "session_data": ".eJxVjDsOwjAQBe_iGllr_Isp6XMGa71e4wBypDipEHeHSCmgfTPzXiLitta4dV7ilMVFKHH63RLSg9sO8h3bbZY0t3WZktwVedAuxznz83q4fwcVe_3WzkCwpQB4TIkGCGwdgLZ4dgm0GZRVxmtFGLQnjQqyw4CsiBm4FBbvD79WN7Y:1mZR8T:uPK5p-wm3d7Cb1jzYxCcBrUhjJtaqJc_85MkZOGNflU",
         "expire_date": "2021-10-24T05:12:33.576Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "uct99t12ok2k4g97sqfnhi3z8k56u635",
+    "fields": {
+        "session_data": ".eJxVjDsOwjAQBe_iGllr_Isp6XMGa71e4wBypDipEHeHSCmgfTPzXiLitta4dV7ilMVFKHH63RLSg9sO8h3bbZY0t3WZktwVedAuxznz83q4fwcVe_3WzkCwpQB4TIkGCGwdgLZ4dgm0GZRVxmtFGLQnjQqyw4CsiBm4FBbvD79WN7Y:1md8dM:OXw73qZkqIn-iR0srrnnVM46hY1qvlpvv0GD9wLeHYY",
+        "expire_date": "2021-11-03T10:15:44.366Z"
     }
 },
 {
@@ -294,13 +754,30 @@
     }
 },
 {
+    "model": "patients.patient",
+    "pk": 3,
+    "fields": {
+        "profile_image": "default.png",
+        "city": null,
+        "state": null,
+        "country": null,
+        "gender": null,
+        "blood_group": null,
+        "date_joined": "2021-10-20T16:19:09.401Z",
+        "date_of_birth": null,
+        "user": [
+            "john@gmail.com"
+        ]
+    }
+},
+{
     "model": "doctors.doctor",
     "pk": 25,
     "fields": {
         "city": "Dhaka",
-        "profile_image": "doctors/2021/10/16/default.png",
-        "gender": "male",
-        "description": "I am a Professional Doctor",
+        "profile_image": "doctors/2021/10/20/10524640_754478914621399_5356876429276114842_n.jpg",
+        "gender": "female",
+        "description": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum,",
         "date_joined": "2021-10-16T22:37:21Z",
         "user": [
             "s@gmail.com"
@@ -311,13 +788,27 @@
     "model": "doctors.doctor",
     "pk": 26,
     "fields": {
-        "city": "New York",
+        "city": "Torronto",
         "profile_image": "doctors/2021/10/16/default_jJBpiCl.png",
         "gender": "male",
-        "description": "I am a Professional Doctor",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur!",
         "date_joined": "2021-10-16T22:37:56Z",
         "user": [
             "j@gmail.com"
+        ]
+    }
+},
+{
+    "model": "doctors.doctor",
+    "pk": 27,
+    "fields": {
+        "city": "Montreal",
+        "profile_image": "doctors/2021/10/20/5423_-_Programmer.png",
+        "gender": "male",
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
+        "date_joined": "2021-10-17T22:03:57Z",
+        "user": [
+            "r@gmail.com"
         ]
     }
 },
@@ -393,7 +884,438 @@
         "change_message": "[{\"added\": {}}]"
     }
 },
-
+{
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+        "action_time": "2021-09-30T19:52:05.392Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "specialization"
+        ],
+        "object_id": "3",
+        "object_repr": "cardio",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+        "action_time": "2021-09-30T19:52:40.925Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "doctorspecialization"
+        ],
+        "object_id": "2",
+        "object_repr": "DoctorSpecialization object (2)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+        "action_time": "2021-10-01T09:16:10.470Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "doctorspecialization"
+        ],
+        "object_id": "2",
+        "object_repr": "DoctorSpecialization object (2)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+        "action_time": "2021-10-01T09:55:12.638Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "specialization"
+        ],
+        "object_id": "5",
+        "object_repr": "Specialization object (5)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+        "action_time": "2021-10-01T16:12:00.895Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "specialization"
+        ],
+        "object_id": "7",
+        "object_repr": "[]",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+        "action_time": "2021-10-01T16:12:01.010Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "specialization"
+        ],
+        "object_id": "6",
+        "object_repr": "[]",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+        "action_time": "2021-10-01T16:12:01.012Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "specialization"
+        ],
+        "object_id": "5",
+        "object_repr": "Cardiologists,Dermatologists",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+        "action_time": "2021-10-01T16:12:01.013Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "specialization"
+        ],
+        "object_id": "3",
+        "object_repr": "cardio",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+        "action_time": "2021-10-01T16:12:54.806Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "specialization"
+        ],
+        "object_id": "8",
+        "object_repr": "['a', 'b']",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+        "action_time": "2021-10-01T17:05:23.478Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "specialization"
+        ],
+        "object_id": "13",
+        "object_repr": "['a', 'b']",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+        "action_time": "2021-10-01T17:05:23.597Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "specialization"
+        ],
+        "object_id": "12",
+        "object_repr": "['a', 'b']",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 16,
+    "fields": {
+        "action_time": "2021-10-01T17:05:23.599Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "specialization"
+        ],
+        "object_id": "11",
+        "object_repr": "['a', 'b']",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 17,
+    "fields": {
+        "action_time": "2021-10-01T17:05:23.614Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "specialization"
+        ],
+        "object_id": "10",
+        "object_repr": "b",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 18,
+    "fields": {
+        "action_time": "2021-10-01T17:05:23.630Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "specialization"
+        ],
+        "object_id": "9",
+        "object_repr": "['b', 'c']",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 19,
+    "fields": {
+        "action_time": "2021-10-01T17:11:19.533Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "specialization"
+        ],
+        "object_id": "14",
+        "object_repr": "c",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 20,
+    "fields": {
+        "action_time": "2021-10-01T17:33:09.194Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "specialization"
+        ],
+        "object_id": "17",
+        "object_repr": "b",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 21,
+    "fields": {
+        "action_time": "2021-10-01T17:33:09.203Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "specialization"
+        ],
+        "object_id": "16",
+        "object_repr": "b",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 22,
+    "fields": {
+        "action_time": "2021-10-01T19:27:56.587Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "doctorspecialization"
+        ],
+        "object_id": "6",
+        "object_repr": "Dermatologists",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 23,
+    "fields": {
+        "action_time": "2021-10-01T19:27:56.661Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "doctorspecialization"
+        ],
+        "object_id": "5",
+        "object_repr": "Anesthesiologists",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 24,
+    "fields": {
+        "action_time": "2021-10-01T19:28:14.882Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "doctorspecialization"
+        ],
+        "object_id": "8",
+        "object_repr": "Cardiologists",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Doctor\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 25,
+    "fields": {
+        "action_time": "2021-10-07T20:04:27.028Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "doctorspecialization"
+        ],
+        "object_id": "10",
+        "object_repr": "Endocrinologists",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 26,
+    "fields": {
+        "action_time": "2021-10-07T20:04:27.058Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "doctorspecialization"
+        ],
+        "object_id": "9",
+        "object_repr": "Anesthesiologists",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 27,
+    "fields": {
+        "action_time": "2021-10-07T20:04:27.079Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "doctorspecialization"
+        ],
+        "object_id": "8",
+        "object_repr": "Cardiologists",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 28,
+    "fields": {
+        "action_time": "2021-10-07T20:04:27.081Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "doctorspecialization"
+        ],
+        "object_id": "7",
+        "object_repr": "Anesthesiologists",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
 {
     "model": "admin.logentry",
     "pk": 29,
@@ -2138,6 +3060,1212 @@
         "object_repr": "Cardiologist",
         "action_flag": 3,
         "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 126,
+    "fields": {
+        "action_time": "2021-10-17T16:05:32.343Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "documents",
+            "medicalhistory"
+        ],
+        "object_id": "33",
+        "object_repr": "MedicalHistory object (33)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 127,
+    "fields": {
+        "action_time": "2021-10-17T16:11:45.146Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "documents",
+            "medicalhistory"
+        ],
+        "object_id": "34",
+        "object_repr": "MedicalHistory object (34)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Height\", \"Gender\", \"Blood group\", \"Doctor\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 128,
+    "fields": {
+        "action_time": "2021-10-17T16:11:59.310Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "documents",
+            "medicalhistory"
+        ],
+        "object_id": "34",
+        "object_repr": "MedicalHistory object (34)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Doctor\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 129,
+    "fields": {
+        "action_time": "2021-10-17T16:12:39.940Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "documents",
+            "medicalhistory"
+        ],
+        "object_id": "34",
+        "object_repr": "MedicalHistory object (34)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Doctor\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 130,
+    "fields": {
+        "action_time": "2021-10-17T16:28:04.804Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "documents",
+            "medicalhistory"
+        ],
+        "object_id": "34",
+        "object_repr": "MedicalHistory object (34)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 131,
+    "fields": {
+        "action_time": "2021-10-19T19:10:51.611Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "doctor"
+        ],
+        "object_id": "26",
+        "object_repr": "Mahbub",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 132,
+    "fields": {
+        "action_time": "2021-10-19T19:11:18.705Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "doctor"
+        ],
+        "object_id": "25",
+        "object_repr": "Sadman",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 133,
+    "fields": {
+        "action_time": "2021-10-19T19:28:38.540Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "doctorspecialization"
+        ],
+        "object_id": "30",
+        "object_repr": "Cardiologist",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 134,
+    "fields": {
+        "action_time": "2021-10-19T19:34:10.294Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "doctorspecialization"
+        ],
+        "object_id": "31",
+        "object_repr": "Dentist",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 135,
+    "fields": {
+        "action_time": "2021-10-19T19:39:08.310Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "doctor"
+        ],
+        "object_id": "26",
+        "object_repr": "Mahbub",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"City\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 136,
+    "fields": {
+        "action_time": "2021-10-19T19:44:32.969Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "doctor"
+        ],
+        "object_id": "26",
+        "object_repr": "Mahbub",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 137,
+    "fields": {
+        "action_time": "2021-10-19T19:52:18.433Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "doctor"
+        ],
+        "object_id": "27",
+        "object_repr": "Robin",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"City\", \"Profile image\", \"Gender\", \"Description\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 138,
+    "fields": {
+        "action_time": "2021-10-19T19:54:00.546Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "doctorspecialization"
+        ],
+        "object_id": "32",
+        "object_repr": "Neurologists",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 139,
+    "fields": {
+        "action_time": "2021-10-20T10:24:21.883Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "users",
+            "account"
+        ],
+        "object_id": "15",
+        "object_repr": "john@gmail.com",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Last name\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 140,
+    "fields": {
+        "action_time": "2021-10-20T11:08:34.166Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "documents",
+            "medicalhistory"
+        ],
+        "object_id": "36",
+        "object_repr": "MedicalHistory object (36)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Height\", \"Gender\", \"Is active\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 141,
+    "fields": {
+        "action_time": "2021-10-20T14:15:26.758Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "documents",
+            "medicalhistory"
+        ],
+        "object_id": "36",
+        "object_repr": "MedicalHistory object (36)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Is active\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 142,
+    "fields": {
+        "action_time": "2021-10-20T14:17:01.605Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "documents",
+            "medicalhistory"
+        ],
+        "object_id": "36",
+        "object_repr": "MedicalHistory object (36)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Is active\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 143,
+    "fields": {
+        "action_time": "2021-10-20T14:24:58.435Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "documents",
+            "medicalhistory"
+        ],
+        "object_id": "36",
+        "object_repr": "MedicalHistory object (36)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Is active\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 144,
+    "fields": {
+        "action_time": "2021-10-30T16:37:59.241Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "doctor"
+        ],
+        "object_id": "25",
+        "object_repr": "Sadman",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Gender\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 145,
+    "fields": {
+        "action_time": "2021-10-31T17:31:08.599Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "doctorspecialization"
+        ],
+        "object_id": "31",
+        "object_repr": "Medicine",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Specialized category\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 146,
+    "fields": {
+        "action_time": "2021-11-03T13:29:22.657Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "pharmacy",
+            "cardiovascular"
+        ],
+        "object_id": "1",
+        "object_repr": "Lisinopril (Prinivil, Zestril)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 147,
+    "fields": {
+        "action_time": "2021-11-03T13:30:43.041Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "pharmacy",
+            "cardiovascular"
+        ],
+        "object_id": "2",
+        "object_repr": "Enalapril (Vasotec)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 148,
+    "fields": {
+        "action_time": "2021-11-03T13:33:33.015Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "pharmacy",
+            "cardiovascular"
+        ],
+        "object_id": "3",
+        "object_repr": "Ramipril (Altace)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 149,
+    "fields": {
+        "action_time": "2021-11-03T13:34:19.138Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "pharmacy",
+            "cardiovascular"
+        ],
+        "object_id": "3",
+        "object_repr": "Ramipril (Altace)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Drug image\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 150,
+    "fields": {
+        "action_time": "2021-11-03T16:28:40.715Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "pharmacy",
+            "cardiovascular"
+        ],
+        "object_id": "4",
+        "object_repr": "bbb",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 151,
+    "fields": {
+        "action_time": "2021-11-04T16:38:27.228Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "pharmacy",
+            "cardiovascular"
+        ],
+        "object_id": "4",
+        "object_repr": "Atenolol (Tenormin)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Drug category\", \"Condition\", \"Drug name\", \"Drug image\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 152,
+    "fields": {
+        "action_time": "2021-11-04T17:22:02.875Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "pharmacy",
+            "category"
+        ],
+        "object_id": "1",
+        "object_repr": "Cardiovascular Drugs",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 153,
+    "fields": {
+        "action_time": "2021-11-04T17:22:29.243Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "pharmacy",
+            "category"
+        ],
+        "object_id": "2",
+        "object_repr": "Cardiovascular Drugs",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 154,
+    "fields": {
+        "action_time": "2021-11-04T17:22:51.334Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "pharmacy",
+            "category"
+        ],
+        "object_id": "3",
+        "object_repr": "Cardiovascular Drugs",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 155,
+    "fields": {
+        "action_time": "2021-11-04T17:23:11.098Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "pharmacy",
+            "category"
+        ],
+        "object_id": "4",
+        "object_repr": "Respiratory Drugs",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 156,
+    "fields": {
+        "action_time": "2021-11-04T17:23:52.428Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "pharmacy",
+            "drug"
+        ],
+        "object_id": "1",
+        "object_repr": "Lisinopril (Prinivil, Zestril)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 157,
+    "fields": {
+        "action_time": "2021-11-04T17:24:27.507Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "pharmacy",
+            "drug"
+        ],
+        "object_id": "2",
+        "object_repr": "Enalapril (Vasotec)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 158,
+    "fields": {
+        "action_time": "2021-11-04T17:26:18.265Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "pharmacy",
+            "drug"
+        ],
+        "object_id": "3",
+        "object_repr": "Enalapril (Vasotec)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 159,
+    "fields": {
+        "action_time": "2021-11-04T17:26:40.811Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "pharmacy",
+            "drug"
+        ],
+        "object_id": "2",
+        "object_repr": "Enalapril (Vasotec)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 160,
+    "fields": {
+        "action_time": "2021-11-04T17:26:45.670Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "pharmacy",
+            "drug"
+        ],
+        "object_id": "1",
+        "object_repr": "Lisinopril (Prinivil, Zestril)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Condition\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 161,
+    "fields": {
+        "action_time": "2021-11-04T17:27:10.763Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "pharmacy",
+            "drug"
+        ],
+        "object_id": "4",
+        "object_repr": "Atenolol (Tenormin)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 162,
+    "fields": {
+        "action_time": "2021-11-04T17:27:33.003Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "pharmacy",
+            "drug"
+        ],
+        "object_id": "5",
+        "object_repr": "Fluticasone (Flovent)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 163,
+    "fields": {
+        "action_time": "2021-11-08T14:41:33.292Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "documents",
+            "prescription"
+        ],
+        "object_id": "1",
+        "object_repr": "Prescription object (1)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Time\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 164,
+    "fields": {
+        "action_time": "2021-11-08T14:42:02.588Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "documents",
+            "prescription"
+        ],
+        "object_id": "1",
+        "object_repr": "Prescription object (1)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 165,
+    "fields": {
+        "action_time": "2021-11-08T16:23:52.353Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "documents",
+            "prescription"
+        ],
+        "object_id": "2",
+        "object_repr": "Prescription object (2)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 166,
+    "fields": {
+        "action_time": "2021-11-11T15:33:16.799Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "documents",
+            "medicalhistory"
+        ],
+        "object_id": "38",
+        "object_repr": "MedicalHistory object (38)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 167,
+    "fields": {
+        "action_time": "2021-11-11T15:33:17.002Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "documents",
+            "medicalhistory"
+        ],
+        "object_id": "37",
+        "object_repr": "MedicalHistory object (37)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 168,
+    "fields": {
+        "action_time": "2021-11-11T16:54:17.839Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "appointmenttime"
+        ],
+        "object_id": "2",
+        "object_repr": "sunday",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 169,
+    "fields": {
+        "action_time": "2021-11-12T08:21:37.917Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "appointmenttime"
+        ],
+        "object_id": "6",
+        "object_repr": "Friday",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Doctor\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 170,
+    "fields": {
+        "action_time": "2021-11-12T08:25:15.170Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "appointmenttime"
+        ],
+        "object_id": "5",
+        "object_repr": "monday",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Time from\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 171,
+    "fields": {
+        "action_time": "2021-11-12T09:08:31.130Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "appointmenttime"
+        ],
+        "object_id": "3",
+        "object_repr": "monday",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Time from\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 172,
+    "fields": {
+        "action_time": "2021-11-12T09:08:54.152Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "appointmenttime"
+        ],
+        "object_id": "3",
+        "object_repr": "monday",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Time from\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 173,
+    "fields": {
+        "action_time": "2021-11-12T10:13:17.152Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "appointmenttime"
+        ],
+        "object_id": "1",
+        "object_repr": "sunday",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"From to\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 174,
+    "fields": {
+        "action_time": "2021-11-12T10:13:34.712Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "appointmenttime"
+        ],
+        "object_id": "6",
+        "object_repr": "Friday",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"From to\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 175,
+    "fields": {
+        "action_time": "2021-11-12T10:13:45.623Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "appointmenttime"
+        ],
+        "object_id": "5",
+        "object_repr": "monday",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"From to\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 176,
+    "fields": {
+        "action_time": "2021-11-12T10:13:56.173Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "appointmenttime"
+        ],
+        "object_id": "4",
+        "object_repr": "sunday",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"From to\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 177,
+    "fields": {
+        "action_time": "2021-11-12T10:14:06.917Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "appointmenttime"
+        ],
+        "object_id": "3",
+        "object_repr": "monday",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"From to\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 178,
+    "fields": {
+        "action_time": "2021-11-12T12:13:37.901Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "appointmenttime"
+        ],
+        "object_id": "5",
+        "object_repr": "monday",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Time from\", \"Time to\", \"From to\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 179,
+    "fields": {
+        "action_time": "2021-11-12T14:26:44.684Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "appointmenttime"
+        ],
+        "object_id": "7",
+        "object_repr": "Wednesday",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 180,
+    "fields": {
+        "action_time": "2021-11-12T14:31:04.596Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "appointmenttime"
+        ],
+        "object_id": "6",
+        "object_repr": "Friday",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 181,
+    "fields": {
+        "action_time": "2021-11-12T14:31:04.649Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "appointmenttime"
+        ],
+        "object_id": "5",
+        "object_repr": "monday",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 182,
+    "fields": {
+        "action_time": "2021-11-12T14:31:04.654Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "appointmenttime"
+        ],
+        "object_id": "4",
+        "object_repr": "sunday",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 183,
+    "fields": {
+        "action_time": "2021-11-12T14:31:04.659Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "appointmenttime"
+        ],
+        "object_id": "3",
+        "object_repr": "monday",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 184,
+    "fields": {
+        "action_time": "2021-11-12T14:31:04.663Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "appointmenttime"
+        ],
+        "object_id": "1",
+        "object_repr": "sunday",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 185,
+    "fields": {
+        "action_time": "2021-11-12T14:34:29.753Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "appointmenttime"
+        ],
+        "object_id": "8",
+        "object_repr": "monday",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 186,
+    "fields": {
+        "action_time": "2021-11-12T15:04:39.759Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "appointmenttime"
+        ],
+        "object_id": "9",
+        "object_repr": "2021-11-14",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 187,
+    "fields": {
+        "action_time": "2021-11-12T15:06:35.209Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "appointmenttime"
+        ],
+        "object_id": "10",
+        "object_repr": "16",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 188,
+    "fields": {
+        "action_time": "2021-11-12T15:20:31.421Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "patientappointment"
+        ],
+        "object_id": "2",
+        "object_repr": "PatientAppointment object (2)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 189,
+    "fields": {
+        "action_time": "2021-11-12T16:54:00.780Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "experience"
+        ],
+        "object_id": "2",
+        "object_repr": "Canada Medical College",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 190,
+    "fields": {
+        "action_time": "2021-11-12T16:54:53.436Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "experience"
+        ],
+        "object_id": "3",
+        "object_repr": "Dhaka Medical",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 191,
+    "fields": {
+        "action_time": "2021-11-12T16:55:42.608Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "experience"
+        ],
+        "object_id": "4",
+        "object_repr": "United Medical College",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 192,
+    "fields": {
+        "action_time": "2021-11-12T16:56:14.751Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "qualification"
+        ],
+        "object_id": "5",
+        "object_repr": "United Medical",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
     }
 }
 ]

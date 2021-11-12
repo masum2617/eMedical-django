@@ -1,9 +1,11 @@
+import datetime
+from re import split
 from django.core.checks import messages
 from django.shortcuts import get_object_or_404, redirect, render
 
 from documents.models import MedicalHistory
 from patients.models import Patient
-from .models import Doctor, DoctorSpecialization, Experience, Qualification,AppointmentTime
+from .models import Doctor, DoctorSpecialization, Experience, Qualification,AppointmentTime,PatientAppointment
 from .choices import category, fromTimeChoice,toTimeChoice
 from .forms import DoctorForm
 from documents.forms import MedicalHistoryForm
@@ -119,9 +121,15 @@ def booking(request, doctor_id):
 
 
     # for checking purpose
-    booked_doctor = MedicalHistory(doctor=doctor, patient=current_patient)
-    booked_doctor.save()
+    try:
+        booked_doctor = MedicalHistory.objects.get(doctor=doctor, patient=current_patient)
+    except:
+        booked_doctor = MedicalHistory(doctor=doctor, patient=current_patient)
+        booked_doctor.save()
 
+    appoint_time_doctor = AppointmentTime.objects.filter(doctor=doctor)
+    # day_doc_appoint = AppointmentTime.objects.get(doctor=doctor)
+    # print("AAAA: ", appoint_time_doctor)
     # medical_historyForm = MedicalHistory.objects.all()
 
     # if request.method == 'POST':
@@ -148,9 +156,21 @@ def booking(request, doctor_id):
     # else:
     #     form = MedicalHistoryForm()
 
+    appoint_day = appoint_time_doctor.values_list('day',flat=True).distinct()
+    appoint_date = appoint_time_doctor.values_list('appointment_date', flat=True)
+    time_from = appoint_time_doctor.values_list('time_from',flat=True)
+    time_to = appoint_time_doctor.values_list('time_to',flat=True)
+    print("from: ", time_from)
     context = {
         'doctor':doctor,
         # 'form':form,
+        'appoint_time_doctor' : appoint_time_doctor,
+        # 'day_doc_appoint':day_doc_appoint,
+        'appoint_day':appoint_day,
+        'time_from': time_from,
+        'time_to' : time_to,
+        'appoint_date':appoint_date,
+
     }
     return render(request, 'doctors/booking.html', context)
 
@@ -240,10 +260,24 @@ def schedule_timing(request, doctor_id):
         # appoint_time = AppointmentTime(doctor=doctor)
     if request.method == "POST":
         # appoint_time = AppointmentTime.objects.get(doctor=doctor)
-        day = request.POST['day']
+        # day = request.POST['day']
         time_from = request.POST['time_from']
         time_to = request.POST['time_to']
-        appoint_time = AppointmentTime.objects.create(day=day, time_from=time_from, time_to=time_to ,doctor=doctor)
+        appointment_date = request.POST['appointment_date']
+        # print("App date: ", appointment_date)
+        # print("TYPE: ", type(appointment_date))
+        from_to = time_from+"-"+time_to
+       
+        appointment_date_obj = datetime.datetime.strptime(appointment_date, '%Y-%m-%d')
+        day = appointment_date_obj.date().strftime("%A")
+
+        date = appointment_date_obj.date().strftime("%d")
+        month = appointment_date_obj.date().strftime("%B")
+        print("Date here: ", date)
+        print("Month here: ", month)
+        print("DDDAAY: ",day)
+
+        appoint_time = AppointmentTime.objects.create(day=day, time_from=time_from, time_to=time_to ,from_to=from_to, appointment_date=appointment_date, doctor=doctor)
         appoint_time.save()
         return redirect(request.path_info)
 
@@ -254,3 +288,30 @@ def schedule_timing(request, doctor_id):
     }
 
     return render(request, 'doctors/schedule-timing.html',context)
+
+
+
+def patient_appointment(request, doctor_id):
+    current_user = request.user
+    current_patient = get_object_or_404(Patient, user=current_user)
+    
+    doctor = Doctor.objects.get(id=doctor_id)
+
+    if request.method == "POST":
+        
+        from_to = str(request.POST['from_to'])
+        print("from_to day:", from_to)
+        
+        splitted_from_to = from_to.split(',')
+        print("Split: ", splitted_from_to[1])
+
+        # print("date_split: ", splitted_from_to[2])
+        # date = datetime.datetime.strptime(splitted_from_to[2], '%Y-%m-%d')
+        # date_obj = date.date()
+        # print("DATEWWW: ", date)
+        doc_appoint = PatientAppointment(appoint_day=splitted_from_to[1], appoint_time=splitted_from_to[0], doctor=doctor, patient=current_patient)
+        doc_appoint.save()
+
+
+
+        return redirect('history') 
