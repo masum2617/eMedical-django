@@ -68,6 +68,8 @@ class PatientAppointment(models.Model):
     appoint_day = models.CharField(max_length=50, null=True)
     doctor = models.ForeignKey(Doctor, on_delete=models.DO_NOTHING, null=True)
     patient = models.ForeignKey(Patient, on_delete=models.DO_NOTHING, null=True)
+    month = models.CharField(max_length=50, null=True)
+    date = models.CharField(max_length=50, null=True)
 
 
 # for doctor only. Doc will select time slot for his/her appointment
@@ -77,9 +79,10 @@ class AppointmentTime(models.Model):
     time_to = models.CharField(max_length=50, null=True)
     from_to = models.CharField(max_length=50, null=True)
     appointment_date = models.DateField(null=True)
-    # month = models.CharField(max_length=50, null=True)
-    # date = models.CharField(max_length=50, null=True)
+    month = models.CharField(max_length=50, null=True)
+    date = models.CharField(max_length=50, null=True)
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, null=True)
+    
 
     def __str__(self):
         return self.day

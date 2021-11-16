@@ -79,28 +79,90 @@ def add_prescription(request, patient_id):
     print("Patient ID: ", patient.id)
 
     speciality = DoctorSpecialization.objects.get(doctor=current_doctor)
-
+    # prescription_patient = Prescription.objects.get(patient=patient, doctor=current_doctor)  
+    # print(prescription_patient)
         # prescription = Prescription.objects.create(doctor=current_doctor, patient=patient)
         # prescription.save()
+    drugName = ''
+    quantity = ''
+    days = ''
+    morning = 'none'
+    afternoon = 'none'
+    evening='none'
+    night='none'
 
-    if request.method == 'POST':
-
-        drugName = request.POST['drugName']
-        quantity = request.POST['quantity']
-        days = request.POST['days']
-
-        if request.POST['morning']:
-            morning = request.POST['morning']
-        else:
-            morning="None"
+    if 'drugName' in request.GET and 'quantity' in request.GET and 'days' in request.GET:
+        drugName = request.GET['drugName']
+        quantity = request.GET['quantity']
+        days = request.GET['days']
+          
+        # prescription_patient.drugName = drugName
+        # prescription_patient.quantity = quantity
+        # prescription_patient.days = quantity
+        # prescription_patient.create()
         
-        if request.POST['afternoon']:
-            afternoon = request.POST['afternoon']
-        else:
-            afternoon="None"
+    if 'morning' in request.GET:
+        morning = request.GET['morning']
+        # prescription_patient.morning = morning
 
-        pres = Prescription(name=drugName, quantity=quantity, days=days,morning=morning,afternoon=afternoon, doctor=current_doctor,patient=patient )
-        pres.save()
+    if 'afternoon' in request.GET:
+        afternoon = request.GET['afternoon']
+        # prescription_patient.afternoon = afternoon
+    if 'evening' in request.GET:
+        evening = request.GET['evening']
+        # prescription_patient.evening = evening
+    if 'night' in request.GET:
+        night = request.GET['night']
+        # prescription_patient.night = night
+
+    prescription_patient = Prescription.objects.create(
+        patient=patient, 
+        doctor=current_doctor,
+        name = drugName,
+        quantity = quantity,
+        days = days,
+        morning = morning,
+        afternoon = afternoon,
+        evening = evening,
+        night = night
+        )
+    prescription_patient.save()  
+    
+
+
+
+
+    
+
+
+    # if request.method == 'POST':
+
+    #     drugName = request.POST['drugName']
+    #     quantity = request.POST['quantity']
+    #     days = request.POST['days']
+    #     mor = request.POST['morning']
+    #     aft = request.POST['afternoon']
+    #     eve = request.POST['evening']
+    #     nig = request.POST['night']
+
+    #     print("AFter: ", aft)
+    #     print("mor: ", mor)
+    #     print("eve: ", eve)
+    #     print("night: ", nig)
+
+
+        # if request.POST['morning']:
+        #     morning = request.POST['morning']
+        # else:
+        #     morning="None"
+        
+        # if request.POST['afternoon']:
+        #     afternoon = request.POST['afternoon']
+        # else:
+        #     afternoon="None"
+
+        # pres = Prescription(name=drugName, quantity=quantity, days=days,morning=morning,afternoon=afternoon, doctor=current_doctor,patient=patient )
+        # pres.save()
 
 
 
@@ -124,7 +186,7 @@ def add_prescription(request, patient_id):
 
         # prescription.save()
         
-        return redirect(request.path_info)
+        # return redirect(request.path_info)
     
     prescription = Prescription.objects.filter(doctor=current_doctor, patient=patient)
     context = {

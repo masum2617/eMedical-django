@@ -133,7 +133,8 @@ def patient_dashboard(request):
     # current_doctor = get_object_or_404(Doctor, doctor=current_appointment.doctor)
     # for medical records check if submitted
   
-    # appointment_date = AppointmentTime.objects.filter(doctor=current_doctor)
+    # appointment_for_patient = AppointmentTime.objects.filter(patient=current_patient)
+
     # print(appointment_date)
     
 
@@ -173,3 +174,4 @@ def current_patient(request, patient_id):
     }
 
     return render(request, 'users/current-patient.html', context)
+

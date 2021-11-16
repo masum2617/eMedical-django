@@ -277,7 +277,7 @@ def schedule_timing(request, doctor_id):
         print("Month here: ", month)
         print("DDDAAY: ",day)
 
-        appoint_time = AppointmentTime.objects.create(day=day, time_from=time_from, time_to=time_to ,from_to=from_to, appointment_date=appointment_date, doctor=doctor)
+        appoint_time = AppointmentTime.objects.create(day=day, time_from=time_from, time_to=time_to ,from_to=from_to, date=date, month=month, appointment_date=appointment_date, doctor=doctor)
         appoint_time.save()
         return redirect(request.path_info)
 
@@ -309,6 +309,16 @@ def patient_appointment(request, doctor_id):
         # date = datetime.datetime.strptime(splitted_from_to[2], '%Y-%m-%d')
         # date_obj = date.date()
         # print("DATEWWW: ", date)
+
+        # getting month and date for current doctor for this patient..
+        # doctor_appoint_time = AppointmentTime.objects.filter(doctor=doctor)
+        # print("Query: ",doctor_appoint_time)
+        # date = doctor_appoint_time.date
+        # month = doctor_appoint_time.month
+        # and insert it to the PatientAppointment data table
+
+
+
         doc_appoint = PatientAppointment(appoint_day=splitted_from_to[1], appoint_time=splitted_from_to[0], doctor=doctor, patient=current_patient)
         doc_appoint.save()
 

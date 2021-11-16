@@ -101,8 +101,8 @@
                                         
 
                                         <tr>
-                                        <form action="{% url 'add_prescription' current_patient.id %}" method="POST">
-                                                {% csrf_token %}
+                                        <form action="{% url 'add_prescription' current_patient.id %}" method="GET">
+                                                
                                             <td>
                                                 <input class="form-control" type="text" name="drugName">
                                             </td>
