@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
   <!-- Page Content -->
 <div class="content">
@@ -84,10 +84,11 @@
                                     </thead>
                                     <tbody>
                                         {% for prescribe_med in prescribe_med %}
-        
+                                        {% if prescribe_med.name != '' %}
+
                                         <tr>
                                             <td>{{prescribe_med.name}}</td>
-                                            <td>{{prescribe_med.quantity}}mg</td>
+                                            <td>{{prescribe_med.quantity}}</td>
                                             <td>{{prescribe_med.days}}</td>
                                             <td>
                                                 {{prescribe_med.morning}}+
@@ -95,8 +96,9 @@
                                                 {{prescribe_med.evening}}+
                                                 {{prescribe_med.night}} 
                                             </td>
-                                            <td><a href="#" class="btn bg-danger-light trash"><i class="far fa-trash-alt"></i></a></td> 
+                                            <td><a href="{% url 'deletePrescItem' prescribe_med.id %}" class="btn bg-danger-light trash"><i class="far fa-trash-alt"></i></a></td> 
                                         </tr>
+                                        {% endif %}
                                         {% endfor %}
                                         
 
@@ -104,10 +106,10 @@
                                         <form action="{% url 'add_prescription' current_patient.id %}" method="GET">
                                                 
                                             <td>
-                                                <input class="form-control" type="text" name="drugName">
+                                                <input class="form-control" id="drugs" type="text" name="drugName">
                                             </td>
                                             <td>
-                                                <input class="form-control" type="text" name="quantity">
+                                                <input class="form-control" type="text" name="quantity" placeholder="mg">
                                             </td>
                                             <td>
                                                 <input class="form-control" type="text" name="days">
@@ -137,7 +139,7 @@
                                             <td>
                                                 <!-- <a href="#" class="btn bg-danger-light trash"><i class="far fa-trash-alt"></i></a> -->
                                                 <div class="add-more-item">
-                                                    <button type="submit" class="btn"><i class="fas fa-plus-circle"></i>Add Item</a>
+                                                    <button type="submit" class="btn"><i class="fas fa-plus-circle"></i>Add</a>
                                                     </button>
                                                 </div>
                                             </td>
@@ -154,9 +156,7 @@
                     <div class="row">
                         <div class="col-md-12 text-right">
                             <div class="signature-wrap">
-                                <div class="signature">
-                                    Click here to sign
-                                </div>
+                               
                                 <div class="sign-name">
                                     <p class="mb-0">( Dr. {{current_doctor.user.first_name}} {{current_doctor.user.last_name}} )</p>
                                     <span class="text-muted">Signature</span>
@@ -167,6 +167,8 @@
                     <!-- /Signature -->
                     
                     <!-- Submit Section -->
+                    <form action="{% url 'submitPrescription' current_patient.id %}" method="POST">
+                        {% csrf_token %}
                     <div class="row">
                         <div class="col-md-12">
                             <div class="submit-section">
@@ -175,6 +177,7 @@
                             </div>
                         </div>
                     </div>
+                </form>
                     <!-- /Submit Section -->
                     
                 </div>
@@ -183,7 +186,19 @@
     </div>
     
     </div>
-    
+
+ 
     </div>		
     <!-- /Page Content -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+<script>
+    $( function() {
+      
+      $( "#drugs" ).autocomplete({
+        source: "{% url 'autocomplete' %}",
+      });
+    } );
+    </script>
 {% endblock content %}
+

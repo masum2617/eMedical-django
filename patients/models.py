@@ -1,5 +1,5 @@
 from django.db import models
-
+# from doctors.models import Doctor
 from users.models import Account
 from datetime import datetime
 
@@ -17,3 +17,13 @@ class Patient(models.Model):
 
     def __str__(self):
         return self.user.first_name
+
+class PrescriptionStatus(models.Model):
+    is_uploaded= models.BooleanField(default=False)
+    doctor = models.ForeignKey("doctors.Doctor", on_delete=models.CASCADE, null=True)
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE, null=True)
+
+    def __int__(self):
+        return self.id
+
+    

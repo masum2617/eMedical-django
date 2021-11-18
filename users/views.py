@@ -1,10 +1,12 @@
 from django.shortcuts import get_object_or_404, redirect, render
 
 from documents.models import MedicalHistory
+from documents.models import Prescription
+
 from .forms import RegistrationForm
 from .models import Account
 from doctors.models import Doctor,DoctorSpecialization,AppointmentTime
-from patients.models import Patient
+from patients.models import Patient,PrescriptionStatus
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 # Create your views here.
@@ -130,6 +132,17 @@ def patient_dashboard(request):
 
     current_appointment = MedicalHistory.objects.filter(patient=current_patient) 
 
+    prescription = Prescription.objects.filter(patient=current_patient)
+
+    # checking from prescription status for one doctor one prescript
+
+    prescription_status = PrescriptionStatus.objects.filter(patient=current_patient,is_uploaded=True)
+
+    # city= prescription.doctor.city
+    # print("PRES: ", city)
+
+    # pres_one_doc = prescription.values_list('doctor', flat=True).distinct()
+    # print("one: ", pres_one_doc)
     # current_doctor = get_object_or_404(Doctor, doctor=current_appointment.doctor)
     # for medical records check if submitted
   
@@ -142,6 +155,8 @@ def patient_dashboard(request):
     context = {
         'patient': current_patient,
         'current_appointment':current_appointment,
+        'prescription':prescription,
+        'prescription_status':prescription_status,
 
     }
     return render(request,'users/patient_dashboard.html', context)

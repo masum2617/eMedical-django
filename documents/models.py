@@ -50,6 +50,8 @@ class MedicalHistory(models.Model):
     #         return f"History from {self.patient.user.first_name}"
 
 
+
+
 class Prescription(models.Model):
     name =  models.CharField(max_length=50, null=True)
     quantity  = models.CharField(max_length=50, null=True)
@@ -61,6 +63,7 @@ class Prescription(models.Model):
     doctor = models.ForeignKey(Doctor, on_delete=models.DO_NOTHING, null=True)
     patient = models.ForeignKey(Patient, on_delete=models.DO_NOTHING, null=True)
     uploaded_date = models.DateTimeField(default=datetime.now, blank=True)
+    
 
     # def __str__(self):
     #     return self.name

@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404, render, redirect
-from .models import Patient
+from .models import Patient,PrescriptionStatus
 from doctors.models import Doctor
 from documents.models import Prescription
 from .forms import PatientForm
@@ -58,23 +58,21 @@ def getPrescription(request):
     pres = Prescription.objects.filter(patient=current_patient)
 
     lines = []
-
+    # lines.append("********* MediHelp *************")
+    lines.append(" ")
+    lines.append("************MediHelp Prescription************")
+    # lines.append("Drug Name "+"Quantity "+"Days to Take "+"Time 1 "+"Time 2 "+"Time 3"+"Time 4 ")
     for pres in pres:
-        lines.append("********* MediHelp *************")
-        lines.append(" ")
-        lines.append("========== Patient Medical History ===============")
-        lines.append("First Name: "+pres.name)
-        lines.append("Last Name: "+pres.quantity)
-        lines.append("Reason For Visit: "+pres.days)
-        lines.append("Height: "+pres.morning)
-        # lines.append("Age: "+pres.)
-        # lines.append("Gender: "+str(hist.gender))
-        # lines.append("Blood Group: "+hist.blood_group)
-        # lines.append("Previous Operation: "+hist.previous_operation)
-        # lines.append("Current Medicaion: "+hist.current_medication)
-        # lines.append("Other Illness: "+hist.other_illness)
-        # lines.append("Other Information: "+hist.other_information)
-        # lines.append("==========================================")
+        lines.append("==============================")
+        lines.append("Drug Name: "+pres.name)
+        lines.append("Quantity: "+pres.quantity)
+        lines.append("Days: "+pres.days)
+        lines.append("Time Slot 1: "+pres.morning)
+        lines.append("Time Slot 2: "+pres.afternoon)
+        lines.append("Time Slot 3: "+pres.evening)
+        lines.append("Time Slot 4: "+pres.night)
+   
+        lines.append("==============================")
         
 
     for line in lines:
@@ -88,15 +86,12 @@ def getPrescription(request):
     return FileResponse(buf, as_attachment=True, filename='prescription.pdf')
 
 
-# def profile_patient(request, patient_id):
-#     current_user = request.user
-#     # current_patient = get_object_or_404(Patient, user=current_user)
+def show_prescription(request):
+    current_user = request.user
     
-#     patient = Patient.objects.get(id=patient_id)
-#     # specialization = DoctorSpecialization.objects.get(doctor=doctor)
-
-#     context = {
-#         'patient': patient,
-#     }
-#     return render(request, 'patients/profile_patient.html', context)
-
+    current_patient = get_object_or_404(Patient, user=current_user)
+    prescription = Prescription.objects.filter(patient=current_patient)
+    context = {
+        'prescription':prescription,
+    }
+    return render(request, 'users/patient_dashboard.html', context)

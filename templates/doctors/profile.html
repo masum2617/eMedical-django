@@ -573,6 +573,65 @@
     </div>		
     <!-- /Page Content -->
 
-
-
 {% endblock content %}
+
+{% block call %}
+  		<!-- Voice Call Modal -->
+		<div class="modal fade call-modal" id="voice_call">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-body">
+						<!-- Outgoing Call -->
+						<div class="call-box incoming-box">
+							<div class="call-wrapper">
+								<div class="call-inner">
+									<div class="call-user">
+										<img alt="User Image" src="{{doc_profile.profile_image.url}}" class="call-avatar">
+										<h4>Dr. {{doc_profile.user.first_name}} {{doc_profile.user.last_name}}</h4>
+										<span>Connecting...</span>
+									</div>							
+									<div class="call-items">
+										<a href="javascript:void(0);" class="btn call-item call-end" data-dismiss="modal" aria-label="Close"><i class="material-icons">call_end</i></a>
+										<a href="voice-call.html" class="btn call-item call-start"><i class="material-icons">call</i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Outgoing Call -->
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /Voice Call Modal -->
+		
+		<!-- Video Call Modal -->
+		<div class="modal fade call-modal" id="video_call">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-body">
+					
+						<!-- Incoming Call -->
+						<div class="call-box incoming-box">
+							<div class="call-wrapper">
+								<div class="call-inner">
+									<div class="call-user">
+										<img class="call-avatar" src="{{doc_profile.profile_image.url}}" alt="User Image">
+										<h4>Dr. {{doc_profile.user.first_name}} {{doc_profile.user.last_name}}</h4>
+										<span>Calling ...</span>
+									</div>							
+									<div class="call-items">
+										<a href="javascript:void(0);" class="btn call-item call-end" data-dismiss="modal" aria-label="Close"><i class="material-icons">call_end</i></a>
+										<a href="{% url 'video_call' doc_profile.id %}" class="btn call-item call-start"><i class="material-icons">videocam</i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- /Incoming Call -->
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Video Call Modal -->
+{% endblock call %}		

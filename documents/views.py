@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from .forms import MedicalHistoryForm
 from .models import MedicalHistory,Prescription
-from patients.models import Patient
+from patients.models import Patient, PrescriptionStatus
 from doctors.models import Doctor,DoctorSpecialization
 
 # Create your views here.
@@ -45,8 +45,8 @@ def history(request):
 
             # sending this medical history form as an appointment to the appointment table
             
-            appointment = Appointment(appointment=medical_history)
-            appointment.save()
+            # appointment = Appointment(appointment=medical_history)
+            # appointment.save()
 
 
 
@@ -91,11 +91,12 @@ def add_prescription(request, patient_id):
     evening='none'
     night='none'
 
+    
     if 'drugName' in request.GET and 'quantity' in request.GET and 'days' in request.GET:
         drugName = request.GET['drugName']
         quantity = request.GET['quantity']
         days = request.GET['days']
-          
+        
         # prescription_patient.drugName = drugName
         # prescription_patient.quantity = quantity
         # prescription_patient.days = quantity
@@ -115,79 +116,21 @@ def add_prescription(request, patient_id):
         night = request.GET['night']
         # prescription_patient.night = night
 
-    prescription_patient = Prescription.objects.create(
-        patient=patient, 
-        doctor=current_doctor,
-        name = drugName,
-        quantity = quantity,
-        days = days,
-        morning = morning,
-        afternoon = afternoon,
-        evening = evening,
-        night = night
+    if drugName != '':
+        prescription_patient = Prescription.objects.create(
+            patient=patient, 
+            doctor=current_doctor,
+            name = drugName,
+            quantity = quantity,
+            days = days,
+            morning = morning,
+            afternoon = afternoon,
+            evening = evening,
+            night = night
         )
-    prescription_patient.save()  
-    
+        prescription_patient.save()
+        return redirect(request.path_info)
 
-
-
-
-    
-
-
-    # if request.method == 'POST':
-
-    #     drugName = request.POST['drugName']
-    #     quantity = request.POST['quantity']
-    #     days = request.POST['days']
-    #     mor = request.POST['morning']
-    #     aft = request.POST['afternoon']
-    #     eve = request.POST['evening']
-    #     nig = request.POST['night']
-
-    #     print("AFter: ", aft)
-    #     print("mor: ", mor)
-    #     print("eve: ", eve)
-    #     print("night: ", nig)
-
-
-        # if request.POST['morning']:
-        #     morning = request.POST['morning']
-        # else:
-        #     morning="None"
-        
-        # if request.POST['afternoon']:
-        #     afternoon = request.POST['afternoon']
-        # else:
-        #     afternoon="None"
-
-        # pres = Prescription(name=drugName, quantity=quantity, days=days,morning=morning,afternoon=afternoon, doctor=current_doctor,patient=patient )
-        # pres.save()
-
-
-
-        # except:
-        #     prescription.morning = "None"
-
-        # try:
-        #     prescription.afternoon = request.POST['afternoon']
-        # except:
-        #     prescription.afternoon = "None"
-
-        # try:
-        #     prescription.evening = request.POST['evening']
-        # except:
-        #     prescription.evening = "None"
-        
-        # try:
-        #     prescription.night = request.POST['night']
-        # except:
-        #     prescription.night = "None"
-
-        # prescription.save()
-        
-        # return redirect(request.path_info)
-    
     prescription = Prescription.objects.filter(doctor=current_doctor, patient=patient)
     context = {
         'current_patient':patient,
@@ -199,5 +142,26 @@ def add_prescription(request, patient_id):
     }
 
     return render(request, 'documents/add_prescription.html', context)
+
+# after hitting save button on prescription form
+def submitPrescription(request, patient_id):
+    current_user = request.user
+    current_doctor = get_object_or_404(Doctor,user=current_user)
+    patient = Patient.objects.get(id=patient_id)
+    if request.method == "POST":
+        submit_presc = PrescriptionStatus.objects.create(patient=patient, doctor=current_doctor, is_uploaded=True)
+        submit_presc.save()
+        return redirect('doctor_dashboard')
+
+def deletePrescItem(request, pres_id):
+    print("pres id: ", pres_id)
+    presItem = Prescription.objects.get(id=pres_id)
+    presItem.delete()
+    return redirect(request.META.get('HTTP_REFERER')) #returning previous url/page
+    # return redirect(request.path_info)
+    # return redirect('add_prescription')
+
+    # return render(request, 'documents/add_prescription.html')
+
 
 

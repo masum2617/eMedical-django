@@ -11,32 +11,27 @@
 		<title>MediHelp {% block title %}{% endblock %}</title>
 		
 		<!-- Favicons -->
-		<link type="image/x-icon" href="{% static 'img/favicon.png' %}" rel="icon">
+		<link href="assets/img/favicon.png" rel="icon">
 		
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-
-		<link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
 		
 		<!-- Fontawesome CSS -->
-		<link rel="stylesheet" href="{% static 'plugins/fontawesome/css/fontawesome.min.css'%}">
+		<link rel="stylesheet" href="{% static 'plugins/fontawesome/css/fontawesome.min.css' %}">
 		<link rel="stylesheet" href="{% static 'plugins/fontawesome/css/all.min.css' %}">
 		
+		<!-- Fancybox CSS -->
+		<link rel="stylesheet" href="{% static 'plugins/fancybox/jquery.fancybox.min.css' %}">
 		
-		<!-- Select2 CSS -->
-		<link rel="stylesheet" href="{% static 'plugins/select2/css/select2.min.css' %}">
 		
-		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="{% static 'plugins/bootstrap-tagsinput/css/bootstrap-tagsinput.css' %}">
-		
-		<link rel="stylesheet" href="{% static 'plugins/dropzone/dropzone.min.css' %}">
-		<link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet"/>
-
 		<!-- Chosen library CSS -->
 		<link rel="stylesheet" href="{% static 'css/styleChosen.css' %}">
 		
 		<!-- Main CSS -->
 		<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+  		<!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
 		
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
@@ -58,8 +53,12 @@
     {% endblock content %}
 
     {% include 'includes/footer.html' %}
-</div>
 
+
+</div>
+{% block call %}
+  
+{% endblock call %}
 
 		<!-- jQuery -->
 		<script src="{% static 'js/jquery.min.js' %}"></script>
@@ -90,6 +89,9 @@
 		<!-- Profile Settings JS -->
 		<script src="{% static 'js/profile-settings.js' %}"></script>
 
+		<!-- Fancybox JS -->
+		<script src="{% static 'plugins/fancybox/jquery.fancybox.min.js' %}"></script>
+
 		<!-- Chosen JS -->
 
 		<script src="{% static 'js/init.js' %}" type="text/javascript" charset="utf-8"></script>
@@ -102,7 +104,10 @@
 		<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
 
 		<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+
+
+
 
 </body>
 </html>

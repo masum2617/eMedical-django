@@ -325,3 +325,29 @@ def patient_appointment(request, doctor_id):
 
 
         return redirect('history') 
+
+def video_call(request, doctor_id):
+    current_user = request.user
+    current_patient = get_object_or_404(Patient, user=current_user)
+
+    doctor = get_object_or_404(Doctor, id=doctor_id)
+    
+    context = {
+        'doctor':doctor,
+        'current_patient':current_patient,
+    }
+    return render(request, 'doctors/video_call.html', context)
+
+
+def appointments(request):
+    current_user = request.user
+    current_doctor = Doctor.objects.get(user=current_user)
+
+    appointment = MedicalHistory.objects.filter(doctor=current_doctor)
+    specialization = DoctorSpecialization.objects.filter(doctor=current_doctor)
+    context = {
+        'current_doctor':current_doctor,
+        'appointment':appointment,
+        'specialization':specialization,
+    }
+    return render(request, 'doctors/appointments.html', context)
