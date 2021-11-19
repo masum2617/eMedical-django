@@ -9,6 +9,13 @@ from doctors.models import Doctor,DoctorSpecialization,AppointmentTime
 from patients.models import Patient,PrescriptionStatus
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
+
+# for pdf
+from django.http import FileResponse
+import io
+from reportlab.pdfgen import canvas
+from reportlab.lib.units import inch
+from reportlab.lib.pagesizes import letter
 # Create your views here.
 
 def register(request):
@@ -182,11 +189,59 @@ def current_patient(request, patient_id):
     # print("IDDDDD: ",patient)
     doctor_for_patient = MedicalHistory.objects.get(patient=patient,doctor=current_doctor)
     print(doctor_for_patient)
+
+    prescriptions = PrescriptionStatus.objects.filter(doctor=current_doctor)
+    presc_patient = Prescription.objects.filter(patient=patient, doctor=current_doctor)
+    # presc_patient_single = presc_patient.values_list('patient', flat=True).distinct()
     context = {
         'current_patient':patient,
         'doctor_for_patient': doctor_for_patient,
-        # 'form':form,
+        'prescriptions': prescriptions,
+        'presc_patient':presc_patient,
+        # 'presc_patient_single':presc_patient_single,
     }
 
     return render(request, 'users/current-patient.html', context)
 
+def getPrescriptionForDoc(request, patient_id):
+    current_user = request.user
+    current_doctor = get_object_or_404(Doctor,user=current_user)
+    patient = Patient.objects.get(id=patient_id)
+
+    buf = io.BytesIO()
+    c = canvas.Canvas(buf, pagesize=letter, bottomup=0)
+    textob = c.beginText()
+    textob.setTextOrigin(inch, inch)
+    textob.setFont("Helvetica", 14)
+
+    pres = Prescription.objects.filter(patient=patient, doctor=current_doctor)
+
+    lines = []
+    # lines.append("********* MediHelp *************")
+    lines.append(" ")
+    lines.append("************MediHelp Prescription************")
+    lines.append("Patient Name: "+patient.user.first_name+" "+patient.user.last_name)
+    lines.append("Doctor Name: Dr. "+current_doctor.user.first_name+" "+current_doctor.user.last_name)
+    # lines.append("Drug Name "+"Quantity "+"Days to Take "+"Time 1 "+"Time 2 "+"Time 3"+"Time 4 ")
+    for pres in pres:
+        lines.append("==============================")
+        lines.append("Drug Name: "+pres.name)
+        lines.append("Quantity: "+pres.quantity)
+        lines.append("Days: "+pres.days)
+        lines.append("Time Slot 1: "+pres.morning)
+        lines.append("Time Slot 2: "+pres.afternoon)
+        lines.append("Time Slot 3: "+pres.evening)
+        lines.append("Time Slot 4: "+pres.night)
+   
+        lines.append("==============================")
+        
+
+    for line in lines:
+        textob.textLine(line)
+    
+    c.drawText(textob)
+    c.showPage()
+    c.save()
+    buf.seek(0)
+
+    return FileResponse(buf, as_attachment=True, filename='prescription.pdf')

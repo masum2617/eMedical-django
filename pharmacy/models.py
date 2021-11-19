@@ -13,6 +13,7 @@ class Drug(models.Model):
     drug_image = models.ImageField(upload_to='drugs/%Y/%m/%d/',default='drug_default.jpg')
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
     condition = models.CharField(max_length=100, null=True)
-
+    generic = models.CharField(max_length=100, null=True)
+    brand = models.CharField(max_length=100, null=True)
     def __str__(self):
         return self.drug_name

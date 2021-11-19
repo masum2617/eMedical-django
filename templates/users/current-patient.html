@@ -73,36 +73,30 @@
                         <table class="table table-hover table-center mb-0">
                             <thead>
                                 <tr>
-                                    <th>Date </th>
-                                    <th>Name</th>									
-                                    <th>Created by </th>
-                                    <th></th>
+                                    <th>ID</th>
+                                    <th>Patient Name</th>									
+                                    <!-- <th>Created by </th> -->
+                                    <th>Prescription File</th>
                                 </tr>     
                             </thead>
                             <tbody>
+                                {% for prescriptions in prescriptions %}
+                                  
+
                                 <tr>
-                                    <td></td>
-                                    <td></td>
+                                    <td>{{prescriptions.id}}</td>
+                                    <td>{{prescriptions.patient.user.first_name}} {{prescriptions.patient.user.last_name}}</td>
+                                    
+                                    
                                     <td>
                                         <h2 class="table-avatar">
-                                            <!-- <a href="doctor-profile.html" class="avatar avatar-sm mr-2">
-                                                <img class="avatar-img rounded-circle" src="assets/img/doctors/doctor-thumb-01.jpg" alt="User Image">
-                                            </a> -->
-                                            <!-- <a href="doctor-profile.html">Dr. {{doctor_for_patient.doctor.user.first_name}} {{doctor_for_patient.doctor.user.last_name}}<span></span></a> -->
+                                            <a href="{% url 'getPrescriptionForDoc' prescriptions.patient.id %}" class="btn btn-sm bg-info-light"><i class="far fa-eye"></i> View</a>
                                         </h2>
                                     </td>
-                                    <td class="text-right">
-                                        <!-- <div class="table-action">
-                                            <a href="javascript:void(0);" class="btn btn-sm bg-primary-light">
-                                                <i class="fas fa-print"></i> Print
-                                            </a>
-                                            <a href="javascript:void(0);" class="btn btn-sm bg-info-light">
-                                                <i class="far fa-eye"></i> View
-                                            </a>
-                                        </div> -->
-                                    </td>
+                                  
                                 </tr>
- 
+                               
+                                {% endfor %}
                             </tbody>	
                         </table>
                     </div>
@@ -132,16 +126,16 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><a href="javascript:void(0);">#MR-0010</a></td>
-                                    <td>14 Nov 2019</td>
-                                    <td>Dental Filling</td>
-                                    <td><a href="#">dental-test.pdf</a></td>
+                                    <td><a href="javascript:void(0);"></a></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><a href="#"></a></td>
                                     <td>
                                         <h2 class="table-avatar">
                                             <a href="doctor-profile.html" class="avatar avatar-sm mr-2">
-                                                <img class="avatar-img rounded-circle" src="assets/img/doctors/doctor-thumb-01.jpg" alt="User Image">
+                                                <!-- <img class="avatar-img rounded-circle" src="assets/img/doctors/doctor-thumb-01.jpg" alt="User Image"> -->
                                             </a>
-                                            <a href="doctor-profile.html">Dr. Ruby Perrin <span>Dental</span></a>
+                                            <a href="doctor-profile.html"><span></span></a>
                                         </h2>
                                     </td>
                                     <td class="text-right">
@@ -186,18 +180,18 @@
                             <tbody>
                                 <tr>
                                     <td>
-                                        <a href="invoice-view.html">#INV-0010</a>
+                                        <a href="invoice-view.html"></a>
                                     </td>
                                     <td>
                                         <h2 class="table-avatar">
                                             <a href="doctor-profile.html" class="avatar avatar-sm mr-2">
-                                                <img class="avatar-img rounded-circle" src="assets/img/doctors/doctor-thumb-01.jpg" alt="User Image">
+                                                <!-- <img class="avatar-img rounded-circle" src="assets/img/doctors/doctor-thumb-01.jpg" alt="User Image"> -->
                                             </a>
-                                            <a href="doctor-profile.html">Ruby Perrin <span>Dental</span></a>
+                                            <a href="doctor-profile.html"> <span></span></a>
                                         </h2>
                                     </td>
-                                    <td>$450</td>
-                                    <td>14 Nov 2019</td>
+                                    <td></td>
+                                    <td></td>
                                     <td class="text-right">
                                         <div class="table-action">
                                             <a href="javascript:void(0);" class="btn btn-sm bg-primary-light">

@@ -412,7 +412,7 @@
                    
                 {% for prescription_status in prescription_status %}
                 <tr>
-                    <td>{{prescription_status.doctor.user.first_name}}</td>
+                    <td>Dr. {{prescription_status.doctor.user.first_name}} {{prescription_status.doctor.user.last_name}}</td>
                     <td></td>
                     
                     <td><a href="{% url 'getPrescription' %}" class="btn btn-sm bg-info-light"><i class="far fa-eye"></i> View</a></td>
@@ -427,9 +427,9 @@
                     <td class="text-right">
                         <div class="table-action">
                             
-                            <a href="javascript:void(0);" class="btn btn-sm bg-info-light">
+                            <!-- <a href="javascript:void(0);" class="btn btn-sm bg-info-light">
                                 <i class="far fa-eye"></i> View
-                            </a>
+                            </a> -->
                         </div>
                     </td>
                 </tr>

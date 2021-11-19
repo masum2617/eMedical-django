@@ -67,3 +67,12 @@ class Prescription(models.Model):
 
     # def __str__(self):
     #     return self.name
+
+class Review(models.Model):
+    title = models.CharField(max_length=100, null=True)
+    review = models.TextField(max_length=200, null=True)
+    doctor = models.ForeignKey(Doctor, on_delete=models.DO_NOTHING, null=True)
+    patient = models.ForeignKey(Patient, on_delete=models.DO_NOTHING, null=True)
+    date_created = models.DateTimeField(default=datetime.now, blank=True)
+    def __str__(self):
+        return self.title

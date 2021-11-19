@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from .forms import MedicalHistoryForm
-from .models import MedicalHistory,Prescription
+from .models import MedicalHistory,Prescription,Review
 from patients.models import Patient, PrescriptionStatus
 from doctors.models import Doctor,DoctorSpecialization
 
@@ -164,4 +164,19 @@ def deletePrescItem(request, pres_id):
     # return render(request, 'documents/add_prescription.html')
 
 
+def review(request, doctor_id):
+    current_user = request.user
+    current_patient = get_object_or_404(Patient, user=current_user)
+    doctor = Doctor.objects.get(id=doctor_id)
+    try:
+        review = Review.objects.get(patient=current_patient, doctor=doctor)
+    except:
+        review = Review.objects.create(patient=current_patient, doctor=doctor)
+
+    if request.method == "POST":
+        review.title = request.POST['title']
+        review.review = request.POST['review']
+
+        review.save()
+        return redirect('patient_dashboard')
 

@@ -9,4 +9,5 @@ urlpatterns = [
     path('patient_dashboard/',views.patient_dashboard, name='patient_dashboard'),
     path('status/<int:patient_id>',views.status, name='status'),
     path('current_patient/<int:patient_id>/', views.current_patient, name="current_patient"),
+    path('getPrescriptionForDoc/<int:patient_id>/', views.getPrescriptionForDoc, name="getPrescriptionForDoc"),
 ]

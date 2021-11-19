@@ -61,6 +61,8 @@ def getPrescription(request):
     # lines.append("********* MediHelp *************")
     lines.append(" ")
     lines.append("************MediHelp Prescription************")
+    lines.append("Patient Name: "+current_patient.user.first_name+" "+current_patient.user.last_name)
+    # lines.append("Doctor Name: Dr. "+pres.doctor.user.first_name+" "+pres.doctor.user.last_name)
     # lines.append("Drug Name "+"Quantity "+"Days to Take "+"Time 1 "+"Time 2 "+"Time 3"+"Time 4 ")
     for pres in pres:
         lines.append("==============================")

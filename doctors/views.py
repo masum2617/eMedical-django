@@ -3,7 +3,7 @@ from re import split
 from django.core.checks import messages
 from django.shortcuts import get_object_or_404, redirect, render
 
-from documents.models import MedicalHistory
+from documents.models import MedicalHistory, Review
 from patients.models import Patient
 from .models import Doctor, DoctorSpecialization, Experience, Qualification,AppointmentTime,PatientAppointment
 from .choices import category, fromTimeChoice,toTimeChoice
@@ -351,3 +351,14 @@ def appointments(request):
         'specialization':specialization,
     }
     return render(request, 'doctors/appointments.html', context)
+
+def viewReview(request):
+    current_user = request.user
+    current_doctor = Doctor.objects.get(user=current_user)
+    review  = Review.objects.filter(doctor=current_doctor)
+
+    context = {
+        'review':review,
+        'doctor':current_doctor,
+    }
+    return render(request, 'doctors/review.html', context)
