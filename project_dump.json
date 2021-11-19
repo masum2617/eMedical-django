@@ -84,7 +84,9 @@
         "appoint_time": "8.00 am-9.00 am",
         "appoint_day": "sunday",
         "doctor": 25,
-        "patient": 1
+        "patient": 1,
+        "month": null,
+        "date": null
     }
 },
 {
@@ -95,7 +97,9 @@
         "appoint_time": "10.00 am-12.00 pm",
         "appoint_day": "Tuesday",
         "doctor": 25,
-        "patient": 1
+        "patient": 1,
+        "month": null,
+        "date": null
     }
 },
 {
@@ -106,7 +110,9 @@
         "appoint_time": "10.00 am-12.00 pm",
         "appoint_day": "Tuesday",
         "doctor": 25,
-        "patient": 1
+        "patient": 1,
+        "month": null,
+        "date": null
     }
 },
 {
@@ -117,7 +123,9 @@
         "appoint_time": "10.00 am-12.00 pm",
         "appoint_day": "Tuesday",
         "doctor": 25,
-        "patient": 1
+        "patient": 1,
+        "month": null,
+        "date": null
     }
 },
 {
@@ -128,18 +136,9 @@
         "appoint_time": "02.00 pm-06.00 pm",
         "appoint_day": "Saturday",
         "doctor": 25,
-        "patient": 1
-    }
-},
-{
-    "model": "doctors.patientappointment",
-    "pk": 7,
-    "fields": {
-        "appoint_date": null,
-        "appoint_time": "10.00 am-12.00 pm",
-        "appoint_day": "Tuesday",
-        "doctor": 25,
-        "patient": 1
+        "patient": 1,
+        "month": null,
+        "date": null
     }
 },
 {
@@ -151,6 +150,8 @@
         "time_to": "12.00 pm",
         "from_to": "10.00 am-12.00 pm",
         "appointment_date": "2021-11-16",
+        "month": "November",
+        "date": "16",
         "doctor": 25
     }
 },
@@ -163,6 +164,8 @@
         "time_to": "06.00 pm",
         "from_to": "02.00 pm-06.00 pm",
         "appointment_date": "2021-11-13",
+        "month": "November",
+        "date": "13",
         "doctor": 25
     }
 },
@@ -175,7 +178,32 @@
         "time_to": "02.00 pm",
         "from_to": "10.00 am-02.00 pm",
         "appointment_date": "2021-11-14",
+        "month": "November",
+        "date": "14",
         "doctor": 25
+    }
+},
+{
+    "model": "doctors.appointmenttime",
+    "pk": 14,
+    "fields": {
+        "day": "Monday",
+        "time_from": "04.00 pm",
+        "time_to": "06.00 pm",
+        "from_to": "04.00 pm-06.00 pm",
+        "appointment_date": "2021-11-15",
+        "month": "November",
+        "date": "15",
+        "doctor": 27
+    }
+},
+{
+    "model": "patients.prescriptionstatus",
+    "pk": 1,
+    "fields": {
+        "is_uploaded": true,
+        "doctor": 25,
+        "patient": 1
     }
 },
 {
@@ -189,7 +217,7 @@
         "phone_number": "1236987444",
         "user_type": "admin",
         "date_joined": "2021-09-29T07:25:05.878Z",
-        "last_login": "2021-11-12T05:14:25.995Z",
+        "last_login": "2021-11-19T11:44:18.654Z",
         "is_admin": true,
         "is_staff": true,
         "is_active": true,
@@ -207,7 +235,7 @@
         "phone_number": "123456789654",
         "user_type": "doctor",
         "date_joined": "2021-10-08T10:12:28.488Z",
-        "last_login": "2021-10-17T16:12:53.451Z",
+        "last_login": "2021-11-12T17:35:38.165Z",
         "is_admin": false,
         "is_staff": false,
         "is_active": true,
@@ -225,7 +253,7 @@
         "phone_number": "45632147898",
         "user_type": "patient",
         "date_joined": "2021-10-08T10:13:46.277Z",
-        "last_login": "2021-11-12T16:04:43.336Z",
+        "last_login": "2021-11-19T15:08:19.711Z",
         "is_admin": false,
         "is_staff": false,
         "is_active": true,
@@ -261,7 +289,7 @@
         "phone_number": "84524522455245",
         "user_type": "doctor",
         "date_joined": "2021-10-10T18:50:06.346Z",
-        "last_login": "2021-11-12T15:59:23.015Z",
+        "last_login": "2021-11-19T15:24:12.632Z",
         "is_admin": false,
         "is_staff": false,
         "is_active": true,
@@ -279,7 +307,7 @@
         "phone_number": "646546465454",
         "user_type": "patient",
         "date_joined": "2021-10-20T10:18:57.642Z",
-        "last_login": "2021-10-20T14:18:28.284Z",
+        "last_login": "2021-11-18T14:59:02.595Z",
         "is_admin": false,
         "is_staff": false,
         "is_active": true,
@@ -321,7 +349,9 @@
         "drug_name": "Lisinopril (Prinivil, Zestril)",
         "drug_image": "drugs/2021/11/04/drug_default_hMiqoxn.jpg",
         "category": 1,
-        "condition": "Renin–Angiotensin–Aldosterone System (RAAS)"
+        "condition": "Renin–Angiotensin–Aldosterone System (RAAS)",
+        "generic": null,
+        "brand": null
     }
 },
 {
@@ -331,7 +361,9 @@
         "drug_name": "Enalapril (Vasotec)",
         "drug_image": "drugs/2021/11/04/drug_default_24tV6zD.jpg",
         "category": 1,
-        "condition": "Renin–Angiotensin–Aldosterone System (RAAS)"
+        "condition": "Renin–Angiotensin–Aldosterone System (RAAS)",
+        "generic": null,
+        "brand": null
     }
 },
 {
@@ -341,7 +373,9 @@
         "drug_name": "Atenolol (Tenormin)",
         "drug_image": "drugs/2021/11/04/drug_default_kQsSZtg.jpg",
         "category": 1,
-        "condition": "Beta Blockers"
+        "condition": "Beta Blockers",
+        "generic": null,
+        "brand": null
     }
 },
 {
@@ -351,7 +385,9 @@
         "drug_name": "Fluticasone (Flovent)",
         "drug_image": "drugs/2021/11/04/drug_default_tETaZ3T.jpg",
         "category": 4,
-        "condition": "Inhaled Corticosteroids and Long-Acting Beta"
+        "condition": "Inhaled Corticosteroids and Long-Acting Beta",
+        "generic": null,
+        "brand": null
     }
 },
 {
@@ -425,50 +461,45 @@
 },
 {
     "model": "documents.prescription",
-    "pk": 3,
+    "pk": 6,
     "fields": {
-        "name": "yu",
-        "quantity": "56",
-        "days": "4",
+        "name": "rrr",
+        "quantity": "34",
+        "days": "23",
         "morning": "morning",
-        "afternoon": "None",
-        "evening": "None",
+        "afternoon": "none",
+        "evening": "none",
         "night": "night",
         "doctor": 25,
         "patient": 1,
-        "uploaded_date": "2021-11-08T22:24:03.255Z"
+        "uploaded_date": "2021-11-16T20:06:54.150Z"
     }
 },
 {
     "model": "documents.prescription",
-    "pk": 4,
+    "pk": 7,
     "fields": {
-        "name": "tret",
-        "quantity": "200",
-        "days": "8",
+        "name": "bahdb",
+        "quantity": "3mg",
+        "days": "7",
         "morning": "morning",
         "afternoon": "afternoon",
-        "evening": null,
-        "night": null,
+        "evening": "none",
+        "night": "night",
         "doctor": 25,
         "patient": 1,
-        "uploaded_date": "2021-11-09T01:24:38.632Z"
+        "uploaded_date": "2021-11-16T20:07:17.212Z"
     }
 },
 {
-    "model": "documents.prescription",
-    "pk": 5,
+    "model": "documents.review",
+    "pk": 1,
     "fields": {
-        "name": "uy",
-        "quantity": "56",
-        "days": "6",
-        "morning": "morning",
-        "afternoon": "afternoon",
-        "evening": null,
-        "night": null,
+        "title": "Good Experience",
+        "review": "Very good doctor and experienced",
         "doctor": 25,
         "patient": 1,
-        "uploaded_date": "2021-11-09T01:25:37.614Z"
+        "date_created": "2021-11-19T21:18:53.934Z"
     }
 },
 {
@@ -481,10 +512,26 @@
 },
 {
     "model": "sessions.session",
+    "pk": "2qup22znwkyezl4ozzvgufbizbhi1rjo",
+    "fields": {
+        "session_data": ".eJxVjMsOwiAURP-FtSHUFgSX7vsN5D64UjWQlHZl_HfbpAtNZjXnzLxVhHXJcW1pjhOrq3Lq9Nsh0DOVHfADyr1qqmWZJ9S7og_a9Fg5vW6H-3eQoeVtbdhZCF4E0ZtEl4QBhIPpZHCdMx773lISdmj82Q3iwRJt6TEQBCvq8wULYjkE:1mlads:DpgX_BA-qnWDbnAn7NIPuR-Q4p7xg83-Bj0S0xyAn2U",
+        "expire_date": "2021-11-26T17:47:12.967Z"
+    }
+},
+{
+    "model": "sessions.session",
     "pk": "2yxh4q34kzk7f0n5vhw1uksa96nojyic",
     "fields": {
         "session_data": ".eJxVjDsOwjAQBe_iGllr_Isp6XMGa71e4wBypDipEHeHSCmgfTPzXiLitta4dV7ilMVFKHH63RLSg9sO8h3bbZY0t3WZktwVedAuxznz83q4fwcVe_3WzkCwpQB4TIkGCGwdgLZ4dgm0GZRVxmtFGLQnjQqyw4CsiBm4FBbvD79WN7Y:1mhXak:csqRhFFiOHeDSNS7LdmFkD3la9fBJOkxqkxgeTwk2Rg",
         "expire_date": "2021-11-15T13:43:14.011Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "3dry9q2eey6zegymftb5rudwyu8qednd",
+    "fields": {
+        "session_data": ".eJxVjDsOwjAQBe_iGllr_Isp6XMGa71e4wBypDipEHeHSCmgfTPzXiLitta4dV7ilMVFKHH63RLSg9sO8h3bbZY0t3WZktwVedAuxznz83q4fwcVe_3WzkCwpQB4TIkGCGwdgLZ4dgm0GZRVxmtFGLQnjQqyw4CsiBm4FBbvD79WN7Y:1mnOdi:_4wpz1yYIDIMFcff9XqxsFLbLJykqss46nm6WrH0iLg",
+        "expire_date": "2021-12-01T17:22:30.644Z"
     }
 },
 {
@@ -537,6 +584,14 @@
 },
 {
     "model": "sessions.session",
+    "pk": "8s6uxfbslqdclr4ky7xnaftmqpgae40n",
+    "fields": {
+        "session_data": ".eJxVjDsOwjAQBe_iGllr_Isp6XMGa71e4wBypDipEHeHSCmgfTPzXiLitta4dV7ilMVFKHH63RLSg9sO8h3bbZY0t3WZktwVedAuxznz83q4fwcVe_3WzkCwpQB4TIkGCGwdgLZ4dgm0GZRVxmtFGLQnjQqyw4CsiBm4FBbvD79WN7Y:1mniWJ:2adeZtxPF2cHf0-ai5GP-jiRh03lYpMW-PfX10lwLK8",
+        "expire_date": "2021-12-02T14:36:11.037Z"
+    }
+},
+{
+    "model": "sessions.session",
     "pk": "9h0ubx08jrrmo1jsgwwabx57anz997v2",
     "fields": {
         "session_data": ".eJxVjDsOwjAQBe_iGllr_Isp6XMGa71e4wBypDipEHeHSCmgfTPzXiLitta4dV7ilMVFKHH63RLSg9sO8h3bbZY0t3WZktwVedAuxznz83q4fwcVe_3WzkCwpQB4TIkGCGwdgLZ4dgm0GZRVxmtFGLQnjQqyw4CsiBm4FBbvD79WN7Y:1mbGF4:wQqk06o14OQAE3_r0UJXdIkbeC0kQbJ8sHowMGqTsMo",
@@ -557,6 +612,14 @@
     "fields": {
         "session_data": ".eJxVjDsOwjAQBe_iGllr_Isp6XMGa71e4wBypDipEHeHSCmgfTPzXiLitta4dV7ilMVFKHH63RLSg9sO8h3bbZY0t3WZktwVedAuxznz83q4fwcVe_3WzkCwpQB4TIkGCGwdgLZ4dgm0GZRVxmtFGLQnjQqyw4CsiBm4FBbvD79WN7Y:1mkrkt:on3SjKApwTaWtI1MD_PLyplvxsc58LBoDYSQaNpIedY",
         "expire_date": "2021-11-24T17:51:27.874Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "b81nx96wcfk1d7rkcgpdeds8hjo5w53r",
+    "fields": {
+        "session_data": ".eJxVjDsOwjAQBe_iGllr_Isp6XMGa71e4wBypDipEHeHSCmgfTPzXiLitta4dV7ilMVFKHH63RLSg9sO8h3bbZY0t3WZktwVedAuxznz83q4fwcVe_3WzkCwpQB4TIkGCGwdgLZ4dgm0GZRVxmtFGLQnjQqyw4CsiBm4FBbvD79WN7Y:1mo2JX:odkMdHzccQf01KSNibQuxUcI-etuyNHfNFJQXuI87Zg",
+        "expire_date": "2021-12-03T11:44:19.059Z"
     }
 },
 {
@@ -593,6 +656,14 @@
 },
 {
     "model": "sessions.session",
+    "pk": "fatnzyo0wi9a4czjm3v9twtkzrmtcxco",
+    "fields": {
+        "session_data": ".eJxVjDsOwjAQBe_iGllr_Isp6XMGa71e4wBypDipEHeHSCmgfTPzXiLitta4dV7ilMVFKHH63RLSg9sO8h3bbZY0t3WZktwVedAuxznz83q4fwcVe_3WzkCwpQB4TIkGCGwdgLZ4dgm0GZRVxmtFGLQnjQqyw4CsiBm4FBbvD79WN7Y:1mmyXu:8QCkTbbMf_ZHun0deqHKhjoNaqzekcTnvuKP3QerQhQ",
+        "expire_date": "2021-11-30T13:30:46.034Z"
+    }
+},
+{
+    "model": "sessions.session",
     "pk": "g1wzjzvf5qaksx0j2s18a3m2qxxzxuc8",
     "fields": {
         "session_data": ".eJxVjDsOwjAQBe_iGllr_Isp6XMGa71e4wBypDipEHeHSCmgfTPzXiLitta4dV7ilMVFKHH63RLSg9sO8h3bbZY0t3WZktwVedAuxznz83q4fwcVe_3WzkCwpQB4TIkGCGwdgLZ4dgm0GZRVxmtFGLQnjQqyw4CsiBm4FBbvD79WN7Y:1mlBWb:rGM8LIIShePHlViULNbQid1xeetKOwmvEqeknOVqcZE",
@@ -605,6 +676,14 @@
     "fields": {
         "session_data": "e30:1mVpZr:-vOQcRCOSUsB2x_Fd2iPc9xs6AN2EDAKkDue025gtwg",
         "expire_date": "2021-10-14T06:29:55.297Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "hj3og4kzxbntmsl6m1l8buoazys2k98a",
+    "fields": {
+        "session_data": ".eJxVjMsOwiAQRf-FtSE8Biwu3fcbyAyMUjU0Ke3K-O_SpAvdnnPufYuI21ri1niJUxYXoUGcfiFhenLdTX5gvc8yzXVdJpJ7Ig_b5Dhnfl2P9u-gYCt97YC18hBMMMQDJefAsCfr6JZttjh0xjopxF4msudAygBZAmO8Ri8-XwbeOBs:1mo5kK:mf34ltTo237BcYD5jUdIOyGTZh8rIFnfZjbXcxtPMjE",
+        "expire_date": "2021-12-03T15:24:12.644Z"
     }
 },
 {
@@ -629,14 +708,6 @@
     "fields": {
         "session_data": ".eJxVjDsOwjAQBe_iGllr_Isp6XMGa71e4wBypDipEHeHSCmgfTPzXiLitta4dV7ilMVFKHH63RLSg9sO8h3bbZY0t3WZktwVedAuxznz83q4fwcVe_3WzkCwpQB4TIkGCGwdgLZ4dgm0GZRVxmtFGLQnjQqyw4CsiBm4FBbvD79WN7Y:1mZvBN:j501S6s3HF_UXP45ALPzu6EMzVo9w6dzYc3tlLBopFA",
         "expire_date": "2021-10-25T13:17:33.026Z"
-    }
-},
-{
-    "model": "sessions.session",
-    "pk": "mh9gjxtt4180glax7fu9iq92iw4pjpbq",
-    "fields": {
-        "session_data": ".eJxVjMsOwiAURP-FtSHUFgSX7vsN5D64UjWQlHZl_HfbpAtNZjXnzLxVhHXJcW1pjhOrq3Lq9Nsh0DOVHfADyr1qqmWZJ9S7og_a9Fg5vW6H-3eQoeVtbdhZCF4E0ZtEl4QBhIPpZHCdMx773lISdmj82Q3iwRJt6TEQBCvq8wULYjkE:1mlZ2h:ItQ1CW9znhjQydkHusBSXnABCpDby6Kh5bZtIw4XO60",
-        "expire_date": "2021-11-26T16:04:43.344Z"
     }
 },
 {
@@ -717,6 +788,22 @@
     "fields": {
         "session_data": ".eJxVjDsOwjAQBe_iGllr_Isp6XMGa71e4wBypDipEHeHSCmgfTPzXiLitta4dV7ilMVFKHH63RLSg9sO8h3bbZY0t3WZktwVedAuxznz83q4fwcVe_3WzkCwpQB4TIkGCGwdgLZ4dgm0GZRVxmtFGLQnjQqyw4CsiBm4FBbvD79WN7Y:1mWHRQ:36Z73oiujqlqqZlI9tA9VPzIFGQISvMms1ayuJEan7Q",
         "expire_date": "2021-10-15T12:15:04.794Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "wyvch62uv4wy0e5e4dy8nltwa1nqxkfd",
+    "fields": {
+        "session_data": ".eJxVjDsOwjAQBe_iGllr_Isp6XMGa71e4wBypDipEHeHSCmgfTPzXiLitta4dV7ilMVFKHH63RLSg9sO8h3bbZY0t3WZktwVedAuxznz83q4fwcVe_3WzkCwpQB4TIkGCGwdgLZ4dgm0GZRVxmtFGLQnjQqyw4CsiBm4FBbvD79WN7Y:1mneCx:n7PiYJvluToIzL4bw3nlTmysYUYvmCpDbFBH_qqE5cQ",
+        "expire_date": "2021-12-02T09:59:55.770Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "yy65lk4tzrr1puqpd2otbyiuvewpw50g",
+    "fields": {
+        "session_data": ".eJxVjDsOwjAQBe_iGllr_Isp6XMGa71e4wBypDipEHeHSCmgfTPzXiLitta4dV7ilMVFKHH63RLSg9sO8h3bbZY0t3WZktwVedAuxznz83q4fwcVe_3WzkCwpQB4TIkGCGwdgLZ4dgm0GZRVxmtFGLQnjQqyw4CsiBm4FBbvD79WN7Y:1mmsQJ:_s3ke-10x-SIavk9a1ENTQxLQFedoajVngwxaWmqQk4",
+        "expire_date": "2021-11-30T06:58:31.288Z"
     }
 },
 {
@@ -4266,6 +4353,474 @@
         "object_repr": "United Medical",
         "action_flag": 1,
         "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 193,
+    "fields": {
+        "action_time": "2021-11-12T17:45:07.733Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "appointmenttime"
+        ],
+        "object_id": "13",
+        "object_repr": "Sunday",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Month\", \"Date\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 194,
+    "fields": {
+        "action_time": "2021-11-12T17:45:19.201Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "appointmenttime"
+        ],
+        "object_id": "12",
+        "object_repr": "Saturday",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Month\", \"Date\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 195,
+    "fields": {
+        "action_time": "2021-11-12T17:45:27.801Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "appointmenttime"
+        ],
+        "object_id": "11",
+        "object_repr": "Tuesday",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Month\", \"Date\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 196,
+    "fields": {
+        "action_time": "2021-11-12T17:46:48.037Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "doctors",
+            "patientappointment"
+        ],
+        "object_id": "7",
+        "object_repr": "PatientAppointment object (7)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 197,
+    "fields": {
+        "action_time": "2021-11-16T13:37:54.222Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "documents",
+            "prescription"
+        ],
+        "object_id": "4",
+        "object_repr": "Prescription object (4)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 198,
+    "fields": {
+        "action_time": "2021-11-16T13:37:54.439Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "documents",
+            "prescription"
+        ],
+        "object_id": "3",
+        "object_repr": "Prescription object (3)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 199,
+    "fields": {
+        "action_time": "2021-11-17T18:14:36.893Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "documents",
+            "prescription"
+        ],
+        "object_id": "5",
+        "object_repr": "Prescription object (5)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Evening\", \"Night\", \"Doctor\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 200,
+    "fields": {
+        "action_time": "2021-11-18T12:32:01.997Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "documents",
+            "prescription"
+        ],
+        "object_id": "9",
+        "object_repr": "Prescription object (9)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 201,
+    "fields": {
+        "action_time": "2021-11-18T12:32:02.167Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "documents",
+            "prescription"
+        ],
+        "object_id": "8",
+        "object_repr": "Prescription object (8)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 202,
+    "fields": {
+        "action_time": "2021-11-18T14:58:22.226Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "documents",
+            "prescription"
+        ],
+        "object_id": "5",
+        "object_repr": "Prescription object (5)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Patient\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 203,
+    "fields": {
+        "action_time": "2021-11-18T15:00:21.796Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "patients",
+            "prescriptionstatus"
+        ],
+        "object_id": "2",
+        "object_repr": "PrescriptionStatus object (2)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 204,
+    "fields": {
+        "action_time": "2021-11-18T15:19:28.738Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "documents",
+            "prescription"
+        ],
+        "object_id": "11",
+        "object_repr": "Prescription object (11)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 205,
+    "fields": {
+        "action_time": "2021-11-18T15:19:28.963Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "documents",
+            "prescription"
+        ],
+        "object_id": "10",
+        "object_repr": "Prescription object (10)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 206,
+    "fields": {
+        "action_time": "2021-11-18T15:20:11.319Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "documents",
+            "prescription"
+        ],
+        "object_id": "13",
+        "object_repr": "Prescription object (13)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 207,
+    "fields": {
+        "action_time": "2021-11-18T15:20:11.326Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "documents",
+            "prescription"
+        ],
+        "object_id": "12",
+        "object_repr": "Prescription object (12)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 208,
+    "fields": {
+        "action_time": "2021-11-18T15:21:12.791Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "documents",
+            "prescription"
+        ],
+        "object_id": "15",
+        "object_repr": "Prescription object (15)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 209,
+    "fields": {
+        "action_time": "2021-11-18T15:21:12.798Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "documents",
+            "prescription"
+        ],
+        "object_id": "14",
+        "object_repr": "Prescription object (14)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 210,
+    "fields": {
+        "action_time": "2021-11-18T15:21:12.800Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "documents",
+            "prescription"
+        ],
+        "object_id": "5",
+        "object_repr": "Prescription object (5)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 211,
+    "fields": {
+        "action_time": "2021-11-18T15:21:22.520Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "patients",
+            "prescriptionstatus"
+        ],
+        "object_id": "2",
+        "object_repr": "PrescriptionStatus object (2)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 212,
+    "fields": {
+        "action_time": "2021-11-18T15:31:12.319Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "documents",
+            "prescription"
+        ],
+        "object_id": "16",
+        "object_repr": "Prescription object (16)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 213,
+    "fields": {
+        "action_time": "2021-11-18T16:03:16.332Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "documents",
+            "prescription"
+        ],
+        "object_id": "18",
+        "object_repr": "Prescription object (18)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 214,
+    "fields": {
+        "action_time": "2021-11-18T16:03:16.527Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "documents",
+            "prescription"
+        ],
+        "object_id": "17",
+        "object_repr": "Prescription object (17)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 215,
+    "fields": {
+        "action_time": "2021-11-18T16:08:24.473Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "documents",
+            "prescription"
+        ],
+        "object_id": "23",
+        "object_repr": "Prescription object (23)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 216,
+    "fields": {
+        "action_time": "2021-11-18T16:08:24.535Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "documents",
+            "prescription"
+        ],
+        "object_id": "22",
+        "object_repr": "Prescription object (22)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 217,
+    "fields": {
+        "action_time": "2021-11-18T18:06:30.722Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "documents",
+            "prescription"
+        ],
+        "object_id": "31",
+        "object_repr": "Prescription object (31)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 218,
+    "fields": {
+        "action_time": "2021-11-18T18:06:30.737Z",
+        "user": [
+            "m@gmail.com"
+        ],
+        "content_type": [
+            "documents",
+            "prescription"
+        ],
+        "object_id": "29",
+        "object_repr": "Prescription object (29)",
+        "action_flag": 3,
+        "change_message": ""
     }
 }
 ]
