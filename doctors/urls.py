@@ -17,4 +17,6 @@ urlpatterns = [
     path('video_call/<int:doctor_id>/', views.video_call, name="video_call"),
     path('appointments/', views.appointments, name="appointments"),
     path('viewReview/', views.viewReview, name="viewReview"),
+    path('viewReviewOnProfile/', views.viewReviewOnProfile, name="viewReviewOnProfile"),
+    path('deleteAppointment/', views.deleteAppointment, name="deleteAppointment"),
 ]

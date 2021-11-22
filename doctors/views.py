@@ -226,10 +226,17 @@ def profile(request, doctor_id):
     
     doctor = Doctor.objects.get(id=doctor_id)
     specialization = DoctorSpecialization.objects.get(doctor=doctor)
-
+    qualification = Qualification.objects.get(doctor=doctor)
+    experience = Experience.objects.get(user=doctor)
+    appointment = AppointmentTime.objects.filter(doctor=doctor)
+    review  = Review.objects.filter(doctor=doctor)
     context = {
         'doc_profile':doctor,
         'specialization':specialization,
+        'qualification':qualification,
+        'experience':experience,
+        'appointment':appointment,
+        'review':review,
     }
     return render(request, 'doctors/profile.html', context)
 
@@ -362,3 +369,19 @@ def viewReview(request):
         'doctor':current_doctor,
     }
     return render(request, 'doctors/review.html', context)
+
+def viewReviewOnProfile(request, doctor_id):
+    # current_user = request.user
+    current_doctor = Doctor.objects.get(id=doctor_id)
+    review  = Review.objects.filter(doctor=current_doctor)
+
+    context = {
+        'review':review,
+        'doctor':current_doctor,
+    }
+    return render(request, 'doctors/profile.html', context)
+
+def deleteAppointment(request, appoint_id):
+    appoint_id = MedicalHistory.objects.get(id=appoint_id)
+    appoint_id.delete()
+    return redirect('doctor_dashboard')
