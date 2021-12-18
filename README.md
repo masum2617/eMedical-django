@@ -3,8 +3,8 @@ Online Doctor appointment booking system with individual doctor and patient port
 ## Live Demo
 https://medihelp2.herokuapp.com/
 ## Test Credentials
-##### Login as a Doctor, Email: d@gmail.com , password: test123456
-##### Login as a Patient, Email: p@gmail.com , password: test123456
+##### Login as a Doctor, Email: s@gmail.com , password: hasan100
+##### Login as a Patient, Email: h@gmail.com , password: hasan100
 ## Features
 #### Doctor Portal
 - Doctor can register as a Doctor and will get a user dashboard where they can edit and update profile information.
